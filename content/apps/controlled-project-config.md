@@ -41,7 +41,7 @@ Jira site admins and platform teams who want to delegate routine configuration w
 
 ## Permissions it asks for
 
-<div class="table-wrap">
+<div class="table-wrap" tabindex="0" role="region" aria-label="Permissions the app asks for">
 
 | Scope | Why |
 |---|---|
@@ -52,4 +52,4 @@ Jira site admins and platform teams who want to delegate routine configuration w
 
 </div>
 
-The app declares no external egress: it talks only to Atlassian. How the permission checks work, and what the audit log records, is on the [security model](/docs/controlled-project-config/security-model/) page.
+The app declares no external egress: it talks only to Atlassian. Why the classic scopes and not granular ones, with the measurement behind it, is on the [security model](/docs/controlled-project-config/security-model/#why-the-app-holds-admin-scopes) page, along with how the permission checks work and what the audit log records.

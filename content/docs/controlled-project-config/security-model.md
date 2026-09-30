@@ -7,7 +7,24 @@ description: Why the app holds admin scopes, how the guards work, what the audit
 
 ## Why the app holds admin scopes
 
-Assigning a scheme to a project is an administrator-only operation in Jira, so the app must be able to act with administrator capability. A granular-only scope list was measured on a real site and returned 401 for the permission, notification, workflow and issue security scheme reads, so the app uses the classic scopes:
+Assigning a scheme to a project is an administrator-only operation in Jira, so the app must be able to act with administrator capability. A granular-only scope list was measured on a real site and returned 401 for the permission, notification, workflow and issue security scheme reads, so the app uses the classic scopes. The measurement, taken on 2026-09-22 on a Jira Cloud site with the app reading as itself:
+
+<div class="table-wrap" tabindex="0" role="region" aria-label="Scope measurement">
+
+| Read (as the app) | Granular and classic mixed | Granular only | Classic only |
+|---|---|---|---|
+| `permissionscheme` | 401 | 401 | 200 |
+| `notificationscheme` | 200 | 401 | 200 |
+| `issuetypescreenscheme` | 200 | 200 | 200 |
+| `issuesecurityschemes` | 401 | 401 | 200 |
+| `workflowscheme` | 200 | 401 | 200 |
+| `project/search` | 401 | 401 | 200 |
+| `project/{key}` | 401 | 401 | 200 |
+| `mypermissions` | 200 | 200 | 200 |
+
+</div>
+
+A granular-only manifest cannot read permission, notification, workflow or issue security schemes, nor projects, and mixing the two lists gave inconsistent results. The scopes the app holds:
 
 | Scope | Why |
 |---|---|

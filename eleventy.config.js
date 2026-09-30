@@ -49,6 +49,14 @@ export default function (eleventyConfig) {
     });
   });
 
+  // Any table not already inside a labelled wrapper gets one, so a wide table
+  // scrolls inside a keyboard-focusable region at phone widths (WCAG 2.1.1).
+  eleventyConfig.addTransform('table-wrap', function (content) {
+    if (!(this.page?.outputPath ?? '').endsWith('.html')) return content;
+    return content.replace(/(<div class="table-wrap"[^>]*>\s*)?<table>([\s\S]*?)<\/table>(\s*<\/div>)?/g, (m, open, body, close) =>
+      open ? m : `<div class="table-wrap" tabindex="0" role="region" aria-label="Table">\n<table>${body}</table>\n</div>`);
+  });
+
   eleventyConfig.setServerOptions({ showAllHosts: false });
 
   return {

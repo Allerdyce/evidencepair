@@ -2,6 +2,16 @@
 
 Rulings and deviations for the EvidencePair vendor site (spec 30). Newest first. Anything a human must decide is in `HUMAN-TASKS.md`, not here.
 
+## 2026-09-29 · HUMAN-QA: SITE-AC-16 PASS, SITE-AC-15 PASS with conditions (Ali)
+
+**SITE-AC-16, home page read cold: PASS.** Clear and honest; a Jira admin knows within ten seconds what the company does. Three notes, none a launch blocker, all acted on the same day: the headline said “Jira and Confluence” while the shelf holds one Jira app marked coming soon (now “Governed change for Jira”, with “starting with Jira” in the lede); the admin who arrives first wants the one sentence of what they stop doing, which the app card had (“without handing out Jira admin rights”), so each app's tagline now sits directly under the lede; and the “Who we are” sentence needs its scope decided now because it is wrong the day TitleCovenant ships under the same LLC (“This site covers its Atlassian apps.” added; decision stays with H-17).
+
+**SITE-AC-15, security page read as a buyer's security reviewer: PASS, with two conditions.** Ali's words: strong, unusually so for a Marketplace vendor; it says what it cannot do, explains why there is no secret key, and “checked by an automated browser test on every build, not by policy alone” is the sentence a reviewer wants. Conditions: (1) “We cannot see your data” rests on Forge storage isolation and a reviewer will ask about Forge logs within two minutes, so the bullet now points at the privacy page's platform-logs section, which stays pending until H-08 is answered; (2) the H-05 pending statement sits in the vulnerability section, where a reviewer looks last and hardest, so the page cannot be shown to a buyer until it is filled. Both conditions are recorded on H-05 and H-08.
+
+**New task H-18:** publish the scope measurement the security wording invites reviewers to ask for. Done on the security-model docs page, from the app repository's `DECISIONS.md` (2026-09-22 CPC-S9); Ali confirms it may stay public.
+
+The validator re-graded the three additions (measurement table, “starting with Jira”, the logs sentence) against the sources: AC-02 PASS, all 24 table cells match.
+
 ## 2026-09-29 · Built in `Allerdyce/evidencepair`, not `evidencepair-site`
 
 Spec 30 §2 says to name the repository `evidencepair-site`. Ali created `Allerdyce/evidencepair` and pointed the session at it, so the site lives here. Everything else in §2 holds: separate from the app monorepo, no shared code, the app repository may read from it only through published URLs. Renaming the repository later is a GitHub setting and changes nothing in the tree.

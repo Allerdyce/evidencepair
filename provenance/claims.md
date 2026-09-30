@@ -6,7 +6,9 @@ Every factual claim about an app or the portfolio on the home, app, docs and sec
 
 | Claim | Source |
 |---|---|
-| Apps for Atlassian site administrators and the compliance teams who audit them. | S00 §2 |
+| Apps for Atlassian site administrators and the compliance teams who audit them, starting with Jira. | S00 §2 (app 1 is Jira; apps 2–6 are Confluence, planned) |
+| Per-app line under the lede: name and tagline. | Rendered from each app's front matter (README title; S10 §1 pitch) |
+| “This site covers its Atlassian apps.” | Scope statement, not an app claim. **Ali (H-17).** |
 | Preview before change, a record of who changed what, rollback where possible, delegation within admin-approved limits. | S00 §2 “safe, governed change” |
 | Built on Forge; no external egress, no remote services, no third-party analytics or error reporting; customer data stays in the customer's site. | S00 §3.1–3.2; DI-02 |
 | On a person's request, an app acts with its own identity only after a check as that person. (Background work takes app identity through `requireSystemActor` with no user check; the security page says so.) | S01 §3.2 rule and background contexts |
@@ -69,6 +71,8 @@ Every factual claim about an app or the portfolio on the home, app, docs and sec
 | Claim | Source |
 |---|---|
 | Assigning a scheme is admin-only in Jira; granular-only list returned 401 for those reads on a real site (2026-09-22). | README scopes paragraph; DEC 2026-09-22 CPC-S9 table; S10 §1 |
+| The scope measurement table (eight reads × three scope lists, 200/401) and the sentence after it. | DEC 2026-09-22 “CPC-S9” table and conclusion (verbatim values). **Publishing this evidence is H-18.** |
+| Security page: “The one thing the platform does show us is its logs.” | S01 §9.5 (production logging exists); DI-20. What the logs hold is pending (H-08). |
 | Scopes table; issue security and workflow switching are beta, off by default. | README (verbatim); S10 CPC-F14 |
 | Guard as the user in the same request; Administer Projects / role or group / Administer Jira; reads Jira's answer. | S01 §3.2 guards and rule; S10 §4 |
 | Effective policy and rights re-derived each request; browser state never trusted. | S10 §4 |
