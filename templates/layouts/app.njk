@@ -1,0 +1,19 @@
+---
+layout: layouts/base.njk
+---
+{% set purchasable = (status == 'live') %}
+<article class="prose app">
+<p class="eyebrow">{{ product }} app</p>
+<h1>{{ name }}</h1>
+<p class="lede">{{ tagline }}</p>
+<dl class="facts">
+  <dt>Product</dt><dd>{{ product }} Cloud</dd>
+  <dt>Status</dt><dd><span class="badge badge-{{ status | replace(' ', '-') }}">{{ status | capitalize }}</span></dd>
+  {% if purchasable and price %}<dt>Price</dt><dd>{{ price }}</dd>{% endif %}
+  {% if purchasable and marketplaceUrl %}<dt>Marketplace</dt><dd><a href="{{ marketplaceUrl }}">View on the Atlassian Marketplace</a></dd>{% endif %}
+  {% if status == 'in review' %}<dt>Marketplace</dt><dd>Submitted to the Atlassian Marketplace and awaiting review.</dd>{% endif %}
+  {% if status == 'coming soon' %}<dt>Marketplace</dt><dd>Not yet listed on the Atlassian Marketplace.</dd>{% endif %}
+  <dt>Documentation</dt><dd><a href="{{ docsPath }}">Docs for {{ name }}</a></dd>
+</dl>
+{{ content | safe }}
+</article>

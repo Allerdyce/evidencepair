@@ -1,0 +1,26 @@
+---
+layout: layouts/base.njk
+description: EvidencePair builds Jira and Confluence apps for governed change. Every app runs on Atlassian infrastructure and declares no external egress.
+---
+<article class="prose">
+<h1>Governed change for Jira and Confluence</h1>
+<p class="lede">EvidencePair makes small, careful apps for Atlassian site administrators and the compliance teams who audit them.</p>
+
+<p>Each app follows the same rules: preview before anything changes, a record of who changed what and why, a way back where the product allows one, and delegation only within limits an administrator has approved.</p>
+
+<h2>What every app has in common</h2>
+<ul>
+  <li><strong>Runs on Atlassian infrastructure.</strong> The apps are built on Atlassian Forge and declare no external egress, no remote services and no third-party analytics or error reporting. Customer data stays in the customer's Atlassian site.</li>
+  <li><strong>A permission check before every privileged action.</strong> An app acts with its own identity only after checking, as the person who asked, that they are allowed to.</li>
+  <li><strong>A tamper-evident audit log.</strong> Records are hash-chained and numbered, and an administrator can verify the chain from inside the app.</li>
+  <li><strong>Verified, not assumed.</strong> After a change is applied the app re-reads the live state, and only a match counts as success.</li>
+</ul>
+
+<h2 id="apps">Apps</h2>
+<ul class="cards">
+{% for a in collections.apps %}{% include "partials/app-card.njk" %}{% endfor %}
+</ul>
+
+<h2>Who we are</h2>
+<p>{{ site.legalName }} is a small software company in California, run by its founder. Questions go to <a href="mailto:{{ site.emails.hello }}">{{ site.emails.hello }}</a>; support and security contacts are on the <a href="/support/">support</a> and <a href="/security/">security</a> pages.</p>
+</article>

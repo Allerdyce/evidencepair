@@ -1,0 +1,6 @@
+<li class="card">
+  <p class="eyebrow">{{ a.data.product }} · <span class="badge badge-{{ a.data.status | replace(' ', '-') }}">{{ a.data.status | capitalize }}</span></p>
+  <h3><a href="{{ a.url }}">{{ a.data.name }}</a></h3>
+  <p>{{ a.data.tagline }}</p>
+  <p class="card-links"><a href="{{ a.data.docsPath }}">Docs</a>{% if a.data.status == 'live' and a.data.marketplaceUrl %} · <a href="{{ a.data.marketplaceUrl }}">Marketplace</a>{% endif %}</p>
+</li>

@@ -1,0 +1,8 @@
+---
+layout: layouts/base.njk
+---
+<article class="prose">
+<h1>{{ title }}</h1>
+<p class="meta">Last updated <time datetime="{{ updated | isoDate }}">{{ updated | longDate }}</time>. The change history of this page is kept in version control.</p>
+{{ content | safe }}
+</article>

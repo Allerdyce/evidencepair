@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>{% if title %}{{ title }} · {% endif %}{{ site.name }}</title>
+{% if description %}<meta name="description" content="{{ description }}">{% endif %}
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+{% if site.draft %}<div class="draft" role="note">Preview build, not yet published. Statements marked “Pending review” are awaiting sign-off.</div>{% endif %}
+<header class="site-header">
+  <nav aria-label="Site">
+    <a class="brand" href="/">{{ site.name }}</a>
+    <ul>
+      {% for item in site.nav %}<li><a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.label }}</a></li>{% endfor %}
+    </ul>
+  </nav>
+</header>
+<main id="main">
+{{ content | safe }}
+</main>
+<footer class="site-footer">
+  <nav aria-label="Legal">
+    <a href="/privacy/">Privacy</a>
+    <a href="/terms/">Terms</a>
+    <a href="/security/">Security</a>
+    <a href="/support/">Support</a>
+  </nav>
+  <p>{{ site.legalName }}. Atlassian, Jira and Confluence are trademarks of Atlassian Pty Ltd. {{ site.name }} is not affiliated with Atlassian.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,17 @@
+---
+layout: layouts/page.njk
+pagination:
+  data: collections.apps
+  size: 1
+  alias: appPage
+permalink: "/docs/{{ appPage.fileSlug }}/"
+eleventyComputed:
+  title: "{{ appPage.data.name }} documentation"
+  description: "Documentation for {{ appPage.data.name }}: {{ appPage.data.tagline }}"
+eleventyExcludeFromCollections: true
+---
+<p class="lede">{{ appPage.data.tagline }}</p>
+<ul>
+{% for d in collections.docs %}{% if d.data.app == appPage.fileSlug %}<li><a href="{{ d.url }}">{{ d.data.title }}</a>{% if d.data.description %} — {{ d.data.description }}{% endif %}</li>{% endif %}{% endfor %}
+</ul>
+<p>About the app: <a href="{{ appPage.url }}">{{ appPage.data.name }}</a>.</p>

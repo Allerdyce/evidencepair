@@ -1,0 +1,37 @@
+{
+  "name": "evidencepair-site",
+  "version": "0.1.0",
+  "description": "EvidencePair vendor site: static HTML, no third-party requests, no cookies.",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "node scripts/serve.mjs",
+    "check:links": "node scripts/check-links.mjs",
+    "check:reproducible": "node scripts/check-reproducible.mjs",
+    "check:content-model": "node scripts/check-content-model.mjs",
+    "check:pending": "node scripts/check-pending.mjs",
+    "check:live": "node scripts/check-live.mjs",
+    "test:browser": "playwright test",
+    "test": "npm run build && npm run check:pending && npm run check:links && npm run test:browser && npm run check:content-model && npm run check:reproducible"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Allerdyce/evidencepair.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Allerdyce/evidencepair/issues"
+  },
+  "homepage": "https://github.com/Allerdyce/evidencepair#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6",
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.63.0"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  }
+}

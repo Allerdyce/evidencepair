@@ -1,0 +1,22 @@
+{
+  "name": "EvidencePair",
+  "legalName": "EvidencePair LLC",
+  "domain": "evidencepair.com",
+  "url": "https://evidencepair.com",
+  "draft": true,
+  "supportResponseTarget": null,
+  "supportPortalUrl": null,
+  "host": null,
+  "emails": {
+    "support": "support@evidencepair.com",
+    "security": "security@evidencepair.com",
+    "billing": "billing@evidencepair.com",
+    "hello": "hello@evidencepair.com"
+  },
+  "nav": [
+    { "label": "Apps", "url": "/#apps" },
+    { "label": "Docs", "url": "/docs/" },
+    { "label": "Security", "url": "/security/" },
+    { "label": "Support", "url": "/support/" }
+  ]
+}

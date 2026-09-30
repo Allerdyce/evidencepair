@@ -1,0 +1,18 @@
+---
+layout: layouts/base.njk
+---
+{% set appPage = null %}
+{% for a in collections.apps %}{% if a.fileSlug == app %}{% set appPage = a %}{% endif %}{% endfor %}
+<div class="doc">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/docs/">Docs</a> › <a href="{{ appPage.url }}">{{ appPage.data.name }}</a></nav>
+<article class="prose">
+<h1>{{ title }}</h1>
+{{ content | safe }}
+</article>
+<nav class="doc-nav" aria-label="Documentation for {{ appPage.data.name }}">
+<h2>{{ appPage.data.name }} docs</h2>
+<ul>
+{% for d in collections.docs %}{% if d.data.app == app %}<li><a href="{{ d.url }}"{% if d.url == page.url %} aria-current="page"{% endif %}>{{ d.data.title }}</a></li>{% endif %}{% endfor %}
+</ul>
+</nav>
+</div>
