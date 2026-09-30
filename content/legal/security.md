@@ -21,7 +21,7 @@ Each app lists its scopes, and a one-line reason for each, on its page. For exam
 
 ## The audit log
 
-Every change an app makes writes one audit record: what changed, when, the before and after values (identifiers and version numbers, never page bodies or attachment contents), and who made it. People are stored as a per-installation pseudonym. The mapping from pseudonym to account can be erased when an account is closed, and the log stays verifiable.
+Every change an app makes writes one audit record: what changed, when, the before and after values (identifiers and version numbers, never page bodies or attachment contents), and who made it. People are stored as a per-installation pseudonym. The mapping from pseudonym to account is kept outside the hash chain, so erasing it leaves the log verifiable. How and when closed accounts are erased is described in the [privacy policy](/privacy/).
 
 Records form a hash chain. Each record includes the SHA-256 hash of the record before it, and records are numbered in sequence. **Verify integrity**, on the admin audit screen, recomputes the chain and reports the first broken link. It detects any modified, deleted or reordered row, and any row inserted between genuine rows. Concurrent writers never create a fork. Removal of the newest rows is detected back to the latest recorded checkpoint. A row whose writer failed before recording the checkpoint can be removed without detection; that needs database write access, which platform isolation controls.
 

@@ -41,7 +41,7 @@ Once a day the app checks that every allowed scheme still exists under the same 
 
 ## Locks and stuck changes
 
-One change per project runs at a time. A second attempt while one is in progress is told “change in progress”. A queued change that stops making progress is ended after its retry window rather than left hanging, and the project page shows the outcome.
+One change per project runs at a time. A second attempt while one is in progress is told “change in progress”. A queued change that keeps failing is ended on its next delivery after its retry window, and the project page shows the outcome.
 
 ## Unsupported projects
 
@@ -49,4 +49,4 @@ Team-managed and archived projects show an explanation instead of switch control
 
 ## Unlicensed
 
-Without an active licence the app is read-only: current state and history can be viewed and exported, and switching and reverting are turned off. Admin and configuration screens show a banner that links to the Marketplace listing.
+Without an active licence the app is read-only: current state and history can be viewed and exported, and switching and reverting are turned off. Admin and configuration screens show a banner that links to the Atlassian Marketplace.

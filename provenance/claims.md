@@ -9,10 +9,10 @@ Every factual claim about an app or the portfolio on the home, app, docs and sec
 | Apps for Atlassian site administrators and the compliance teams who audit them. | S00 §2 |
 | Preview before change, a record of who changed what, rollback where possible, delegation within admin-approved limits. | S00 §2 “safe, governed change” |
 | Built on Forge; no external egress, no remote services, no third-party analytics or error reporting; customer data stays in the customer's site. | S00 §3.1–3.2; DI-02 |
-| App acts with its own identity only after a check as the requesting user. | S01 §3.2 rule |
+| On a person's request, an app acts with its own identity only after a check as that person. (Background work takes app identity through `requireSystemActor` with no user check; the security page says so.) | S01 §3.2 rule and background contexts |
 | Audit records hash-chained and numbered; administrator can verify the chain in the app. | S01 §4.2; AUD |
 | After a change is applied the app re-reads live state; only a match counts as success. | S01 §5 guarantee 7 (CORE-AC-15) |
-| EvidencePair LLC is a California company run by its founder. | S20 §1 B1 (“EvidencePair LLC (California formation filed in September 2026)”); solo vendor per spec 30 §11.5. **Ali to confirm wording.** |
+| EvidencePair LLC is a California company run by its founder. | S20 §1 B1 names the LLC as an option for the publishing entity only; no B1 ruling in DECISIONS at 0f51c26. **Not an app claim; Ali confirms (H-17).** |
 
 ## App page (`content/apps/controlled-project-config.md`)
 
@@ -32,7 +32,7 @@ Every factual claim about an app or the portfolio on the home, app, docs and sec
 
 | Claim | Source |
 |---|---|
-| Installing needs a Jira administrator; scopes as listed. | Atlassian Marketplace install model (admin installs); MAN scopes |
+| Once listed, install from the Marketplace; installing is a site administrator's action; scopes as listed. | General Atlassian platform behaviour, not in the app repo; MAN scopes. **Ali confirms wording at H-10.** |
 | Admin page location under Jira settings → Apps; title. | MAN `jira:adminPage` title “Controlled Project Configuration” |
 | Setup check probes a harmless admin-only read; ready / not ready with setup steps. | S10 CPC-F13; CPC-AC-23 |
 | Policy: projects by list or category; allowed schemes per type; core types permission, notification, issue type screen; types without an allowlist not switchable. | S10 CPC-F01 |
@@ -60,22 +60,22 @@ Every factual claim about an app or the portfolio on the home, app, docs and sec
 | Verify integrity's three outcomes. | S10 CPC-AC-31 |
 | Daily checks: deleted/renamed schemes, archived/team-managed projects, warnings on admin page. | S10 CPC-F09, CPC-AC-14 |
 | One change per project; “change in progress”. | S10 §7.1, CPC-AC-07 |
-| A queued change that stops making progress is ended after its retry window; project page shows the outcome. | S10 CPC-AC-28, CPC-AC-33 |
+| A queued change that keeps failing is ended on its next delivery after its retry window; project page shows the outcome. | S10 CPC-AC-28; `queue.ts` 80, 283–308. (CPC-AC-33's daily reaper is not built, so the page does not claim it.) |
 | Team-managed and archived projects show an explanation. | S10 CPC-F11, CPC-AC-15; CHG |
-| Unlicensed read-only; banner on admin/config screens linking to the listing. | S01 §3.1; S10 CPC-F12, CPC-AC-06 |
+| Unlicensed read-only; banner on admin/config screens linking to the Atlassian Marketplace. | S01 §3.1; S10 CPC-F12, CPC-AC-06; `ui/src/admin.tsx` 776 |
 
 ## Security model (`content/docs/controlled-project-config/security-model.md`) and Security page (`content/legal/security.md`)
 
 | Claim | Source |
 |---|---|
 | Assigning a scheme is admin-only in Jira; granular-only list returned 401 for those reads on a real site (2026-09-22). | README scopes paragraph; DEC 2026-09-22 CPC-S9 table; S10 §1 |
-| Scopes table. | README (verbatim) |
+| Scopes table; issue security and workflow switching are beta, off by default. | README (verbatim); S10 CPC-F14 |
 | Guard as the user in the same request; Administer Projects / role or group / Administer Jira; reads Jira's answer. | S01 §3.2 guards and rule; S10 §4 |
 | Effective policy and rights re-derived each request; browser state never trusted. | S10 §4 |
 | Background contexts (scheduled, queue, lifecycle) via a path that throws if a calling user is present; attribution follows the person. | S01 §3.2 background contexts and attribution; CORE-AC-16 |
 | Order: guard → policy → lock → precondition → apply → verify → audit. | S10 CPC-F06 |
 | 2xx is not success; only the re-read is. | S01 §5 guarantee 7 |
-| Audit record contents; pseudonym (HMAC of account ID); mapping table with account ID and display name, erasable. | S01 §4.1–4.2; DI-06, DI-07 |
+| Audit record contents; pseudonym (HMAC of account ID); mapping table with account ID and display name, kept outside the chain so erasing it leaves the log verifiable. The erasure process itself is not claimed (DI-12 gap). | S01 §4.1–4.2; SCHEMA; DI-06, DI-07 |
 | History table stores account ID and display-name snapshot. | DI-08 |
 | Hash chain; Verify integrity; what it detects; checkpoint limit; forged rows out of scope; no secret key. | AUD (verbatim); S01 §4.2 |
 | Data in Forge storage for the installation on Atlassian infrastructure; no egress; nobody can reach the database from outside the app. | DI-01, DI-02, DI-03 |

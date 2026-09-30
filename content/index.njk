@@ -11,7 +11,7 @@ description: EvidencePair builds Jira and Confluence apps for governed change. E
 <h2>What every app has in common</h2>
 <ul>
   <li><strong>Runs on Atlassian infrastructure.</strong> The apps are built on Atlassian Forge and declare no external egress, no remote services and no third-party analytics or error reporting. Customer data stays in the customer's Atlassian site.</li>
-  <li><strong>A permission check before every privileged action.</strong> An app acts with its own identity only after checking, as the person who asked, that they are allowed to.</li>
+  <li><strong>A permission check before every privileged action a person asks for.</strong> On a person's request, an app acts with its own identity only after checking, as that person, that they are allowed to.</li>
   <li><strong>A tamper-evident audit log.</strong> Records are hash-chained and numbered, and an administrator can verify the chain from inside the app.</li>
   <li><strong>Verified, not assumed.</strong> After a change is applied the app re-reads the live state, and only a match counts as success.</li>
 </ul>

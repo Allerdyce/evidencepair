@@ -16,6 +16,8 @@ Assigning a scheme to a project is an administrator-only operation in Jira, so t
 | `manage:jira-project` | Assign permission and issue type screen schemes to a project. |
 | `storage:app` | The app's own storage: policies, settings, plans, locks, and the audit and history tables. |
 
+Issue security and workflow scheme switching are beta features, off by default; the scope is needed for the core scheme types regardless.
+
 ## How the guards work
 
 Any privileged action the app performs with its own identity, in a request a person started, is preceded in that same request by a permission check performed **as that person**: for a project admin, the *Administer Projects* permission on that project (or membership of the role or group the policy names); for a Jira admin, the *Administer Jira* permission. The check reads Jira's own answer for that user. The effective policy and the caller's rights are re-derived from storage on every request, and the browser's state is never trusted.
@@ -28,7 +30,7 @@ Guard as the calling user → policy check → project lock → precondition (th
 
 ## What the audit log records
 
-Every change, refusal, revert and abandoned switch writes one audit record: what changed, when, the before and after values as identifiers, the reason given, and who made it. People are stored in audit records as a per-installation pseudonym, an HMAC of their Atlassian account ID. A separate mapping table holds the pseudonym, the account ID and a display-name snapshot, so the log can be shown with names; that mapping can be erased and the log stays verifiable.
+Every change, refusal, revert and abandoned switch writes one audit record: what changed, when, the before and after values as identifiers, the reason given, and who made it. People are stored in audit records as a per-installation pseudonym, an HMAC of their Atlassian account ID. A separate mapping table holds the pseudonym, the account ID and a display-name snapshot, so the log can be shown with names. That table is kept outside the hash chain, so erasing a row from it leaves the log verifiable. How and when closed accounts are erased is described in the [privacy policy](/privacy/).
 
 The app's change history table, which drives the History screen and the CSV export, stores the Atlassian account ID of the person who made each change and a snapshot of their display name.
 

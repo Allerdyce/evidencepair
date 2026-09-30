@@ -8,7 +8,7 @@ description: What EvidencePair's website and apps store, where it lives, and wha
 
 ## Who we are
 
-{{ site.legalName }} (“EvidencePair”, “we”) publishes apps for Atlassian Jira and Confluence and runs this website. Contact: <a href="mailto:{{ site.emails.hello }}">{{ site.emails.hello }}</a>.
+{{ site.legalName }} (“EvidencePair”, “we”) builds apps for Atlassian products and runs this website. Contact: <a href="mailto:{{ site.emails.hello }}">{{ site.emails.hello }}</a>.
 
 ## This website
 
@@ -30,10 +30,10 @@ All app data is stored in Atlassian Forge storage (the Forge Key-Value Store and
 
 - **Policies and settings.** Which projects or project categories a policy covers, which schemes each may use, whether a reason is required, the cooldown, and which project role or group may switch. The global pause and beta-features settings.
 - **Locks.** While a change runs, a lock record for the project holding a random token and an expiry time.
-- **Audit records.** One per change, refusal, revert or abandoned switch: the action, the project key and name, the before and after scheme identifiers, the outcome, the reason the person entered, timestamps, and a chain of hashes. The person is recorded as a per-installation pseudonym derived from their Atlassian account ID, never as an account ID or a name.
-- **Audit actor mapping.** A separate table that maps each pseudonym to the Atlassian account ID and a snapshot of the display name, so the audit log can be shown with names. It can be erased without breaking the audit chain.
+- **Audit records.** One per change, refusal, revert or abandoned switch, one per lock released by an administrator, and one per daily policy check: the action, the project key and name, the before and after scheme identifiers, the outcome, the reason the person entered, timestamps, and a chain of hashes. The person is recorded as a per-installation pseudonym derived from their Atlassian account ID, never as an account ID or a name.
+- **Audit actor mapping.** A separate table that maps each pseudonym to the Atlassian account ID and a snapshot of the display name, so the audit log can be shown with names. It is kept outside the audit chain, so it can be erased without breaking it.
 - **Change history.** One row per change, behind the History screen and the CSV export: the project, the scheme type, the previous and new scheme identifiers and names, any status mapping, the reason the person entered, the outcome, timestamps, and the Atlassian account ID and a display-name snapshot of the person who made the change.
-- **Background job records.** For long-running switches, a job record that may hold the Atlassian account ID of the person who started it.
+- **Queued switches.** A workflow or issue security switch (beta) is finished in the background. The queue message for it carries the Atlassian account ID and display name of the person who started it until the switch finishes or is abandoned.
 
 The personal data involved is therefore: Atlassian account IDs, display-name snapshots, and whatever a person chooses to type into a reason field.
 
@@ -43,7 +43,7 @@ Jira administrators can see all policies and all history on the site. A project'
 
 ### Rejected and unauthorised attempts
 
-An attempt to switch outside policy, or by someone without the right role, is recorded with the person who attempted it. Repeated attempts by the same person for the same action within a minute are counted rather than recorded one by one.
+An attempt to switch outside policy, or by someone without the right role, is recorded with the person who attempted it. Repeated attempts by the same person for the same action within a minute are counted rather than recorded one by one; the counter is a short-lived record keyed by the account ID, the action and the minute, and is discarded after five minutes.
 
 ### Retention
 

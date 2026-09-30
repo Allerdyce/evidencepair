@@ -44,4 +44,12 @@ Spec 30 §4 allows Cloudflare Pages or GitHub Pages. Recommendation: Cloudflare 
 
 ## 2026-09-29 · SITE-AC-02 and SITE-AC-05 grading
 
-Graded by a separate agent with the source repository and no sight of the drafting (spec 30 §9). Results are recorded below as they happen.
+Graded by a separate agent with the source repository and no sight of the drafting (spec 30 §9).
+
+**Run 1, 2026-09-29, against sources at `0f51c26` (identical to `8656572` for every file read): both FAIL, then fixed.**
+- AC-02 blocking: two pages promised that the audit-actor mapping “can be erased when an account is closed” while no app code path erases anything (the privacy page already said so). Reworded to the structural fact: the mapping is kept outside the hash chain, so erasing it leaves the log verifiable; the process is pending (H-06).
+- AC-02 blocking: the admin guide said a stalled queued change is ended “rather than left hanging”; the daily reaper (CPC-AC-33) is not built, only the on-delivery bound (CPC-AC-28). Reworded to “on its next delivery after its retry window”.
+- AC-02 minor: home bullet now scopes the guard rule to requests a person makes; quick start no longer implies the app is installable today; unlicensed banner links “to the Atlassian Marketplace”, not a listing; the security-model page now labels issue security and workflow switching as beta; the company description is an Ali item (H-17).
+- AC-05 blocking: DI-09 said CPC writes core job records; it does not. The account ID and display name of a person who starts a background switch travel in the queue message. Inventory, privacy page and map corrected.
+- AC-05 minor: the rejection counter's KVS key holds the account ID for five minutes (added to DI-10 and the page); audit events also cover lock releases and the daily check (DI-06 and the page); two vendor-practice sentences added to the map as **Ali** rows.
+- Re-grade after the fixes: recorded below when run.

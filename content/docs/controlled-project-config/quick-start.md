@@ -7,7 +7,7 @@ description: Install, check the setup, create a policy, make the first switch.
 
 ## 1. Install the app
 
-Install Controlled Project Configuration on your Jira Cloud site from the Atlassian Marketplace. Installing needs a Jira administrator. The app asks for the scopes listed on the [app page](/apps/controlled-project-config/); it declares no external egress.
+Once it is listed, install Controlled Project Configuration on your Jira Cloud site from the Atlassian Marketplace. Installing an app is a site administrator's action. The app asks for the scopes listed on the [app page](/apps/controlled-project-config/); it declares no external egress.
 
 ## 2. Check the setup
 
