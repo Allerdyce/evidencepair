@@ -13,7 +13,7 @@ Page: `content/legal/privacy.md`. Inventory: `data-inventory/controlled-project-
 | No app data reaches EvidencePair's own systems, and EvidencePair cannot reach the app's storage from outside the app. | DI-02, DI-03 |
 | Policies and settings: which projects or categories …, which schemes …, whether a reason is required, the cooldown, which role or group may switch; the pause and beta-features settings. | DI-04 |
 | Locks: a lock record for the project holding a random token and an expiry time. | DI-05 |
-| Audit records: one per change, refusal, revert or abandoned switch, one per lock released by an administrator, one per daily policy check: the action, the project key and name, before/after scheme identifiers, the outcome, the reason, timestamps, a chain of hashes. | DI-06, DI-10, DI-17 |
+| Audit records: one per change, refusal, revert or abandoned switch, one per lock released by an administrator, one per daily policy check: the action, what it was applied to, before/after values as identifiers, the outcome, any reason, timestamps, a chain of hashes. | DI-06, DI-10, DI-17 |
 | The person is recorded as a per-installation pseudonym derived from their Atlassian account ID, never as an account ID or a name. | DI-06 |
 | Audit actor mapping: pseudonym → account ID and display-name snapshot; kept outside the audit chain, so it can be erased without breaking it. | DI-07 (structure only; the erasure process is pending, DI-12) |
 | Change history: project, scheme type, previous and new scheme identifiers and names, status mapping, reason, outcome, timestamps, and the Atlassian account ID and display-name snapshot of the person. | DI-08, DI-17, DI-18 |
