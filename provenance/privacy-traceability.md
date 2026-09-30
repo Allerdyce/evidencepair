@@ -7,7 +7,7 @@ Page: `content/legal/privacy.md`. Inventory: `data-inventory/controlled-project-
 | This website collects nothing. It sets no cookies, stores nothing in your browser, runs no analytics, and makes no request to any third party. There are no forms. | Tests: SITE-AC-03, SITE-AC-04; no `<form>` in any template. |
 | The site is served by {host} … | **Pending** (H-03) until `site.host` is set. |
 | If you email us, we keep the correspondence … | **Ali** — vendor practice. |
-| EvidencePair LLC builds apps for Atlassian products and runs this website. | **Ali** — company description; no app is yet published (S20 B1 names the LLC). |
+| EvidencePair LLC builds apps for Atlassian products and runs this website. This policy covers those apps and this website. | **Ali** — company description and scope, confirmed 2026-09-29 (H-17). |
 | All app data is stored in Atlassian Forge storage … provisioned for your installation, on Atlassian infrastructure. | DI-01 |
 | The app declares no external egress and no remote services: it makes requests only to Atlassian APIs within your site. | DI-02 |
 | No app data reaches EvidencePair's own systems, and EvidencePair cannot reach the app's storage from outside the app. | DI-02, DI-03 |

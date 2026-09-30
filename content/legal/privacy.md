@@ -8,7 +8,7 @@ description: What EvidencePair's website and apps store, where it lives, and wha
 
 ## Who we are
 
-{{ site.legalName }} (“EvidencePair”, “we”) builds apps for Atlassian products and runs this website. Contact: <a href="mailto:{{ site.emails.hello }}">{{ site.emails.hello }}</a>.
+{{ site.legalName }} (“EvidencePair”, “we”) builds apps for Atlassian products and runs this website. This policy covers those apps and this website. Contact: <a href="mailto:{{ site.emails.hello }}">{{ site.emails.hello }}</a>.
 
 ## This website
 
