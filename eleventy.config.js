@@ -3,7 +3,7 @@
 // so two builds of one commit are byte-identical (SITE-AC-14).
 
 export default function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy({ assets: 'assets' });
+  eleventyConfig.addPassthroughCopy({ assets: 'assets', CNAME: 'CNAME' });
 
   eleventyConfig.addCollection('apps', (api) =>
     api.getFilteredByGlob('content/apps/*.md').sort((a, b) => a.data.name.localeCompare(b.data.name)),

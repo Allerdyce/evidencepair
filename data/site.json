@@ -4,9 +4,9 @@
   "domain": "evidencepair.com",
   "url": "https://evidencepair.com",
   "draft": true,
-  "supportResponseTarget": null,
+  "supportResponseTarget": "one business day",
   "supportPortalUrl": null,
-  "host": null,
+  "host": "GitHub Pages",
   "emails": {
     "support": "support@evidencepair.com",
     "security": "security@evidencepair.com",
@@ -14,9 +14,21 @@
     "hello": "hello@evidencepair.com"
   },
   "nav": [
-    { "label": "Apps", "url": "/#apps" },
-    { "label": "Docs", "url": "/docs/" },
-    { "label": "Security", "url": "/security/" },
-    { "label": "Support", "url": "/support/" }
+    {
+      "label": "Apps",
+      "url": "/#apps"
+    },
+    {
+      "label": "Docs",
+      "url": "/docs/"
+    },
+    {
+      "label": "Security",
+      "url": "/security/"
+    },
+    {
+      "label": "Support",
+      "url": "/support/"
+    }
   ]
 }

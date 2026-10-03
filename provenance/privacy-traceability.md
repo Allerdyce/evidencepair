@@ -5,7 +5,7 @@ Page: `content/legal/privacy.md`. Inventory: `data-inventory/controlled-project-
 | Privacy page sentence (abridged) | Rests on |
 |---|---|
 | This website collects nothing. It sets no cookies, stores nothing in your browser, runs no analytics, and makes no request to any third party. There are no forms. | Tests: SITE-AC-03, SITE-AC-04; no `<form>` in any template. |
-| The site is served by {host} … | **Pending** (H-03) until `site.host` is set. |
+| The site is served by GitHub Pages, which processes requests … under its own privacy statement. We do not receive or use visitor analytics from it. | **Ali** (H-01/H-03, 2026-10-02): host chosen; no analytics are enabled. |
 | If you email us, we keep the correspondence … | **Ali** — vendor practice. |
 | EvidencePair LLC builds apps for Atlassian products and runs this website. This policy covers those apps and this website. | **Ali** — company description and scope, confirmed 2026-09-29 (H-17). |
 | All app data is stored in Atlassian Forge storage … provisioned for your installation, on Atlassian infrastructure. | DI-01 |

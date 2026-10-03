@@ -8,7 +8,6 @@ description: The terms that govern EvidencePair apps and this website.
 
 EvidencePair apps are distributed through the Atlassian Marketplace. Unless an app's listing states otherwise, your use of an app is governed by the [Atlassian Marketplace Terms of Use](https://www.atlassian.com/licensing/marketplace/termsofuse), the standard end-user terms for Marketplace apps, between you and EvidencePair as the app's publisher. Billing, trials and licence management are handled by Atlassian through the Marketplace.
 
-{% pending "Confirm that the Atlassian standard terms are used by reference for every listing, or replace this section with EvidencePair's own terms after legal review.", "HUMAN-TASKS H-04" %}
 
 ## This website
 

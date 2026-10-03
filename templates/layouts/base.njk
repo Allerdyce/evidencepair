@@ -6,6 +6,7 @@
 <meta name="color-scheme" content="light dark">
 <title>{% if title %}{{ title }} · {% endif %}{{ site.name }}</title>
 {% if description %}<meta name="description" content="{{ description }}">{% endif %}
+{% if site.draft %}<meta name="robots" content="noindex">{% endif %}
 <link rel="stylesheet" href="/assets/site.css">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 </head>

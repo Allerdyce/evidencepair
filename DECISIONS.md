@@ -2,6 +2,18 @@
 
 Rulings and deviations for the EvidencePair vendor site (spec 30). Newest first. Anything a human must decide is in `HUMAN-TASKS.md`, not here.
 
+## 2026-10-02 · Sign-off and four rulings (Ali)
+
+**Launch-gate sign-off (H-10):** Ali has read the privacy, terms and security pages and adopts the reviewer's two HUMAN-QA verdicts as his own: SITE-AC-16 PASS, SITE-AC-15 PASS. The site stays in draft until the three app-gap statements (H-06, H-07, H-08) are answered; while in draft every page carries `noindex` and the preview banner.
+
+**Host (H-01):** GitHub Pages, deployed by the CI workflow after every check passes. The repository was made public for it. Consequence: `HUMAN-TASKS.md`, `DECISIONS.md` and the draft data inventory, including its three gaps, are public. Cloudflare Pages was the recommendation but needs the nameservers at Cloudflare for an apex domain; GitHub Pages works with DNS staying at Porkbun, so the existing Porkbun email forwarding is untouched (H-02 is then a Porkbun setting, not Cloudflare Email Routing; spec 30 §4 named Cloudflare, and this is the recorded substitution).
+
+**Response commitment (H-05):** one business day, for support replies and vulnerability acknowledgements.
+
+**Terms (H-04):** the Atlassian Marketplace Terms of Use apply by reference. Revisit only if EvidencePair wants its own terms.
+
+**Hosting provider on the privacy page (H-03):** GitHub Pages, with a link to GitHub's privacy statement; the link is checked at build time like every external link.
+
 ## 2026-09-29 · H-17 and H-18 ruled (Ali)
 
 **H-17:** “This site covers its Atlassian apps” is the scope-safe sentence; confirmed, and the privacy page's “builds apps for Atlassian products” line now carries the same qualifier (“This policy covers those apps and this website.”).

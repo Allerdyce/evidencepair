@@ -14,7 +14,7 @@ description: What EvidencePair's website and apps store, where it lives, and wha
 
 This website collects nothing. It sets no cookies, stores nothing in your browser, runs no analytics, and makes no request to any third party. There are no forms.
 
-{% if site.host %}The site is served by {{ site.host }}, which processes requests in order to serve pages. We do not receive or use visitor analytics from it.{% else %}{% pending "Name the hosting provider and state what request data it processes on our behalf.", "HUMAN-TASKS H-03" %}{% endif %}
+{% if site.host %}The site is served by {{ site.host }}, which processes requests in order to serve pages under its own [privacy statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement). We do not receive or use visitor analytics from it.{% else %}{% pending "Name the hosting provider and state what request data it processes on our behalf.", "HUMAN-TASKS H-03" %}{% endif %}
 
 If you email us, we keep the correspondence for as long as we need it to answer you and to keep a record of support and security reports.
 
