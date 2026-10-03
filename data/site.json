@@ -15,8 +15,12 @@
   },
   "nav": [
     {
-      "label": "Apps",
-      "url": "/#apps"
+      "label": "Paperloft",
+      "url": "/#paperloft"
+    },
+    {
+      "label": "Atlassian apps",
+      "url": "/#atlassian"
     },
     {
       "label": "Docs",

@@ -2,13 +2,28 @@
 
 Every factual claim about an app or the portfolio on the home, app, docs and security pages, with its source in the app repository at `0f51c26`. Wording on the pages is often taken directly from `CHANGELOG.md`, `README.md` and `docs/security/audit-log.md`, which are written for customers. Source keys as in `data-inventory/controlled-project-config.md`, plus `CHG` = `apps/controlled-project-config/CHANGELOG.md`, `DEC` = `DECISIONS.md`.
 
+## Paperloft (home, terms, privacy, security, support pages)
+
+Sources: `PL-SITE` = `github.com/Allerdyce/paperloft-site` at `38d6933` (the published site at paperloft.app: `index.html`, `privacy/index.html`, `support/index.html`, `README.md`); `PL-SPEC` = `github.com/Allerdyce/paperloft` `SPEC.md` at `640eab5`.
+
+| Claim | Source |
+|---|---|
+| Paperloft: Mac apps for your paperwork; apps that name, sort and keep your paperwork, privately, on your Mac. | PL-SITE index (“Mac apps for your paperwork”; “Mac apps that name, sort and keep your paperwork, privately, on your Mac.”) |
+| Your documents are read and organised on your Mac; we never receive them. No account to create; no analytics. | PL-SITE index (“Private by design” block) and privacy (“Your documents stay on your Mac”, “No analytics and no account”). **H-20:** PL-SPEC lists Private Cloud Compute as a P2 opt-in toggle; if it ships, this wording needs qualifying on both sites. |
+| Paperloft Receipts: turn receipts into an accountant-ready pack; export a summary PDF, a spreadsheet, and documents sorted by category; coming soon to the Mac App Store. | PL-SITE index (hero and FAQ “Not yet. Paperloft Receipts is coming soon to the Mac App Store.”) |
+| Paperloft is made by EvidencePair LLC, California. | PL-SITE footer; PL-SPEC “Paperloft is published by EvidencePair LLC, which the App Store shows as the seller.” |
+| Privacy section: processed on your Mac; we do not receive, store or see documents; no analytics, usage data or advertising identifiers; no account; files live in a folder you choose; purchases processed by Apple, no payment details received. | PL-SITE privacy (each sentence near-verbatim) |
+| Terms: Mac App Store distribution; Apple's standard Licensed Application EULA applies unless the listing states otherwise; purchases, trials and refunds handled by Apple. | PL-SITE privacy (“Purchases are processed by Apple”); PL-SPEC (App Store distribution, Paid Apps Agreement). The standard-EULA default is Apple platform behaviour, not in either repo. **Ali confirms (H-19).** |
+| Support: support@paperloft.app; FAQ at paperloft.app/support/. | PL-SITE support |
+| Security page: runs on your Mac; no server of ours in the path. | PL-SITE privacy; PL-SPEC “no server, no accounts, no sync engine. Apple frameworks only.” |
+
 ## Home (`content/index.njk`)
 
 | Claim | Source |
 |---|---|
-| Apps for Atlassian site administrators and the compliance teams who audit them, starting with Jira. | S00 §2 (app 1 is Jira; apps 2–6 are Confluence, planned) |
+| Apps that bring governed change to Jira and Confluence, starting with Jira; for site administrators and the compliance teams who audit them. | S00 §2 (app 1 is Jira; apps 2–6 are Confluence, planned) |
 | Per-app line under the lede: name and tagline. | Rendered from each app's front matter (README title; S10 §1 pitch) |
-| “This site covers its Atlassian apps.” | Scope statement, not an app claim. Confirmed by Ali 2026-09-29 (H-17). |
+| “It makes Paperloft and the Atlassian apps above.” | Scope statement, not an app claim. Ali 2026-10-02: evidencepair.com is the company-wide site (supersedes the 2026-09-29 H-17 ruling). |
 | Preview before change, a record of who changed what, rollback where possible, delegation within admin-approved limits. | S00 §2 “safe, governed change” |
 | Built on Forge; no external egress, no remote services, no third-party analytics or error reporting; customer data stays in the customer's site. | S00 §3.1–3.2; DI-02 |
 | On a person's request, an app acts with its own identity only after a check as that person. (Background work takes app identity through `requireSystemActor` with no user check; the security page says so.) | S01 §3.2 rule and background contexts |

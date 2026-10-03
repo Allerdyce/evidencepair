@@ -2,6 +2,10 @@
 
 Rulings and deviations for the EvidencePair vendor site (spec 30). Newest first. Anything a human must decide is in `HUMAN-TASKS.md`, not here.
 
+## 2026-10-02 · evidencepair.com is the company-wide site (Ali)
+
+Spec 30 §1 scoped this site to the Atlassian apps, and the 2026-09-29 H-17 ruling matched. Ali now rules that evidencepair.com is the company-wide site, calling out Paperloft and the Atlassian apps first. What changed: the home page presents both product lines; the terms page has a section per line (Apple's standard EULA for Paperloft, Atlassian's terms for the Marketplace apps); the privacy page covers Paperloft by reference to its published policy with five sentences taken from it; the security and support pages gain a Paperloft section. What did not change: Paperloft's details, privacy policy and support live at paperloft.app (its own repository, plain HTML, same no-third-party rules as here), and this site links to them rather than duplicating them, so there is one home for each fact. Every Paperloft sentence here traces to the published Paperloft pages or its spec (`provenance/claims.md`). Two new human tasks: H-19 (the Apple standard-EULA sentence) and H-20 (Private Cloud Compute is a planned opt-in that would qualify “on your Mac”).
+
 ## 2026-10-02 · Sign-off and four rulings (Ali)
 
 **Launch-gate sign-off (H-10):** Ali has read the privacy, terms and security pages and adopts the reviewer's two HUMAN-QA verdicts as his own: SITE-AC-16 PASS, SITE-AC-15 PASS. The site stays in draft until the three app-gap statements (H-06, H-07, H-08) are answered; while in draft every page carries `noindex` and the preview banner.

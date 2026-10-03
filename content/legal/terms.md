@@ -1,13 +1,16 @@
 ---
 title: Terms
-updated: 2026-09-29
-description: The terms that govern EvidencePair apps and this website.
+updated: 2026-10-02
+description: The terms that govern EvidencePair's Paperloft apps, Atlassian apps and this website.
 ---
 
-## Apps
+## Paperloft apps
 
-EvidencePair apps are distributed through the Atlassian Marketplace. Unless an app's listing states otherwise, your use of an app is governed by the [Atlassian Marketplace Terms of Use](https://www.atlassian.com/licensing/marketplace/termsofuse), the standard end-user terms for Marketplace apps, between you and EvidencePair as the app's publisher. Billing, trials and licence management are handled by Atlassian through the Marketplace.
+Paperloft apps are distributed through the Mac App Store. Unless an app's listing states otherwise, your use of a Paperloft app is governed by Apple's standard [Licensed Application End User License Agreement](https://www.apple.com/legal/internet-services/itunes/dev/stdeula/), between you and EvidencePair LLC as the app's seller. Purchases, trials and refunds are handled by Apple.
 
+## Atlassian apps
+
+EvidencePair's Atlassian apps are distributed through the Atlassian Marketplace. Unless an app's listing states otherwise, your use of an app is governed by the [Atlassian Marketplace Terms of Use](https://www.atlassian.com/licensing/marketplace/termsofuse), the standard end-user terms for Marketplace apps, between you and EvidencePair as the app's publisher. Billing, trials and licence management are handled by Atlassian through the Marketplace.
 
 ## This website
 
@@ -15,4 +18,4 @@ The content of this website is provided for information. We try to keep it accur
 
 ## Trademarks
 
-Atlassian, Jira and Confluence are trademarks of Atlassian Pty Ltd. EvidencePair is not affiliated with Atlassian.
+Apple, Mac and macOS are trademarks of Apple Inc. Atlassian, Jira and Confluence are trademarks of Atlassian Pty Ltd. EvidencePair is not affiliated with Apple or Atlassian.

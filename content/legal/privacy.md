@@ -1,14 +1,14 @@
 ---
 title: Privacy policy
-updated: 2026-09-29
-description: What EvidencePair's website and apps store, where it lives, and what we never do with it.
+updated: 2026-10-02
+description: What EvidencePair's website, Paperloft apps and Atlassian apps store, where it lives, and what we never do with it.
 ---
 
-<p class="note">Every factual statement on this page is traced to a line in the data inventory for each app, kept with the source of this site. Where the inventory does not yet answer a question, this page says so rather than guessing.</p>
+<p class="note">Every factual statement on this page about an app is traced to that app's published policy or data inventory, kept with the source of this site. Where a source does not yet answer a question, this page says so rather than guessing.</p>
 
 ## Who we are
 
-{{ site.legalName }} (“EvidencePair”, “we”) builds apps for Atlassian products and runs this website. This policy covers those apps and this website. Contact: <a href="mailto:{{ site.emails.hello }}">{{ site.emails.hello }}</a>.
+{{ site.legalName }} (“EvidencePair”, “we”) makes Paperloft, Mac apps for paperwork, and apps for Atlassian products, and runs this website. This policy covers both product lines and this website. Contact: <a href="mailto:{{ site.emails.hello }}">{{ site.emails.hello }}</a>.
 
 ## This website
 
@@ -18,9 +18,13 @@ This website collects nothing. It sets no cookies, stores nothing in your browse
 
 If you email us, we keep the correspondence for as long as we need it to answer you and to keep a record of support and security reports.
 
-## Our apps
+## Paperloft apps
 
-The rest of this policy describes **Controlled Project Configuration for Jira**. When we publish another app, this page will describe it too.
+Paperloft apps have their own [privacy policy](https://paperloft.app/privacy/) at paperloft.app, which governs them. In short: Paperloft apps process your documents on your Mac, and we do not receive, store or see your documents or the information in them. We collect no analytics, usage data or advertising identifiers, and there is no account to create. Your files live in a folder you choose. Purchases are processed by Apple, and we do not receive your payment details.
+
+## Atlassian apps
+
+The rest of this policy describes **Controlled Project Configuration for Jira**. When we publish another Atlassian app, this page will describe it too.
 
 ### Where data lives
 

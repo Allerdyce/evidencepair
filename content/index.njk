@@ -1,28 +1,38 @@
 ---
 layout: layouts/base.njk
-description: EvidencePair builds apps for governed change in Atlassian products, starting with Jira. Every app runs on Atlassian infrastructure and declares no external egress.
+description: EvidencePair LLC makes Paperloft, Mac apps that file your paperwork privately on your Mac, and apps for governed change in Atlassian Jira and Confluence.
 ---
 <article class="prose">
-<h1>Governed change for Jira</h1>
-<p class="lede">EvidencePair makes small, careful apps for Atlassian site administrators and the compliance teams who audit them, starting with Jira.</p>
+<h1>Paperloft, and apps for Atlassian</h1>
+<p class="lede">EvidencePair LLC makes small, careful software: Mac apps that file your paperwork privately on your Mac, and apps that bring governed change to Jira and Confluence, starting with Jira.</p>
 
+<h2 id="paperloft">Paperloft</h2>
+<p>{{ paperloft.tagline }}. Paperloft apps name, sort and keep your paperwork, privately, on your Mac. Your documents are read and organised on your Mac; we never receive them. There is no account to create and no analytics.</p>
+<ul class="cards">
+  <li class="card">
+    <p class="eyebrow">macOS · <span class="badge badge-{{ paperloft.status | replace(' ', '-') }}">{{ paperloft.status | capitalize }}</span></p>
+    <h3><a href="{{ paperloft.firstAppUrl }}">{{ paperloft.firstApp }}</a></h3>
+    <p>{{ paperloft.firstAppTagline }} Export a summary PDF, a spreadsheet, and your documents sorted by category. Coming soon to the Mac App Store.</p>
+    <p class="card-links"><a href="{{ paperloft.url }}">paperloft.app</a> · <a href="{{ paperloft.supportUrl }}">Support</a> · <a href="{{ paperloft.privacyUrl }}">Privacy</a></p>
+  </li>
+</ul>
+
+<h2 id="atlassian">Atlassian apps</h2>
+<p>Apps for Atlassian site administrators and the compliance teams who audit them. Each one follows the same rules: preview before anything changes, a record of who changed what and why, a way back where the product allows one, and delegation only within limits an administrator has approved.</p>
 <p>{% for a in collections.apps %}<a href="{{ a.url }}">{{ a.data.name }}</a>: {{ a.data.tagline }}{% if not loop.last %} {% endif %}{% endfor %}</p>
+<ul class="cards">
+{% for a in collections.apps %}{% include "partials/app-card.njk" %}{% endfor %}
+</ul>
 
-<p>Each app follows the same rules: preview before anything changes, a record of who changed what and why, a way back where the product allows one, and delegation only within limits an administrator has approved.</p>
-
-<h2>What every app has in common</h2>
+<h3>What every Atlassian app has in common</h3>
 <ul>
   <li><strong>Runs on Atlassian infrastructure.</strong> The apps are built on Atlassian Forge and declare no external egress, no remote services and no third-party analytics or error reporting. Customer data stays in the customer's Atlassian site.</li>
   <li><strong>A permission check before every privileged action a person asks for.</strong> On a person's request, an app acts with its own identity only after checking, as that person, that they are allowed to.</li>
   <li><strong>A tamper-evident audit log.</strong> Records are hash-chained and numbered, and an administrator can verify the chain from inside the app.</li>
   <li><strong>Verified, not assumed.</strong> After a change is applied the app re-reads the live state, and only a match counts as success.</li>
 </ul>
-
-<h2 id="apps">Apps</h2>
-<ul class="cards">
-{% for a in collections.apps %}{% include "partials/app-card.njk" %}{% endfor %}
-</ul>
+<p>Details are on the <a href="/security/">security page</a> and in the <a href="/docs/">documentation</a>.</p>
 
 <h2>Who we are</h2>
-<p>{{ site.legalName }} is a small software company in California, run by its founder. This site covers its Atlassian apps. Questions go to <a href="mailto:{{ site.emails.hello }}">{{ site.emails.hello }}</a>; support and security contacts are on the <a href="/support/">support</a> and <a href="/security/">security</a> pages.</p>
+<p>{{ site.legalName }} is a small software company in California, run by its founder. It makes Paperloft and the Atlassian apps above. Questions go to <a href="mailto:{{ site.emails.hello }}">{{ site.emails.hello }}</a>; support and security contacts are on the <a href="/support/">support</a> and <a href="/security/">security</a> pages.</p>
 </article>
