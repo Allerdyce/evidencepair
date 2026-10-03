@@ -13,7 +13,7 @@ Sources: `PL-SITE` = `github.com/Allerdyce/paperloft-site` at `38d6933` (the pub
 | Paperloft Receipts: turn receipts into an accountant-ready pack; export a summary PDF, a spreadsheet, and documents sorted by category; coming soon to the Mac App Store. | PL-SITE index (hero and FAQ “Not yet. Paperloft Receipts is coming soon to the Mac App Store.”) |
 | Paperloft is made by EvidencePair LLC, California. | PL-SITE footer; PL-SPEC “Paperloft is published by EvidencePair LLC, which the App Store shows as the seller.” |
 | Privacy section: processed on your Mac; we do not receive, store or see documents; no analytics, usage data or advertising identifiers; no account; files live in a folder you choose; purchases processed by Apple, no payment details received. | PL-SITE privacy (each sentence near-verbatim) |
-| Terms: Mac App Store distribution; Apple's standard Licensed Application EULA applies unless the listing states otherwise; purchases, trials and refunds handled by Apple. | PL-SITE privacy (“Purchases are processed by Apple”); PL-SPEC (App Store distribution, Paid Apps Agreement). The standard-EULA default is Apple platform behaviour, not in either repo. **Ali confirms (H-19).** |
+| Terms: sold only through the Mac App Store; Apple's standard Licensed Application EULA applies unless the listing states otherwise; purchases and trials handled by Apple. | PL-SPEC line 272 (“Mac App Store only”), lines 50/134 (StoreKit trial); PL-SITE privacy (“Purchases are processed by Apple”). The standard-EULA default is Apple platform behaviour, not in either repo. **Ali confirms (H-19).** |
 | Support: support@paperloft.app; FAQ at paperloft.app/support/. | PL-SITE support |
 | Security page: runs on your Mac; no server of ours in the path. | PL-SITE privacy; PL-SPEC “no server, no accounts, no sync engine. Apple frameworks only.” |
 
@@ -99,7 +99,7 @@ Sources: `PL-SITE` = `github.com/Allerdyce/paperloft-site` at `38d6933` (the pub
 | Hash chain; Verify integrity; what it detects; checkpoint limit; forged rows out of scope; no secret key. | AUD (verbatim); S01 §4.2 |
 | Data in Forge storage for the installation on Atlassian infrastructure; no egress; nobody can reach the database from outside the app. | DI-01, DI-02, DI-03 |
 | Custom UI bundles every asset; no CDN, no external fonts, no third-party analytics. | S01 §1, §11; S00 §3.2 |
-| Forge only, no Connect modules. | S00 §3.1 |
+| Every EvidencePair Atlassian app is Forge only, no Connect modules. | S00 §3.1 |
 | A build check refuses a manifest that declares egress. | S01 CORE-AC-12; `scripts/check-manifests.mjs` |
 | Website statements (no cookies, no third-party requests, tested each build). | `tests/site.spec.mjs` |
 | No bug bounty programme. | Nothing in the repo establishes one. **Ali to confirm.** |

@@ -12,7 +12,7 @@ Paperloft apps run on your Mac. Your documents are read and organised on your Ma
 
 ### Posture
 
-- **Forge only.** Every EvidencePair app is built on Atlassian Forge and runs on Atlassian infrastructure. There are no Connect modules and no servers of our own in the path.
+- **Forge only.** Every EvidencePair Atlassian app is built on Atlassian Forge and runs on Atlassian infrastructure. There are no Connect modules and no servers of our own in the path.
 - **No egress.** Each app's manifest declares no external permissions and no remote services, and a check in our build refuses any manifest that does. Customer data stays in the customer's Atlassian site.
 - **No third parties.** No analytics, no error-reporting service, no content delivery networks, no external fonts. Every asset in an app's user interface is bundled with it.
 - **We cannot see your data.** An app's storage is provisioned for your installation on Atlassian infrastructure, and only that app's own code can read or write it. EvidencePair has no route to it from outside the app. The one thing the platform does show us is its logs; what they hold is stated under [platform logs](/privacy/#platform-logs) on the privacy page.

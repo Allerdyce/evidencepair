@@ -6,7 +6,7 @@ description: The terms that govern EvidencePair's Paperloft apps, Atlassian apps
 
 ## Paperloft apps
 
-Paperloft apps are distributed through the Mac App Store. Unless an app's listing states otherwise, your use of a Paperloft app is governed by Apple's standard [Licensed Application End User License Agreement](https://www.apple.com/legal/internet-services/itunes/dev/stdeula/), between you and EvidencePair LLC as the app's seller. Purchases, trials and refunds are handled by Apple.
+Paperloft apps are sold only through the Mac App Store. Unless an app's listing states otherwise, your use of a Paperloft app is governed by Apple's standard [Licensed Application End User License Agreement](https://www.apple.com/legal/internet-services/itunes/dev/stdeula/), between you and EvidencePair LLC as the app's seller. Purchases and trials are handled by Apple.
 
 ## Atlassian apps
 
