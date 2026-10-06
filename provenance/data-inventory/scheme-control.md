@@ -1,4 +1,6 @@
-# Data inventory — Controlled Project Configuration for Jira (draft)
+# Data inventory — Scheme Control for Jira (draft)
+
+The product is named Scheme Control for Jira (Ali, 2026-09-30). The app repository keeps its original identifier, so its paths below still read `apps/controlled-project-config/`.
 
 **Status: draft, unverified by Ali.** Derived from the app repository at `0f51c26` (2026-09-29) by reading the manifest, the shared-core spec and code, the app spec and code, and `docs/security/audit-log.md`. Spec 30 §7 says the app repository produces this inventory; this draft exists so the privacy page could be written from something traceable rather than from guesswork. Each line should be confirmed, corrected or moved by the app's builder. Lines marked **GAP** are questions the sources do not answer, and the privacy page carries a pending statement for each.
 

@@ -1,6 +1,6 @@
 ---
 title: FAQ
-app: controlled-project-config
+app: scheme-control
 order: 4
 description: Lossy reverts, stale previews, concurrent changes, identity in the audit log.
 ---
@@ -27,7 +27,7 @@ Reading the site's schemes and assigning notification, issue security and workfl
 
 ## Does any data leave our Atlassian site?
 
-No. The app declares no external egress and talks only to Atlassian. Its data lives in Forge storage for your installation, on Atlassian infrastructure. See the [security model](/docs/controlled-project-config/security-model/) and the [privacy policy](/privacy/).
+No. The app declares no external egress and talks only to Atlassian. Its data lives in Forge storage for your installation, on Atlassian infrastructure. See the [security model](/docs/scheme-control/security-model/) and the [privacy policy](/privacy/).
 
 ## How are people identified in the audit log?
 

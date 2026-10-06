@@ -1,13 +1,13 @@
 ---
-name: Controlled Project Configuration for Jira
+name: Scheme Control for Jira
 product: Jira
 tagline: Let project admins switch between admin-approved schemes, without handing out Jira admin rights.
 price: ""
 status: coming soon
 marketplaceUrl: ""
-docsPath: /docs/controlled-project-config/
+docsPath: /docs/scheme-control/
 description: Jira admins define which schemes each project may use. Project admins switch between those options themselves, with a preview, a reason, an audit trail and a revert.
-updated: 2026-09-29
+updated: 2026-10-06
 ---
 
 ## The problem it solves
@@ -49,7 +49,8 @@ Jira site admins and platform teams who want to delegate routine configuration w
 | `manage:jira-configuration` | Read the site's schemes and assign notification, issue security and workflow schemes to a project. |
 | `manage:jira-project` | Assign permission and issue type screen schemes to a project. |
 | `storage:app` | The app's own storage: policies, settings, plans, locks, and the audit and history tables. |
+| `report:personal-data` | Report to Atlassian, weekly, which account IDs the app stores, and learn which have been closed so their data can be erased. Atlassian requires it of apps that store personal data. It reads no personal data. |
 
 </div>
 
-The app declares no external egress: it talks only to Atlassian. Why the classic scopes and not granular ones, with the measurement behind it, is on the [security model](/docs/controlled-project-config/security-model/#why-the-app-holds-admin-scopes) page, along with how the permission checks work and what the audit log records.
+The app declares no external egress: it talks only to Atlassian. Why the classic scopes and not granular ones, with the measurement behind it, is on the [security model](/docs/scheme-control/security-model/#why-the-app-holds-admin-scopes) page, along with how the permission checks work and what the audit log records.

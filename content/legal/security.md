@@ -1,6 +1,6 @@
 ---
 title: Security
-updated: 2026-10-02
+updated: 2026-10-06
 description: How EvidencePair apps are built, what they can and cannot reach, and how to report a vulnerability.
 ---
 
@@ -23,7 +23,7 @@ An app acts with its own identity only after a permission check, performed as th
 
 ### Scopes
 
-Each app lists its scopes, and a one-line reason for each, on its page. For example, [Controlled Project Configuration for Jira](/apps/controlled-project-config/#permissions-it-asks-for) holds administrator scopes because assigning a scheme to a project is an administrator-only operation in Jira; a granular-only scope list was measured on a real site and could not read the schemes involved.
+Each app lists its scopes, and a one-line reason for each, on its page. For example, [Scheme Control for Jira](/apps/scheme-control/#permissions-it-asks-for) holds administrator scopes because assigning a scheme to a project is an administrator-only operation in Jira; a granular-only scope list was measured on a real site and could not read the schemes involved.
 
 ### The audit log
 

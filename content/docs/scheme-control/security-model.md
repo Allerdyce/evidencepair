@@ -1,6 +1,6 @@
 ---
 title: Security model
-app: controlled-project-config
+app: scheme-control
 order: 3
 description: Why the app holds admin scopes, how the guards work, what the audit log records, and where data lives.
 ---

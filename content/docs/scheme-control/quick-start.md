@@ -1,17 +1,17 @@
 ---
 title: Quick start
-app: controlled-project-config
+app: scheme-control
 order: 1
 description: Install, check the setup, create a policy, make the first switch.
 ---
 
 ## 1. Install the app
 
-Once it is listed, install Controlled Project Configuration on your Jira Cloud site from the Atlassian Marketplace. Installing an app is a site administrator's action. The app asks for the scopes listed on the [app page](/apps/controlled-project-config/); it declares no external egress.
+Once it is listed, install Scheme Control for Jira on your Jira Cloud site from the Atlassian Marketplace. Installing an app is a site administrator's action. The app asks for the scopes listed on the [app page](/apps/scheme-control/); it declares no external egress.
 
 ## 2. Check the setup
 
-Open **Jira settings → Apps → Controlled Project Configuration**. The admin page runs a setup check: it probes a harmless administrator-only read that the app needs for every change, and reports **ready** or **not ready**. If it is not ready, the page says so plainly and lists the setup steps.
+Open **Jira settings → Apps → Scheme Control for Jira**. The admin page runs a setup check: it probes a harmless administrator-only read that the app needs for every change, and reports **ready** or **not ready**. If it is not ready, the page says so plainly and lists the setup steps.
 
 ## 3. Create a policy
 

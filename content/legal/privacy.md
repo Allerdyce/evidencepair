@@ -1,6 +1,6 @@
 ---
 title: Privacy policy
-updated: 2026-10-02
+updated: 2026-10-06
 description: What EvidencePair's website, Paperloft apps and Atlassian apps store, where it lives, and what we never do with it.
 ---
 
@@ -24,7 +24,7 @@ Paperloft apps have their own [privacy policy](https://paperloft.app/privacy/) a
 
 ## Atlassian apps
 
-The rest of this policy describes **Controlled Project Configuration for Jira**. When we publish another Atlassian app, this page will describe it too.
+The rest of this policy describes **Scheme Control for Jira**. When we publish another Atlassian app, this page will describe it too.
 
 ### Where data lives
 

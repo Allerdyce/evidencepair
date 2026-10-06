@@ -1,6 +1,6 @@
 ---
 title: Admin guide
-app: controlled-project-config
+app: scheme-control
 order: 2
 description: Policies, settings, history, the daily checks, and what unlicensed and unsupported look like.
 ---

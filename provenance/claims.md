@@ -1,6 +1,8 @@
 # Claims register (SITE-AC-02)
 
-Every factual claim about an app or the portfolio on the home, app, docs and security pages, with its source in the app repository at `0f51c26`. Wording on the pages is often taken directly from `CHANGELOG.md`, `README.md` and `docs/security/audit-log.md`, which are written for customers. Source keys as in `data-inventory/controlled-project-config.md`, plus `CHG` = `apps/controlled-project-config/CHANGELOG.md`, `DEC` = `DECISIONS.md`.
+Every factual claim about an app or the portfolio on the home, app, docs and security pages, with its source in the app repository at `0f51c26` unless a section names a later commit. Wording on the pages is often taken directly from `CHANGELOG.md`, `README.md` and `docs/security/audit-log.md`, which are written for customers. Source keys as in `data-inventory/scheme-control.md`, plus `CHG` = `apps/controlled-project-config/CHANGELOG.md`, `DEC` = `DECISIONS.md`, `RUL` = `docs/rulings/` in the app repository.
+
+**The app's name and the app repository's identifier differ on purpose.** The product is Scheme Control for Jira; the app repository keeps `apps/controlled-project-config/` and the `CPC` prefix (RUL `2026-09-30-name-fold-and-spec-window.md`). Paths into the app repository below therefore still say `controlled-project-config`. The site uses the product's slug, `scheme-control`.
 
 ## Paperloft (home, terms, privacy, security, support pages)
 
@@ -31,26 +33,28 @@ Sources: `PL-SITE` = `github.com/Allerdyce/paperloft-site` at `38d6933` (the pub
 | After a change is applied the app re-reads live state; only a match counts as success. | S01 §5 guarantee 7 (CORE-AC-15) |
 | EvidencePair LLC is a California company run by its founder. | S20 §1 B1 names the LLC as an option for the publishing entity only; no B1 ruling in DECISIONS at 0f51c26. **Not an app claim; Ali confirms (H-17).** |
 
-## App page (`content/apps/controlled-project-config.md`)
+## App page (`content/apps/scheme-control.md`)
+
+Re-read against the app repository at `7fcc76f` (2026-10-06). For `apps/controlled-project-config/` and `packages/core/` that commit is identical to the released build, `ba8d3d8` (`git diff --quiet ba8d3d8 7fcc76f -- apps/controlled-project-config packages/core`).
 
 | Claim | Source |
 |---|---|
-| Name “Controlled Project Configuration for Jira”; tagline. | README title; S10 §1 one-line pitch |
-| Status: coming soon (not on the Marketplace). | README “Status: built, deployed to development, not yet through its test loop.” |
+| Name “Scheme Control for Jira”; tagline. | RUL `2026-09-30-name-fold-and-spec-window.md` (“The app has a name: Scheme Control for Jira”); README title and manifest `jira:adminPage` title at 7fcc76f; S10 v1.6 title; tagline: S10 §1 one-line pitch (unchanged at 7fcc76f). Vendor EvidencePair LLC: same ruling, item 2. |
+| Status: coming soon (not on the Marketplace). | DEC 2026-10-06: the automated gate passed on `ba8d3d8` and human QA is open; `docs/launch/CHECKLIST.md` at `53bfbc2`, item 10 (production deploy and listing submission still to do); `apps/controlled-project-config/docs/listing.md` is a draft for Ali to submit. |
 | The problem paragraph. | S10 §1 “The problem” (verbatim) |
-| The nine “What it does” bullets. | CHG “What it does” (verbatim, with the Beta bullet extended by S10 §12 “depend on experimental Jira APIs”) |
+| The nine “What it does” bullets. | CHG “What it does” at 7fcc76f (verbatim, with the Beta bullet extended by S10 §12 and `apps/controlled-project-config/docs/workflow-mapping.md` “depend on Jira REST APIs that Atlassian marks as experimental”) |
 | Buyer: site admins and platform teams; users: project admins. | S10 §1 Buyer/User |
-| Does not edit schemes; no issue type scheme switching; no approval step; no team-managed; no JSM configuration. | S10 §3.2 Non-goals; CHG “Good to know” |
+| Does not edit schemes; no issue type scheme switching; no approval step; no team-managed; no JSM configuration. | S10 §3.2 Non-goals; CHG “Good to know”; `apps/controlled-project-config/docs/security-model.md` “What the app never does” |
 | Unlicensed: history readable and exportable, switching off. | CHG “Good to know”; S10 CPC-F12 |
-| Scopes table and reasons. | README “Scopes, and why each one is needed” (verbatim) |
+| Scopes table and reasons, five scopes. | README “Scopes, and why each one is needed” at 7fcc76f (verbatim, with the internal “spec 01 §11” reference dropped); MAN `permissions.scopes` at 7fcc76f lists the same five. `report:personal-data` added 2026-10-01 (DEC 2026-10-01, `docs/evidence/2026-10-01-report-personal-data-scope/`). |
 | No external egress; talks only to Atlassian. | README; DI-02 |
 
-## Quick start (`content/docs/controlled-project-config/quick-start.md`)
+## Quick start (`content/docs/scheme-control/quick-start.md`)
 
 | Claim | Source |
 |---|---|
 | Once listed, install from the Marketplace; installing is a site administrator's action; scopes as listed. | General Atlassian platform behaviour, not in the app repo; MAN scopes. **Ali confirms wording at H-10.** |
-| Admin page location under Jira settings → Apps; title. | MAN `jira:adminPage` title “Controlled Project Configuration” |
+| Admin page location under Jira settings → Apps; title. | MAN `jira:adminPage` title “Scheme Control for Jira” (at 7fcc76f) |
 | Setup check probes a harmless admin-only read; ready / not ready with setup steps. | S10 CPC-F13; CPC-AC-23 |
 | Policy: projects by list or category; allowed schemes per type; core types permission, notification, issue type screen; types without an allowlist not switchable. | S10 CPC-F01 |
 | requireReason default on; cooldownMinutes default 0; allowedRoles default project admins or a named role/group. | S10 CPC-F03 |
@@ -62,7 +66,7 @@ Sources: `PL-SITE` = `github.com/Allerdyce/paperloft-site` at `38d6933` (the pub
 | Stale preview: no change, “review again”. | S10 §7.2, CPC-AC-04 |
 | Revert: same audience, same policy, target is the previous scheme, always allowed. | S10 CPC-F08 |
 
-## Admin guide (`content/docs/controlled-project-config/admin-guide.md`)
+## Admin guide (`content/docs/scheme-control/admin-guide.md`)
 
 | Claim | Source |
 |---|---|
@@ -81,7 +85,7 @@ Sources: `PL-SITE` = `github.com/Allerdyce/paperloft-site` at `38d6933` (the pub
 | Team-managed and archived projects show an explanation. | S10 CPC-F11, CPC-AC-15; CHG |
 | Unlicensed read-only; banner on admin/config screens linking to the Atlassian Marketplace. | S01 §3.1; S10 CPC-F12, CPC-AC-06; `ui/src/admin.tsx` 776 |
 
-## Security model (`content/docs/controlled-project-config/security-model.md`) and Security page (`content/legal/security.md`)
+## Security model (`content/docs/scheme-control/security-model.md`) and Security page (`content/legal/security.md`)
 
 | Claim | Source |
 |---|---|
@@ -104,7 +108,7 @@ Sources: `PL-SITE` = `github.com/Allerdyce/paperloft-site` at `38d6933` (the pub
 | Website statements (no cookies, no third-party requests, tested each build). | `tests/site.spec.mjs` |
 | No bug bounty programme. | Nothing in the repo establishes one. **Ali to confirm.** |
 
-## FAQ (`content/docs/controlled-project-config/faq.md`)
+## FAQ (`content/docs/scheme-control/faq.md`)
 
 | Claim | Source |
 |---|---|

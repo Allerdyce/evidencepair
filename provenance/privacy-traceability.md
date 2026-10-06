@@ -1,6 +1,6 @@
 # Privacy page → data inventory (SITE-AC-05)
 
-Page: `content/legal/privacy.md`. Inventory: `data-inventory/controlled-project-config.md`. Sentences about the website itself are enforced by the browser tests in `tests/site.spec.mjs` (SITE-AC-03, SITE-AC-04) rather than by an inventory line. Sentences about EvidencePair's own practice (email handling) are marked **Ali** and need Ali's confirmation, not a source.
+Page: `content/legal/privacy.md`. Inventory: `data-inventory/scheme-control.md`. Sentences about the website itself are enforced by the browser tests in `tests/site.spec.mjs` (SITE-AC-03, SITE-AC-04) rather than by an inventory line. Sentences about EvidencePair's own practice (email handling) are marked **Ali** and need Ali's confirmation, not a source.
 
 | Privacy page sentence (abridged) | Rests on |
 |---|---|

@@ -2,6 +2,16 @@
 
 Rulings and deviations for the EvidencePair vendor site (spec 30). Newest first. Anything a human must decide is in `HUMAN-TASKS.md`, not here.
 
+## 2026-10-06 · The app is Scheme Control for Jira, at `/apps/scheme-control/` (H-11)
+
+**Supersedes** the 2026-09-29 entry “The app is named by its working title”. Ali named the product on 2026-09-30: “The app has a name: Scheme Control for Jira”, vendor EvidencePair LLC (app repository, `docs/rulings/2026-09-30-name-fold-and-spec-window.md`; spec 10 v1.6). The site now uses that name and the slug `scheme-control`, which is also the example spec 30 §5 gave. What moved: `content/apps/scheme-control.md`, `content/docs/scheme-control/` (each page's `app` field), `provenance/data-inventory/scheme-control.md`, every internal link, and the claims register. Status stays `coming soon`, so the page still shows no price, no Marketplace link and no purchase language.
+
+**The deviation from the working title, and why the app repository looks different:** the same ruling keeps the app repository's identifier, `apps/controlled-project-config/`, the `CPC` code prefix and the `CPC-AC-nn` criterion IDs, because those IDs are the contract with its test protocol. So every source path the provenance files cite still says `controlled-project-config`, while every customer-facing string here says Scheme Control for Jira. That split is intended, not a half-finished rename.
+
+**The old URLs are not redirected.** `/apps/controlled-project-config/` and `/docs/controlled-project-config/…` existed only in draft builds, which carry `noindex`. A redirect would need either a script or a meta refresh per page; neither is worth it for pages no search engine was allowed to index.
+
+**One correction made with the rename:** the app now asks for five scopes, not four. `report:personal-data` was added on 2026-10-01 so the weekly personal-data report can run (app repository `README.md` and `manifest.yml` at `7fcc76f`). The app page's scope table gains that row, in the README's words.
+
 ## 2026-10-02 · evidencepair.com is the company-wide site (Ali)
 
 Spec 30 §1 scoped this site to the Atlassian apps, and the 2026-09-29 H-17 ruling matched. Ali now rules that evidencepair.com is the company-wide site, calling out Paperloft and the Atlassian apps first. What changed: the home page presents both product lines; the terms page has a section per line (Apple's standard EULA for Paperloft, Atlassian's terms for the Marketplace apps); the privacy page covers Paperloft by reference to its published policy with five sentences taken from it; the security and support pages gain a Paperloft section. What did not change: Paperloft's details, privacy policy and support live at paperloft.app (its own repository, plain HTML, same no-third-party rules as here), and this site links to them rather than duplicating them, so there is one home for each fact. Every Paperloft sentence here traces to the published Paperloft pages or its spec (`provenance/claims.md`). Two new human tasks: H-19 (the Apple standard-EULA sentence) and H-20 (Private Cloud Compute is a planned opt-in that would qualify “on your Mac”).
