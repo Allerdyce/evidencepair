@@ -1,64 +1,44 @@
 ---
 title: Security model
 app: scheme-control
-order: 3
-description: Why the app holds admin scopes, how the guards work, what the audit log records, and where data lives.
+order: 5
+description: What the app can and cannot do, and how it is checked.
+source: apps/controlled-project-config/docs/security-model.md
+sourceCommit: 7fcc76f
 ---
 
-## Why the app holds admin scopes
+Scheme Control for Jira lets people who are not Jira administrators change which scheme a project uses. That is a privileged action, so this page explains exactly how the app decides who may do it, and what it records.
 
-Assigning a scheme to a project is an administrator-only operation in Jira, so the app must be able to act with administrator capability. A granular-only scope list was measured on a real site and returned 401 for the permission, notification, workflow and issue security scheme reads, so the app uses the classic scopes. The measurement, taken on 2026-09-22 on a Jira Cloud site with the app reading as itself:
+## Why the app holds administrative access
 
-<div class="table-wrap" tabindex="0" role="region" aria-label="Scope measurement">
+Assigning a scheme to a project is an administrative action in Jira. The app needs that access to do anything at all. It gets it from the permissions approved at install (see [Installing](/docs/scheme-control/install/)). It never uses that access on behalf of someone who hasn't first passed the checks below.
 
-| Read (as the app) | Granular and classic mixed | Granular only | Classic only |
-|---|---|---|---|
-| `permissionscheme` | 401 | 401 | 200 |
-| `notificationscheme` | 200 | 401 | 200 |
-| `issuetypescreenscheme` | 200 | 200 | 200 |
-| `issuesecurityschemes` | 401 | 401 | 200 |
-| `workflowscheme` | 200 | 401 | 200 |
-| `project/search` | 401 | 401 | 200 |
-| `project/{key}` | 401 | 401 | 200 |
-| `mypermissions` | 200 | 200 | 200 |
+## Every request is checked as the person making it
 
-</div>
+Before the app touches Jira, every request is checked as **the person using the page**, in this order:
 
-A granular-only manifest cannot read permission, notification, workflow or issue security schemes, nor projects, and mixing the two lists gave inconsistent results. The scopes the app holds:
+1. **Who is asking.** Jira confirms the person's identity and their rights on the project: project administrator, or a project role the policy allows.
+2. **What the policy allows.** The app works out the project's effective policy fresh, from storage, on every request. Nothing the page sends is trusted. A request for a scheme that isn't allowed is refused, even if it is built by hand.
+3. **Whether the site allows changes right now.** The app must be licensed, changes must not be paused, and beta types must be turned on before they can be used.
+4. **Only then** does the app make the change with its own access. Afterwards it reads the project back to confirm the change took effect.
 
-| Scope | Why |
-|---|---|
-| `read:jira-work` | Read projects, project roles, statuses and issue counts, and check the caller's permissions before anything else happens. |
-| `manage:jira-configuration` | Read the site's schemes and assign notification, issue security and workflow schemes to a project. |
-| `manage:jira-project` | Assign permission and issue type screen schemes to a project. |
-| `storage:app` | The app's own storage: policies, settings, plans, locks, and the audit and history tables. |
+A Jira administrator is checked the same way. **Site-wide admin rights don't override the policy.** On a project no policy covers, every switch is refused, and the refusal explains how to proceed. Jira's own project settings are never blocked by the app.
 
-Issue security and workflow scheme switching are beta features, off by default; the scope is needed for the core scheme types regardless.
+## What is recorded
 
-## How the guards work
+Every change, refusal, revert and abandoned change writes **one audit record**. It holds who, when, the project, the scheme before and after, and the reason given. Repeated refusals of the same person and action within a minute write one record, plus a count of the further attempts.
 
-Any privileged action the app performs with its own identity, in a request a person started, is preceded in that same request by a permission check performed **as that person**: for a project admin, the *Administer Projects* permission on that project (or membership of the role or group the policy names); for a Jira admin, the *Administer Jira* permission. The check reads Jira's own answer for that user. The effective policy and the caller's rights are re-derived from storage on every request, and the browser's state is never trusted.
-
-Background work with no calling user (the daily check, the queue that finishes long-running switches, and install or upgrade) takes app identity through a separate path that refuses to run if a calling user is present, so it can never stand in for a permission check. Work a person started keeps that person as the recorded actor even when the background queue completes it.
-
-## What runs before a change lands
-
-Guard as the calling user → policy check → project lock → precondition (the current scheme still equals what was previewed) → apply as the app → verify by re-reading → record. A stale precondition means no change is made. A 2xx response from Jira is not treated as success; only the re-read is.
-
-## What the audit log records
-
-Every change, refusal, revert and abandoned switch writes one audit record: what changed, when, the before and after values as identifiers, the reason given, and who made it. People are stored in audit records as a per-installation pseudonym, an HMAC of their Atlassian account ID. A separate mapping table holds the pseudonym, the account ID and a display-name snapshot, so the log can be shown with names. That table is kept outside the hash chain, so erasing a row from it leaves the log verifiable. How and when closed accounts are erased is described in the [privacy policy](/privacy/).
-
-The app's change history table, which drives the History screen and the CSV export, stores the Atlassian account ID of the person who made each change and a snapshot of their display name.
-
-Records form a hash chain: each record includes the SHA-256 hash of the record before it, and records are numbered in sequence. **Verify integrity** recomputes the chain and reports the first broken link. It detects any modified, deleted or reordered row, and any row inserted between genuine rows. Removal of the newest rows is detected back to the latest recorded checkpoint. Forged rows appended by code with database write access are out of scope, because only the app's own code can write its database.
+- **People are identified by their Atlassian account ID**, not by their display name. Reading display names would need an extra permission to read user profiles. The app doesn't ask for it, because the name is a convenience and the account ID is the identity. Any site administrator can look up an account ID in Atlassian administration.
+- **Every change is recorded, even if something fails at the worst moment.** Just before the app writes to Jira, it notes that it is about to. If the write happens but the app is stopped before it can record it, a later check (on retry, or the daily check) re-reads Jira and records what actually happened. A change cannot reach Jira without ending up in the audit trail.
+- **Records are chained.** Each record contains a hash of the one before it, so a changed, removed or reordered record can be detected. **Verify the audit trail**, on the Checks tab, recomputes the chain and reports the first broken link.
+- **Erasure.** When an Atlassian account is closed, the link from that account to its records can be erased, and the chain still verifies.
 
 ## Where data lives
 
-All app data is stored in Forge storage (Key-Value Store and Forge SQL) provisioned for your installation on Atlassian infrastructure. The app declares no external egress and no remote services, so nothing leaves Atlassian. Neither EvidencePair, other apps nor customers can reach the app's database from outside the app.
+Policies, settings and history are stored in the app's own storage on Atlassian infrastructure (Forge storage and Forge SQL). The app makes no outside connections, and nothing leaves Atlassian.
 
-## The user interface
+## What the app never does
 
-The app's pages are Custom UI bundles with every asset included. They load nothing from a content delivery network, use no external fonts, and run no third-party analytics or error reporting.
-
-For the portfolio-wide posture, vulnerability reporting and our response commitment, see the [security page](/security/).
+- It never edits a scheme's contents. It only changes which scheme a project uses.
+- It never touches team-managed projects. Their configuration lives inside the project.
+- It never acts on its own except in three cases: the daily policy check, ending a queued change that has waited too long, and setting up its own tables on install. Each of these is recorded as the app's own action.

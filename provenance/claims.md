@@ -48,76 +48,38 @@ Re-read against the app repository at `7fcc76f` (2026-10-06). For `apps/controll
 | Unlicensed: history readable and exportable, switching off. | CHG “Good to know”; S10 CPC-F12 |
 | Scopes table and reasons, five scopes. | README “Scopes, and why each one is needed” at 7fcc76f (verbatim, with the internal “spec 01 §11” reference dropped); MAN `permissions.scopes` at 7fcc76f lists the same five. `report:personal-data` added 2026-10-01 (DEC 2026-10-01, `docs/evidence/2026-10-01-report-personal-data-scope/`). |
 | No external egress; talks only to Atlassian. | README; DI-02 |
+| The scope measurement table (eight reads × three scope lists, 200/401), the sentences around it, and “the scope is needed for the core scheme types regardless”. | DEC 2026-09-22 “CPC-S9 settled” table and conclusion (verbatim values; unchanged at 7fcc76f); README scopes paragraph. Publication confirmed 2026-09-29 (H-18); the app repository's DECISIONS.md remains the record. Moved here from the docs on 2026-10-06, because the docs are now copies of the app repository's pages and its security model page does not carry the table. |
 
-## Quick start (`content/docs/scheme-control/quick-start.md`)
+## Documentation (`content/docs/scheme-control/`): copies of the app repository's customer docs
 
-| Claim | Source |
-|---|---|
-| Once listed, install from the Marketplace; installing is a site administrator's action; scopes as listed. | General Atlassian platform behaviour, not in the app repo; MAN scopes. **Ali confirms wording at H-10.** |
-| Admin page location under Jira settings → Apps; title. | MAN `jira:adminPage` title “Scheme Control for Jira” (at 7fcc76f) |
-| Setup check probes a harmless admin-only read; ready / not ready with setup steps. | S10 CPC-F13; CPC-AC-23 |
-| Policy: projects by list or category; allowed schemes per type; core types permission, notification, issue type screen; types without an allowlist not switchable. | S10 CPC-F01 |
-| requireReason default on; cooldownMinutes default 0; allowedRoles default project admins or a named role/group. | S10 CPC-F03 |
-| Union of matching policies; effective-policy preview on admin page. | S10 CPC-F02 |
-| Project settings page “Controlled configuration”: current scheme, alternatives, last change. | MAN `jira:projectSettingsPage` title; S10 CPC-F04 |
-| Switch flow: target → preview → reason → confirm by typing project key → execute → progress → result. | S10 CPC-F05 |
-| Preview content for permission and notification. | CHG; S10 §5 |
-| Re-read after apply; only a match is success. | S01 §5 (CORE-AC-15); S10 §7.3 |
-| Stale preview: no change, “review again”. | S10 §7.2, CPC-AC-04 |
-| Revert: same audience, same policy, target is the previous scheme, always allowed. | S10 CPC-F08 |
+Since 2026-10-06 the site's docs for this app are copies of the app repository's six customer pages (spec 10 §12; app `README.md` “Customer documentation”), read at `7fcc76f`. That folder is identical at the released build, `ba8d3d8`. Every claim on these pages is the app repository's own customer documentation, so the source of each page is the page it copies. Each copy records its source path and commit in its front matter (`source`, `sourceCommit`), and `diff` against `git show 7fcc76f:<source>` shows only the adaptations listed.
 
-## Admin guide (`content/docs/scheme-control/admin-guide.md`)
+| Site page | Source in the app repository (at `7fcc76f`) | Adaptations, and nothing else |
+|---|---|---|
+| `install.md` → `/docs/scheme-control/install/` | `apps/controlled-project-config/docs/install.md` | H1 → front-matter `title`; two `.md` links → site URLs; the permissions table wrapped in the site's labelled scroll region. |
+| `admin-quick-start.md` → `/docs/scheme-control/admin-quick-start/` | `apps/controlled-project-config/docs/admin-quick-start.md` | H1 → `title`; two `.md` links → site URLs. |
+| `project-admin-guide.md` → `/docs/scheme-control/project-admin-guide/` | `apps/controlled-project-config/docs/project-admin-guide.md` | H1 → `title`; two `.md` links → site URLs. |
+| `workflow-mapping.md` → `/docs/scheme-control/workflow-mapping/` | `apps/controlled-project-config/docs/workflow-mapping.md` | H1 → `title`. |
+| `security-model.md` → `/docs/scheme-control/security-model/` | `apps/controlled-project-config/docs/security-model.md` | H1 → `title`; one `.md` link → site URL. |
+| `faq.md` → `/docs/scheme-control/faq/` | `apps/controlled-project-config/docs/faq.md` | H1 → `title`; one `.md` link → site URL; question headings `###` → `##`, because the layout's H1 is the only heading above them. |
 
-| Claim | Source |
-|---|---|
-| Roles table. | S10 §4 (verbatim) |
-| Policy and rights re-derived on every request; crafted request rejected and recorded. | S10 §4 “Critical rule”; CPC-AC-01, CPC-AC-02 |
-| Policies paragraph. | S10 CPC-F01–F03 |
-| Beta features off by default, global setting, not offered and refused while off, labelled Beta, experimental APIs. | S10 CPC-F14, CPC-AC-25, §12 |
-| Workflow mapping: per issue type, defaults by name then category; many-to-one revert warns. | S10 CPC-F05, CPC-AC-18, CPC-AC-11, CPC-F08 |
-| Pause all: notice shown, nothing executes. | S10 CPC-F10, CPC-AC-03 |
-| History filters (project, type, actor, date range), CSV export; per-project history. | S10 CPC-F07, CPC-AC-16 |
-| Rejected/unauthorised attempts recorded; repeats within a minute counted. | S10 §7.5 |
-| Verify integrity's three outcomes. | S10 CPC-AC-31 |
-| Daily checks: deleted/renamed schemes, archived/team-managed projects, warnings on admin page. | S10 CPC-F09, CPC-AC-14 |
-| One change per project; “change in progress”. | S10 §7.1, CPC-AC-07 |
-| A queued change that keeps failing is ended on its next delivery after its retry window; project page shows the outcome. | S10 CPC-AC-28; `queue.ts` 80, 283–308. (CPC-AC-33's daily reaper is not built, so the page does not claim it.) |
-| Team-managed and archived projects show an explanation. | S10 CPC-F11, CPC-AC-15; CHG |
-| Unlicensed read-only; banner on admin/config screens linking to the Atlassian Marketplace. | S01 §3.1; S10 CPC-F12, CPC-AC-06; `ui/src/admin.tsx` 776 |
+The front-matter `description` of each page is the site's one-line summary for the docs index. Two of them are the app's own words (install page, “Next steps”); the other four summarise the page's own headings and add no fact.
 
-## Security model (`content/docs/scheme-control/security-model.md`) and Security page (`content/legal/security.md`)
+The copies replace the site's earlier four pages (quick start, admin guide, security model, FAQ), which were written by the site builder from spec 10 at `0f51c26` and had fallen behind the app: they still described delegation to a named group, display-name snapshots in the history and the audit mapping, and a Jira administrator able to revert any change, and they did not mention the daily check that ends stalled changes, the rule that site-wide admin rights do not override a policy, or **Export all app data**.
+
+## Security page (`content/legal/security.md`)
 
 | Claim | Source |
 |---|---|
-| Assigning a scheme is admin-only in Jira; granular-only list returned 401 for those reads on a real site (2026-09-22). | README scopes paragraph; DEC 2026-09-22 CPC-S9 table; S10 §1 |
-| The scope measurement table (eight reads × three scope lists, 200/401) and the sentence after it. | DEC 2026-09-22 “CPC-S9” table and conclusion (verbatim values). Publication confirmed 2026-09-29 (H-18); the app repository's DECISIONS.md remains the record. |
-| Security page: “The one thing the platform does show us is its logs.” | S01 §9.5 (production logging exists); DI-20. What the logs hold is pending (H-08). |
-| Scopes table; issue security and workflow switching are beta, off by default. | README (verbatim); S10 CPC-F14 |
-| Guard as the user in the same request; Administer Projects / role or group / Administer Jira; reads Jira's answer. | S01 §3.2 guards and rule; S10 §4 |
-| Effective policy and rights re-derived each request; browser state never trusted. | S10 §4 |
-| Background contexts (scheduled, queue, lifecycle) via a path that throws if a calling user is present; attribution follows the person. | S01 §3.2 background contexts and attribution; CORE-AC-16 |
-| Order: guard → policy → lock → precondition → apply → verify → audit. | S10 CPC-F06 |
-| 2xx is not success; only the re-read is. | S01 §5 guarantee 7 |
-| Audit record contents; pseudonym (HMAC of account ID); mapping table with account ID and display name, kept outside the chain so erasing it leaves the log verifiable. The erasure process itself is not claimed (DI-12 gap). | S01 §4.1–4.2; SCHEMA; DI-06, DI-07 |
-| History table stores account ID and display-name snapshot. | DI-08 |
+| Assigning a scheme is admin-only in Jira; a granular-only list could not read the schemes involved on a real site (2026-09-22). Links to the app page's scopes and measurement. | README scopes paragraph; DEC 2026-09-22 CPC-S9 table; S10 §1 |
+| “The one thing the platform does show us is its logs.” | S01 §9.5 (production logging exists); DI-20. What the logs hold is on the privacy page (H-08). |
+| Guard as the user in the same request; reads Jira's answer about that user's permission on that project or site. | S01 §3.2 guards and rule; S10 §4; `apps/controlled-project-config/docs/security-model.md` “Every request is checked as the person making it” |
+| Background contexts (scheduled checks, queued completions, install and upgrade) via a path that refuses to run if a calling user is present. | S01 §3.2 background contexts; CORE-AC-16; `apps/controlled-project-config/src/triggers.ts` and `queue.ts` (`requireSystemActor`) |
+| Audit record contents (identifiers, never page bodies or attachment contents); pseudonym; mapping table kept outside the chain so erasing it leaves the log verifiable; how closed accounts are erased is on the privacy page. | S01 §4.1–4.2; SCHEMA; DI-06, DI-07, DI-12 |
 | Hash chain; Verify integrity; what it detects; checkpoint limit; forged rows out of scope; no secret key. | AUD (verbatim); S01 §4.2 |
-| Data in Forge storage for the installation on Atlassian infrastructure; no egress; nobody can reach the database from outside the app. | DI-01, DI-02, DI-03 |
-| Custom UI bundles every asset; no CDN, no external fonts, no third-party analytics. | S01 §1, §11; S00 §3.2 |
+| Data in Forge storage for the installation on Atlassian infrastructure; no egress; EvidencePair has no route to it from outside the app. | DI-01, DI-02, DI-03 |
+| Custom UI bundles every asset; no CDN, no external fonts, no third-party analytics or error reporting. | S01 §1, §11; S00 §3.2 |
 | Every EvidencePair Atlassian app is Forge only, no Connect modules. | S00 §3.1 |
 | A build check refuses a manifest that declares egress. | S01 CORE-AC-12; `scripts/check-manifests.mjs` |
 | Website statements (no cookies, no third-party requests, tested each build). | `tests/site.spec.mjs` |
 | No bug bounty programme. | Nothing in the repo establishes one. **Ali to confirm.** |
-
-## FAQ (`content/docs/scheme-control/faq.md`)
-
-| Claim | Source |
-|---|---|
-| Lossy revert explanation. | S10 CPC-S5 note (“many-to-one mappings”), CPC-F08, CPC-AC-11 |
-| Revert target always allowed: a restore, not a new choice. | S10 CPC-F08 (verbatim reasoning) |
-| Stale preview behaviour. | S10 §7.2 |
-| Concurrent attempts: exactly one executes; other told “change in progress”. | S10 CPC-AC-07 |
-| Why `manage:jira-configuration`. | README; DEC CPC-S9 |
-| No data leaves the site. | DI-02 |
-| Identity in audit log vs history. | DI-06, DI-07, DI-08 |
-| Unlicensed read-only. | CHG |
-| Team-managed unsupported. | CHG; S10 §3.2 |

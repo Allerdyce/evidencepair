@@ -53,4 +53,25 @@ Jira site admins and platform teams who want to delegate routine configuration w
 
 </div>
 
-The app declares no external egress: it talks only to Atlassian. Why the classic scopes and not granular ones, with the measurement behind it, is on the [security model](/docs/scheme-control/security-model/#why-the-app-holds-admin-scopes) page, along with how the permission checks work and what the audit log records.
+The app declares no external egress: it talks only to Atlassian. How the app checks each request, and what it records, is on the [security model](/docs/scheme-control/security-model/) page.
+
+### Why classic scopes, not granular ones
+
+Assigning a scheme to a project is an administrator-only operation in Jira, so the app must be able to act with administrator capability. A granular-only scope list was measured on a real site and returned 401 for the permission, notification, workflow and issue security scheme reads, so the app uses the classic scopes. The measurement, taken on 2026-09-22 on a Jira Cloud site with the app reading as itself:
+
+<div class="table-wrap" tabindex="0" role="region" aria-label="Scope measurement">
+
+| Read (as the app) | Granular and classic mixed | Granular only | Classic only |
+|---|---|---|---|
+| `permissionscheme` | 401 | 401 | 200 |
+| `notificationscheme` | 200 | 401 | 200 |
+| `issuetypescreenscheme` | 200 | 200 | 200 |
+| `issuesecurityschemes` | 401 | 401 | 200 |
+| `workflowscheme` | 200 | 401 | 200 |
+| `project/search` | 401 | 401 | 200 |
+| `project/{key}` | 401 | 401 | 200 |
+| `mypermissions` | 200 | 200 | 200 |
+
+</div>
+
+A granular-only manifest cannot read permission, notification, workflow or issue security schemes, nor projects, and mixing the two lists gave inconsistent results. Issue security and workflow scheme switching are beta features, off by default; the scope is needed for the core scheme types regardless.

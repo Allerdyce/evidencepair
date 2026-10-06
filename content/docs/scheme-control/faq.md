@@ -1,42 +1,51 @@
 ---
 title: FAQ
 app: scheme-control
-order: 4
-description: Lossy reverts, stale previews, concurrent changes, identity in the audit log.
+order: 6
+description: Policies and Jira administrators, lossy reverts, account IDs, licensing, stuck changes, export and uninstall.
+source: apps/controlled-project-config/docs/faq.md
+sourceCommit: 7fcc76f
 ---
 
-## When is a revert lossy?
+## I'm a Jira administrator. Why can't I switch a scheme on this project?
 
-A revert restores the scheme a project had immediately before a change. For permission, notification, issue type screen and issue security schemes that is a straight restore. For a workflow scheme (beta), issues were moved between statuses by the original switch. If two or more old statuses were mapped to one new status, a revert cannot tell which issues came from which, so it cannot put every issue back where it was. The app shows a lossy warning before you confirm such a revert.
+No policy covers the project. In Scheme Control for Jira, **the policy is the authority**, for everyone. If site-wide admin rights could override it, the app would offer no governance at all. You have two options:
 
-## Why is the revert target allowed even though it is no longer in the policy?
+- add the project to a policy, in **Settings → Apps → Scheme Control for Jira → Policies**; or
+- change the scheme in Jira's own **Project settings**. The app never blocks that.
 
-A revert is a restore, not a new choice. It puts the project back to what it had before, so it is always allowed to the same audience under the same policy.
+## What does "lossy" mean on a workflow revert?
 
-## The page says the configuration changed since my preview. What happened?
+Suppose a workflow switch moved issues from *several* statuses into *one*. Afterwards, nothing records which status each issue came from. A revert can still put the old workflow back. But the issues that were merged all move to a single status, which is the one you choose in the revert's mapping step. It starts at the status that held the most of them. If the app didn't record those numbers, it doesn't guess: it tells you, and you choose. The app warns you before you confirm. See [How workflow mapping works](/docs/scheme-control/workflow-mapping/).
 
-Someone or something changed the scheme between your preview and your confirmation. The app checks that the current scheme still equals what you previewed before it does anything; if not, it makes no change and asks you to review again.
+## Why does the history show an account ID instead of a name?
 
-## Two people tried to switch the same project at once. What happens?
+The audit trail identifies each person by their **Atlassian account ID**. Showing display names would need an extra permission to read user profiles. The app doesn't ask for it, because a name is a convenience and the account ID is the identity: it never changes, and it can't be confused with someone else's. An administrator can look up any account ID in Atlassian administration.
 
-Exactly one executes. The other is told “change in progress”. Once the first finishes, the second can preview again.
+## What happens when the app isn't licensed?
 
-## Why does the app need `manage:jira-configuration`?
+History stays readable and can still be exported. Switching and reverting are turned off.
 
-Reading the site's schemes and assigning notification, issue security and workflow schemes to a project are administrator operations in Jira that need that scope. A granular-only scope list was measured on a real site and could not read permission, notification, workflow or issue security schemes.
+A note on how this was tested. Atlassian's development tools can't switch a test installation to unlicensed. So the unlicensed behaviour is verified by automated tests that run the app's own code in-process, with the licence reported as inactive. It hasn't been observed on a live unlicensed site.
 
-## Does any data leave our Atlassian site?
+## A change says "in progress" and nothing is happening. What now?
 
-No. The app declares no external egress and talks only to Atlassian. Its data lives in Forge storage for your installation, on Atlassian infrastructure. See the [security model](/docs/scheme-control/security-model/) and the [privacy policy](/privacy/).
+Workflow and issue security changes are finished by Jira in the background, and usually take seconds to a few minutes. A change that can't run within **60 minutes** is stopped, and its history row says it didn't take effect. A daily check also stops any queued change that has waited longer than that.
 
-## How are people identified in the audit log?
+If a project still says another change is in progress after an interrupted change, a Jira administrator can release its lock. That is on the **Checks** tab, and the release is recorded with their reason.
 
-In the tamper-evident audit records, by a per-installation pseudonym derived from the Atlassian account ID. A separate, erasable table maps that pseudonym to the account ID and a display-name snapshot so the log can show names. In the change history table behind the History screen, by Atlassian account ID and a display-name snapshot.
+## Does the app support team-managed projects?
 
-## What does the app do without a licence?
+No. A team-managed project keeps its configuration inside the project rather than in shared schemes, so there is nothing to switch. Its page says so.
 
-It becomes read-only. History can be viewed and exported; switching and reverting are turned off.
+## Can we export everything the app stores?
 
-## Does it work on team-managed projects?
+Yes. On the **Settings** tab, **Export all app data** downloads one file with everything the app stores for your site: policies, settings, the history of changes and the audit trail. A second button then saves the history as CSV. Both files are built in your browser. Only Jira administrators can export.
 
-No. Their configuration lives in the project rather than in shared schemes. The project page shows an explanation instead of switch controls.
+## What happens to our data if we uninstall the app?
+
+Uninstalling removes everything the app stored for your site: policies, settings, history and the audit trail. Export it first if you need a copy. The schemes your projects use belong to Jira, so they stay exactly as they are.
+
+## Does any data leave Atlassian?
+
+No. The app stores everything in its own storage on Atlassian and makes no outside connections.

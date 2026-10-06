@@ -2,6 +2,16 @@
 
 Rulings and deviations for the EvidencePair vendor site (spec 30). Newest first. Anything a human must decide is in `HUMAN-TASKS.md`, not here.
 
+## 2026-10-06 · The site publishes copies of the app repository's customer docs
+
+**The app repository is the source of the docs; this site publishes copies.** Scheme Control for Jira's six customer pages live in the app repository, `apps/controlled-project-config/docs/` (install, admin quick start, project admin guide, how workflow mapping works, security model, FAQ; spec 10 §12). The site's pages under `/docs/scheme-control/` are copies of them, read at `7fcc76f`, which is identical to the released build `ba8d3d8` for that folder. Each copy keeps the source's wording. The only changes: the H1 becomes the page title, links between pages become site URLs, the FAQ's question headings move up a level, and the install page's table gets the site's scroll wrapper. Each page's front matter names its source path and commit, and `provenance/claims.md` lists them.
+
+**To change a doc, change it in the app repository first**, then copy it here and update the commit. A fix made only here would be overwritten by the next copy and would make the site disagree with the app's own documentation.
+
+**What this replaced.** The site's four earlier pages were written by the site builder from spec 10 at `0f51c26`, before the app had customer docs. They had fallen behind the app: delegation to a named group (the app delegates to project roles only), display-name snapshots in the history and audit mapping (the app stores account IDs only), a Jira administrator able to revert any change (site-wide admin rights do not override a policy), and nothing about the daily sweep of stalled changes or **Export all app data**.
+
+**The scope measurement moved to the app page.** Ali ruled on 2026-09-29 (H-18) that the 2026-09-22 measurement table is published, and it sat on the old security model page. The app repository's security model page does not carry it, so a faithful copy cannot either. It now sits on the app page under “Why classic scopes, not granular ones”, unchanged, and the security page's link to the app page's scopes section still reaches it.
+
 ## 2026-10-06 · The app is Scheme Control for Jira, at `/apps/scheme-control/` (H-11)
 
 **Supersedes** the 2026-09-29 entry “The app is named by its working title”. Ali named the product on 2026-09-30: “The app has a name: Scheme Control for Jira”, vendor EvidencePair LLC (app repository, `docs/rulings/2026-09-30-name-fold-and-spec-window.md`; spec 10 v1.6). The site now uses that name and the slug `scheme-control`, which is also the example spec 30 §5 gave. What moved: `content/apps/scheme-control.md`, `content/docs/scheme-control/` (each page's `app` field), `provenance/data-inventory/scheme-control.md`, every internal link, and the claims register. Status stays `coming soon`, so the page still shows no price, no Marketplace link and no purchase language.
