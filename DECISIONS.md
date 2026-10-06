@@ -2,6 +2,19 @@
 
 Rulings and deviations for the EvidencePair vendor site (spec 30). Newest first. Anything a human must decide is in `HUMAN-TASKS.md`, not here.
 
+## 2026-10-06 · Ali re-reads the changed privacy page and approves it (Ali)
+
+On 2026-10-06, after the draft with the H-06, H-07 and H-08 answers was published, the builder asked Ali to read the
+privacy page, the DPA draft and the app page. It asked him to confirm two sentences in particular:
+- "We read the logs only to troubleshoot the app."
+- "The app's data never leaves Atlassian, and the only part of it we can see is what the platform logs hold." This
+  replaces the earlier "cannot see" any customer data, which stopped being true once the logs were documented.
+
+Ali answered: "OK".
+- **This renews the 2026-10-02 sign-off (H-10) for the privacy page as it now stands.**
+- **It is not the DPA's legal review.** That is H-21, still open.
+- The site stays in draft until H-21 is done, because a pending statement remains in the DPA (H-16).
+
 ## 2026-10-06 · Support page: Atlassian's minimums beside our one-business-day target (Ali)
 
 **Ruled: Ali,** 2026-10-06, app repository `docs/rulings/2026-10-06-price-domain-terms-support.md`, answer 4 (“Yes”): EvidencePair commits to Atlassian's support terms for paid Marketplace apps. The support page already states a commitment (one business day, H-05), so it now also states Atlassian's minimums: critical issues get a response within 24 hours, every other request within 5 business days, and support is available at least 8 hours a day on business days. Atlassian's sources: the [Marketplace Partner Agreement](https://www.atlassian.com/licensing/marketplace/partneragreement) §6.3 for the response times, and the [cloud app operations guide](https://developer.atlassian.com/platform/marketplace/cloud-app-operations-guide/) for the hours. The minimums sit inside the same template condition as the target, so a page without a commitment would show neither.
