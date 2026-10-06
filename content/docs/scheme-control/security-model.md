@@ -4,7 +4,7 @@ app: scheme-control
 order: 5
 description: What the app can and cannot do, and how it is checked.
 source: apps/controlled-project-config/docs/security-model.md
-sourceCommit: 7fcc76f
+sourceCommit: cd42280
 ---
 
 Scheme Control for Jira lets people who are not Jira administrators change which scheme a project uses. That is a privileged action, so this page explains exactly how the app decides who may do it, and what it records.
@@ -28,7 +28,7 @@ A Jira administrator is checked the same way. **Site-wide admin rights don't ove
 
 Every change, refusal, revert and abandoned change writes **one audit record**. It holds who, when, the project, the scheme before and after, and the reason given. Repeated refusals of the same person and action within a minute write one record, plus a count of the further attempts.
 
-- **People are identified by their Atlassian account ID**, not by their display name. Reading display names would need an extra permission to read user profiles. The app doesn't ask for it, because the name is a convenience and the account ID is the identity. Any site administrator can look up an account ID in Atlassian administration.
+- **People are shown by their Atlassian account ID**, not by their display name. Inside the audit trail each person is stored as a pseudonymous reference, mapped to the account ID in a separate table, so erasing a closed account leaves the chain intact. Reading display names would need an extra permission to read user profiles. The app doesn't ask for it, because the name is a convenience and the account ID is the identity. Any site administrator can look up an account ID in Atlassian administration.
 - **Every change is recorded, even if something fails at the worst moment.** Just before the app writes to Jira, it notes that it is about to. If the write happens but the app is stopped before it can record it, a later check (on retry, or the daily check) re-reads Jira and records what actually happened. A change cannot reach Jira without ending up in the audit trail.
 - **Records are chained.** Each record contains a hash of the one before it, so a changed, removed or reordered record can be detected. **Verify the audit trail**, on the Checks tab, recomputes the chain and reports the first broken link.
 - **Erasure.** When an Atlassian account is closed, the link from that account to its records can be erased, and the chain still verifies.

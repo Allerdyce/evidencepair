@@ -4,7 +4,7 @@ app: scheme-control
 order: 6
 description: Policies and Jira administrators, lossy reverts, account IDs, licensing, stuck changes, export and uninstall.
 source: apps/controlled-project-config/docs/faq.md
-sourceCommit: 7fcc76f
+sourceCommit: cd42280
 ---
 
 ## I'm a Jira administrator. Why can't I switch a scheme on this project?
@@ -20,7 +20,7 @@ Suppose a workflow switch moved issues from *several* statuses into *one*. After
 
 ## Why does the history show an account ID instead of a name?
 
-The audit trail identifies each person by their **Atlassian account ID**. Showing display names would need an extra permission to read user profiles. The app doesn't ask for it, because a name is a convenience and the account ID is the identity: it never changes, and it can't be confused with someone else's. An administrator can look up any account ID in Atlassian administration.
+The app shows each person by their **Atlassian account ID**. Inside the audit trail, each person is stored as a pseudonymous reference, and a separate table maps it to the account ID, so a closed account can be erased without breaking the trail. Showing display names would need an extra permission to read user profiles. The app doesn't ask for it, because a name is a convenience and the account ID is the identity: it never changes, and it can't be confused with someone else's. An administrator can look up any account ID in Atlassian administration.
 
 ## What happens when the app isn't licensed?
 
@@ -44,7 +44,7 @@ Yes. On the **Settings** tab, **Export all app data** downloads one file with ev
 
 ## What happens to our data if we uninstall the app?
 
-Uninstalling removes everything the app stored for your site: policies, settings, history and the audit trail. Export it first if you need a copy. The schemes your projects use belong to Jira, so they stay exactly as they are.
+Uninstalling removes everything the app stored for your site: policies, settings, history and the audit trail. Atlassian's platform does the removal. Its documentation says an uninstalled app's data is kept for 28 days and then deleted, and that a reinstall starts empty. Within 21 days of the uninstall, the old data can be restored to a new installation, but only if you ask us and Atlassian does it with your consent ([data lifecycle](https://developer.atlassian.com/platform/forge/storage-reference/hosted-storage-data-lifecycle/)). Export your data first if you need a copy. The schemes your projects use belong to Jira, so they stay exactly as they are.
 
 ## Does any data leave Atlassian?
 

@@ -60,8 +60,16 @@ Since 2026-10-06 the site's docs for this app are copies of the app repository's
 | `admin-quick-start.md` → `/docs/scheme-control/admin-quick-start/` | `apps/controlled-project-config/docs/admin-quick-start.md` | H1 → `title`; two `.md` links → site URLs. |
 | `project-admin-guide.md` → `/docs/scheme-control/project-admin-guide/` | `apps/controlled-project-config/docs/project-admin-guide.md` | H1 → `title`; two `.md` links → site URLs. |
 | `workflow-mapping.md` → `/docs/scheme-control/workflow-mapping/` | `apps/controlled-project-config/docs/workflow-mapping.md` | H1 → `title`. |
-| `security-model.md` → `/docs/scheme-control/security-model/` | `apps/controlled-project-config/docs/security-model.md` | H1 → `title`; one `.md` link → site URL. |
-| `faq.md` → `/docs/scheme-control/faq/` | `apps/controlled-project-config/docs/faq.md` | H1 → `title`; one `.md` link → site URL; question headings `###` → `##`, because the layout's H1 is the only heading above them. |
+| `security-model.md` → `/docs/scheme-control/security-model/` | `apps/controlled-project-config/docs/security-model.md` **at `cd42280`** | H1 → `title`; one `.md` link → site URL. |
+| `faq.md` → `/docs/scheme-control/faq/` | `apps/controlled-project-config/docs/faq.md` **at `cd42280`** | H1 → `title`; one `.md` link → site URL; question headings `###` → `##`, because the layout's H1 is the only heading above them. |
+
+**`faq.md` and `security-model.md` are read at `cd42280`, not `7fcc76f`.** That app commit corrects those two pages
+(docs only; the app's code and the released build `ba8d3d8` are unchanged):
+- the uninstall answer now gives Atlassian's 28-day soft delete and the 21-day relink;
+- "identified by their account ID" now says the app *shows* the account ID, while the audit record *stores* a
+  pseudonymous reference.
+
+The site's privacy page already said both. The app repo's `DECISIONS.md`, 2026-10-06, has the details.
 
 The front-matter `description` of each page is the site's one-line summary for the docs index. Two of them are the app's own words (install page, “Next steps”); the other four summarise the page's own headings and add no fact.
 
