@@ -50,3 +50,39 @@ The three pending statements (H-06, H-07, H-08) are replaced by sourced text. Re
 - **Refusal counter.** The page described only the five-minute marker. The app now also keeps a durable counter until uninstall (DI-10).
 - **Missing items.** Policy “last edited by” (an account ID), audited configuration changes, previewed changes, change inputs, in-flight markers, the daily report, the pseudonym key, export and what the app reads from Jira were not on the page (DI-04, DI-06, DI-11, DI-14, DI-22, DI-23).
 - **“What we never do.”** It said customer data “never leaves your Atlassian site” and that we cannot see it. The platform logs are readable by the app's developers, and one kind of line holds an account ID, so the sentence now says the only part we can see is what the logs hold.
+
+The privacy page also links the DPA (“a draft awaiting legal review, rests on the same facts”): the DPA's map is below.
+
+# DPA → data inventory
+
+Page: `content/legal/dpa.md`, drafted 2026-10-06 on Ali's instruction (app repository `docs/rulings/2026-10-06-price-domain-terms-support.md`, answer 3: “the builder drafts the privacy policy (W3), a data processing agreement, and the security page (W5) from `apps/controlled-project-config/docs/data-inventory.md`”). Every factual sentence rests on an inventory line. Sentences that are legal positions or commitments, rather than facts about the app, are marked **Ali / legal** and are what the legal review (H-21) must confirm. The whole page carries a pending statement while it is a draft.
+
+| DPA sentence (abridged) | Rests on |
+|---|---|
+| Draft awaiting legal review; not yet part of any agreement. | Pending statement, H-21. |
+| EvidencePair LLC's DPA for its Atlassian Marketplace apps; between EvidencePair and a customer that installs one; today it covers Scheme Control for Jira. | **Ali / legal** (scope); the app list: `content/apps/`. |
+| It does not cover Paperloft apps, which process your documents on your Mac. | paperloft-site privacy, “Your documents stay on your Mac”. |
+| Under Atlassian's standard end-user agreement, a DPA applies when the Provider-Specific Terms identify it. | The agreement at atlassian.com/licensing/marketplace/end-user-agreement-v1: “The parties will adhere to the Data Protection Addendum (DPA), if any, identified in the Provider-Specific Terms.” |
+| §1 Roles: the customer is the controller; EvidencePair is the processor; the app runs on Atlassian's Forge platform. | **Ali / legal** (the characterisation); Forge: DI-01. Atlassian's guide expects a DPA “if you are a Data Processor under GDPR” ([list a customizable end-user agreement](https://developer.atlassian.com/platform/marketplace/list-customizable-end-user-agreement/)). |
+| §2 Whose data: Jira admins, project admins, members of allowed project roles, refused people. | DI-16, DI-04, DI-10 |
+| §2 What: account IDs of people who make, revert, preview or are refused changes, and of admins who edit policies or settings; reason text as entered. | DI-04, DI-06 to DI-11, DI-17; ADI “Personal data” |
+| §2 What not: no display names, emails or profile data, no permission to read them; no issue content, comments or attachments. | DI-18, DI-22 |
+| §2 Audit records: pseudonymous reference, never the account ID; mapping outside the chain, erasable. | DI-06, DI-07 |
+| §3 Purpose: check who may change; record changes, reverts, refusals; show and export; report and erase; troubleshoot through the logs. Lasts while installed. | S10 §1, §4; DI-12, DI-14, DI-20, DI-13 |
+| §4 Storage: Forge KVS and Forge SQL for the installation; no egress, no remote services, Atlassian APIs only, nothing reaches EvidencePair's systems. | DI-01, DI-02, DI-03 |
+| §4 Location: Forge-hosted storage kept in the location of the Atlassian product (linked). | DI-24 |
+| §4 Runs on Atlassian: designed to be eligible (Atlassian-hosted compute and storage, no egress); Atlassian decides and applies the badge to listed apps; not listed yet. | S00 §3.2 (“Runs on Atlassian eligible. No external egress …”); S10 header; DI-02; [Runs on Atlassian](https://developer.atlassian.com/platform/forge/runs-on-atlassian/) (“automatically applied to eligible apps on the Atlassian Marketplace”). No `forge eligibility` result is recorded in the app repository, so the page claims the design, not the badge. |
+| §4 Platform logs kept by Atlassian, readable by the app's developers. | DI-20 |
+| §5 Retention, closed accounts, uninstall (28 days, 21-day relink, linked), exports, 30-day logs. | DI-11, DI-12, DI-13, DI-14, DI-20 |
+| §6 One sub-processor, Atlassian (code, storage, queues, logs); no other service processes the app's personal data. | DI-01, DI-02, DI-09, DI-20. Naming Atlassian as a sub-processor: **Ali / legal**. |
+| §7 EvidencePair cannot reach storage; developers read logs while the site shares them; one line type holds an account ID; a site admin can turn sharing off; correspondence kept as the privacy policy says. | DI-03, DI-20; correspondence: **Ali** (privacy page, “If you email us …”). |
+| §8 Isolation; Atlassian encrypts Forge-hosted storage on disk (linked). | DI-03, DI-24 |
+| §8 No egress, no third parties; build check refuses egress. | DI-02, DI-21; S01 CORE-AC-12 (`scripts/check-manifests.mjs`) |
+| §8 Checked as the person on every request; policy re-derived; nothing the page sends trusted; the app acts on its own only in three cases. | `apps/controlled-project-config/docs/security-model.md` (“Every request is checked as the person making it”; “What the app never does”) |
+| §8 Least access inside the site; only Jira admins export. | DI-16, DI-14 |
+| §8 Pseudonymous, hash-chained records; Verify the audit trail. | DI-06, DI-07; AUD; `docs/security-model.md` |
+| §8 Minimal data: no profile data; one generated key, no other secret. | DI-18, DI-23 |
+| §9 Breach: notify without undue delay, with the information we have. | **Ali / legal** — a commitment, asked for in the brief for this page; no app source. |
+| §10 Export; automatic erasure of closed accounts; uninstall removes everything; contact support for anything else. | DI-14, DI-12, DI-13; support address: `data/site.json` |
+| §11 Support and security addresses. | `data/site.json` `emails.support`, `emails.security` |
+| §12 Transfers, sub-processor notice, audit rights, liability, governing law: not written yet. | Pending statement, H-21. |

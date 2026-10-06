@@ -14,6 +14,8 @@ EvidencePair's Atlassian apps are distributed through the Atlassian Marketplace.
 
 Any terms specific to EvidencePair appear in the Provider-Specific Terms on the app's Marketplace listing, which take precedence over the standard agreement where they differ. There are none today: no EvidencePair app is listed on the Marketplace yet.
 
+Our [data processing agreement](/dpa/) for these apps is a draft awaiting legal review. Under the standard agreement, a data processing agreement applies to an app when its Provider-Specific Terms identify it.
+
 Billing, trials and licence management are handled by Atlassian through the Marketplace.
 
 ## This website

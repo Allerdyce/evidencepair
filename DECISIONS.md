@@ -2,6 +2,16 @@
 
 Rulings and deviations for the EvidencePair vendor site (spec 30). Newest first. Anything a human must decide is in `HUMAN-TASKS.md`, not here.
 
+## 2026-10-06 · A draft DPA for the Atlassian apps, at `/dpa/` (H-21)
+
+Ali's 2026-10-06 ruling (app repository `docs/rulings/2026-10-06-price-domain-terms-support.md`, answer 3) asks for a data processing agreement drafted from the app's data inventory, for review by a lawyer or against a template. Atlassian's standard end-user agreement includes none, and a listing without one is a common rejection (app repository `docs/launch/2026-10-06-marketplace-research.md` §4).
+
+**What it is built from:** only the data inventory (`provenance/data-inventory/scheme-control.md`), which follows the app repository's own inventory, plus Atlassian's documentation for platform facts. Every sentence is mapped in `provenance/privacy-traceability.md`. It states the personal data (account IDs and reason text; no display names; pseudonymous audit records), where it is processed (Forge storage for the installation, no egress, Atlassian's location rules), the one sub-processor (Atlassian), retention and deletion, the security measures that are true of the app today, breach notification without undue delay, and the support and security addresses.
+
+**What it deliberately leaves out:** no certification, audit, insurance or service level is claimed, because none exists in either repository. International transfers, notice of new sub-processors, audit rights, liability and governing law are not written; a second pending statement says so. The “Runs on Atlassian” line claims the design (no egress, Atlassian-hosted compute and storage), not the badge, which Atlassian applies to listed apps and which no `forge eligibility` result in the app repository yet confirms.
+
+**Where it is linked:** the footer's legal links (“Data processing”), the privacy page's Atlassian section and the terms page's Atlassian section. It uses the legal layout, so it shows a last-updated date. While `draft` is true it carries a pending statement at the top citing H-21; it cannot be published with that statement in place.
+
 ## 2026-10-06 · Terms: Atlassian's standard end-user agreement, superseding H-04's wording (Ali)
 
 **Ruled: Ali,** 2026-10-06, app repository `docs/rulings/2026-10-06-price-domain-terms-support.md`, answer 3 (“Agreed please write”), to the builder's recommendation of “Atlassian's free standard end-user agreement rather than writing your own”; recorded in that repository's `DECISIONS.md`, 2026-10-06, item 3.

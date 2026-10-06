@@ -24,7 +24,7 @@ Paperloft apps have their own [privacy policy](https://paperloft.app/privacy/) a
 
 ## Atlassian apps
 
-The rest of this policy describes **Scheme Control for Jira**. When we publish another Atlassian app, this page will describe it too.
+The rest of this policy describes **Scheme Control for Jira**. When we publish another Atlassian app, this page will describe it too. Our [data processing agreement](/dpa/) for these apps, a draft awaiting legal review, rests on the same facts.
 
 ### Where data lives
 
