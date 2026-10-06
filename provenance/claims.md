@@ -76,6 +76,16 @@ The copies replace the site's earlier four pages (quick start, admin guide, secu
 | None exist today: no EvidencePair app is listed yet. | The app is not submitted: `apps/controlled-project-config/docs/listing.md` is a draft “For Ali to review and submit”; `docs/launch/CHECKLIST.md` at `53bfbc2`, item 10. No provider-specific terms are drafted anywhere in either repository. |
 | Billing, trials and licence management are handled by Atlassian. | Unchanged from 2026-10-02 (H-04); `docs/launch/2026-10-06-marketplace-research.md` §2 (“Paid via Atlassian”; automatic 30-day trial). |
 
+## Support page, Atlassian apps (`content/support.md`)
+
+| Claim | Source |
+|---|---|
+| Email support@evidencepair.com; no portal link while `supportPortalUrl` is null. | `data/site.json`; H-14 (the Jira Service Management portal is not set up yet). |
+| “We reply within one business day. That is our own target.” | `data/site.json` `supportResponseTarget`; **Ali**, H-05, 2026-10-02. |
+| Atlassian's minimums: critical issues get a response within 24 hours, every other request within 5 business days. | Ali's commitment, app repository `docs/rulings/2026-10-06-price-domain-terms-support.md` answer 4 (“Yes”, to “Paid apps must answer critical issues within 24 hours and others within 5 business days”); DEC 2026-10-06 item 4. Atlassian's rule: [Marketplace Partner Agreement](https://www.atlassian.com/licensing/marketplace/partneragreement) §6.3 (“At a minimum you agree to respond within 24 hours to any support request that Atlassian identifies as critical, and in all other cases within five business days”). The page says “critical issues”, as Ali committed, which covers at least what Atlassian identifies as critical. |
+| Support available at least 8 hours a day on business days. | Same ruling, answer 4 (“support 8 hours a day, 5 days a week”). Atlassian's rule: [cloud app operations guide](https://developer.atlassian.com/platform/marketplace/cloud-app-operations-guide/) (“Offer support at least 8 hours a day, 5 days a week in your local time zone for all paid-via-Atlassian apps”). |
+| These minimums are shown only while the page states a response target. | Template condition: they sit inside `{% if site.supportResponseTarget %}`, so a page with no commitment shows none. |
+
 ## Security page (`content/legal/security.md`)
 
 | Claim | Source |

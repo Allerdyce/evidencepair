@@ -13,7 +13,7 @@ Email <a href="mailto:{{ paperloft.supportEmail }}">{{ paperloft.supportEmail }}
 
 Email <a href="mailto:{{ site.emails.support }}">{{ site.emails.support }}</a>. {% if site.supportPortalUrl %}You can also raise a request in our [support portal]({{ site.supportPortalUrl }}).{% endif %}
 
-{% if site.supportResponseTarget %}We reply within {{ site.supportResponseTarget }}.{% else %}{% pending "State the support response target.", "HUMAN-TASKS H-05" %}{% endif %}
+{% if site.supportResponseTarget %}We reply within {{ site.supportResponseTarget }}. That is our own target. We also commit to Atlassian's minimums for Marketplace apps: critical issues get a response within 24 hours, every other request within 5 business days, and support is available at least 8 hours a day on business days.{% else %}{% pending "State the support response target.", "HUMAN-TASKS H-05" %}{% endif %}
 
 ### What to include
 
