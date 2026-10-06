@@ -1,6 +1,6 @@
 ---
 title: Terms
-updated: 2026-10-02
+updated: 2026-10-06
 description: The terms that govern EvidencePair's Paperloft apps, Atlassian apps and this website.
 ---
 
@@ -10,7 +10,11 @@ Paperloft apps are sold only through the Mac App Store. Unless an app's listing 
 
 ## Atlassian apps
 
-EvidencePair's Atlassian apps are distributed through the Atlassian Marketplace. Unless an app's listing states otherwise, your use of an app is governed by the [Atlassian Marketplace Terms of Use](https://www.atlassian.com/licensing/marketplace/termsofuse), the standard end-user terms for Marketplace apps, between you and EvidencePair as the app's publisher. Billing, trials and licence management are handled by Atlassian through the Marketplace.
+EvidencePair's Atlassian apps are distributed through the Atlassian Marketplace. Your use of an app is governed by Atlassian's standard, customizable end-user agreement for Marketplace apps, the [Bonterms Standard End User Agreement (Version 1.0)](https://www.atlassian.com/licensing/marketplace/end-user-agreement-v1), between you and EvidencePair LLC as the app's provider.
+
+Any terms specific to EvidencePair appear in the Provider-Specific Terms on the app's Marketplace listing, which take precedence over the standard agreement where they differ. There are none today: no EvidencePair app is listed on the Marketplace yet.
+
+Billing, trials and licence management are handled by Atlassian through the Marketplace.
 
 ## This website
 

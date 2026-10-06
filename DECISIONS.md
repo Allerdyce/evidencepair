@@ -2,6 +2,14 @@
 
 Rulings and deviations for the EvidencePair vendor site (spec 30). Newest first. Anything a human must decide is in `HUMAN-TASKS.md`, not here.
 
+## 2026-10-06 · Terms: Atlassian's standard end-user agreement, superseding H-04's wording (Ali)
+
+**Ruled: Ali,** 2026-10-06, app repository `docs/rulings/2026-10-06-price-domain-terms-support.md`, answer 3 (“Agreed please write”), to the builder's recommendation of “Atlassian's free standard end-user agreement rather than writing your own”; recorded in that repository's `DECISIONS.md`, 2026-10-06, item 3.
+
+**Supersedes the wording of H-04 (2026-10-02),** which said the Atlassian Marketplace Terms of Use apply by reference. Those are the terms between Atlassian and Marketplace users; the agreement between a customer and the app's provider is the end-user agreement the listing names. The terms page's Atlassian section now names Atlassian's standard, customizable end-user agreement, the [Bonterms Standard End User Agreement (Version 1.0)](https://www.atlassian.com/licensing/marketplace/end-user-agreement-v1), between the customer and EvidencePair LLC as provider ([how a listing adopts it](https://developer.atlassian.com/platform/marketplace/list-customizable-end-user-agreement/)). It says that any EvidencePair-specific terms appear in the listing's Provider-Specific Terms, which take precedence where they differ, and that there are none today because no app is listed yet. The Paperloft section is unchanged.
+
+**For Ali, when the listing is created:** under that agreement a DPA, security measures, a support policy and an SLA apply only if the Provider-Specific Terms identify them. Whether to link the DPA and the support page there is his decision; nothing on the site says they are linked.
+
 ## 2026-10-06 · Privacy page: the three app gaps answered from the app repository and Atlassian's docs (H-06, H-07, H-08)
 
 The three pending statements are replaced, each from a line of the data inventory, which was re-derived from the app repository at `7fcc76f` (identical to the released build `ba8d3d8` for the app and core). The app repository now has its own inventory, `apps/controlled-project-config/docs/data-inventory.md`, written from the code on 2026-10-01; the site's inventory now follows it line by line and adds code references where the app's inventory is silent (the queue message, the logs). No pending statement remains on the privacy page.

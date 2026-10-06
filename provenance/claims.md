@@ -67,6 +67,15 @@ The front-matter `description` of each page is the site's one-line summary for t
 
 The copies replace the site's earlier four pages (quick start, admin guide, security model, FAQ), which were written by the site builder from spec 10 at `0f51c26` and had fallen behind the app: they still described delegation to a named group, display-name snapshots in the history and the audit mapping, and a Jira administrator able to revert any change, and they did not mention the daily check that ends stalled changes, the rule that site-wide admin rights do not override a policy, or **Export all app data**.
 
+## Terms page, Atlassian apps (`content/legal/terms.md`)
+
+| Claim | Source |
+|---|---|
+| Atlassian's standard, customizable end-user agreement governs the apps, between the customer and EvidencePair LLC as provider. | Ali's ruling, app repository `docs/rulings/2026-10-06-price-domain-terms-support.md` (answer 3, “Agreed”, to “I recommend Atlassian's free standard end-user agreement”); DEC 2026-10-06 item 3. The agreement: [atlassian.com/licensing/marketplace/end-user-agreement-v1](https://www.atlassian.com/licensing/marketplace/end-user-agreement-v1), titled “Bonterms Standard End User Agreement (Version 1.0)”, between “Provider” and “Customer”. |
+| EvidencePair-specific terms appear in the listing's Provider-Specific Terms, which take precedence over the standard agreement. | [List a customizable end-user agreement](https://developer.atlassian.com/platform/marketplace/list-customizable-end-user-agreement/) (the version's Links tab: choosing the standard agreement opens a “Provider Specific Terms” box; customers see both on the listing and at install); the agreement's order of precedence: “(i) any Amendment, (ii) Provider-Specific Terms and (iii) this Standard Agreement”. |
+| None exist today: no EvidencePair app is listed yet. | The app is not submitted: `apps/controlled-project-config/docs/listing.md` is a draft “For Ali to review and submit”; `docs/launch/CHECKLIST.md` at `53bfbc2`, item 10. No provider-specific terms are drafted anywhere in either repository. |
+| Billing, trials and licence management are handled by Atlassian. | Unchanged from 2026-10-02 (H-04); `docs/launch/2026-10-06-marketplace-research.md` §2 (“Paid via Atlassian”; automatic 30-day trial). |
+
 ## Security page (`content/legal/security.md`)
 
 | Claim | Source |
