@@ -71,6 +71,10 @@ Since 2026-10-06 the site's docs for this app are copies of the app repository's
 
 The site's privacy page already said both. The app repo's `DECISIONS.md`, 2026-10-06, has the details.
 
+**`install.md`, `admin-quick-start.md` and `faq.md` are read at `c6b1960`.** That app commit is docs only: the admin
+page's path is now **Settings → Marketplace apps**, which is what today's Jira shows (seen in Ali's human-QA
+screenshots on 2026-10-06), not "Settings → Apps". `faq.md` carries both corrections.
+
 The front-matter `description` of each page is the site's one-line summary for the docs index. Two of them are the app's own words (install page, “Next steps”); the other four summarise the page's own headings and add no fact.
 
 The copies replace the site's earlier four pages (quick start, admin guide, security model, FAQ), which were written by the site builder from spec 10 at `0f51c26` and had fallen behind the app: they still described delegation to a named group, display-name snapshots in the history and the audit mapping, and a Jira administrator able to revert any change, and they did not mention the daily check that ends stalled changes, the rule that site-wide admin rights do not override a policy, or **Export all app data**.
