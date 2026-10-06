@@ -4,14 +4,14 @@ app: scheme-control
 order: 6
 description: Policies and Jira administrators, lossy reverts, account IDs, licensing, stuck changes, export and uninstall.
 source: apps/controlled-project-config/docs/faq.md
-sourceCommit: cd42280
+sourceCommit: c6b1960
 ---
 
 ## I'm a Jira administrator. Why can't I switch a scheme on this project?
 
 No policy covers the project. In Scheme Control for Jira, **the policy is the authority**, for everyone. If site-wide admin rights could override it, the app would offer no governance at all. You have two options:
 
-- add the project to a policy, in **Settings → Apps → Scheme Control for Jira → Policies**; or
+- add the project to a policy, in **Settings → Marketplace apps → Scheme Control for Jira → Policies**; or
 - change the scheme in Jira's own **Project settings**. The app never blocks that.
 
 ## What does "lossy" mean on a workflow revert?

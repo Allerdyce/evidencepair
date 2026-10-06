@@ -4,14 +4,14 @@ app: scheme-control
 order: 2
 description: Set up your first policy in a few minutes.
 source: apps/controlled-project-config/docs/admin-quick-start.md
-sourceCommit: 7fcc76f
+sourceCommit: c6b1960
 ---
 
 You are a Jira administrator. You want project admins to switch some of their own project's schemes without giving them *Administer Jira*. You do that with **policies**.
 
 ## 1. Create a policy
 
-Open **Settings → Apps → Scheme Control for Jira → Policies**, and choose **New policy**.
+Open **Settings → Marketplace apps → Scheme Control for Jira → Policies**, and choose **New policy**.
 
 - **Name.** Something a project admin will recognise, such as "Marketing projects".
 - **Projects it covers.** Pick projects one by one, a project category, or both. A category covers every project in it, including projects added to the category later.

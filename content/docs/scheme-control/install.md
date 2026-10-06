@@ -4,7 +4,7 @@ app: scheme-control
 order: 1
 description: What the app needs, and why, and how to check that it is ready.
 source: apps/controlled-project-config/docs/install.md
-sourceCommit: 7fcc76f
+sourceCommit: c6b1960
 ---
 
 Scheme Control for Jira works on **Jira Cloud company-managed projects**. It installs from the Atlassian Marketplace like any other app.
@@ -30,14 +30,14 @@ The app changes which scheme a project uses. That is an administrative action in
 
 ## Check that it is ready
 
-1. Go to **Settings → Apps** and open **Scheme Control for Jira**.
+1. Go to **Settings → Marketplace apps** and open **Scheme Control for Jira** in the left menu.
 2. The **Setup** tab runs a harmless check. It reads one permission scheme, which only an administrator can do.
    - **Ready** means the app can do its job.
    - **Not ready** shows the steps below.
 
 ### If the setup check says "not ready"
 
-1. Open **Settings → Apps → Manage apps** and confirm that Scheme Control for Jira is installed and enabled.
+1. Open **Settings → Marketplace apps → Manage apps** and confirm that Scheme Control for Jira is installed and enabled.
 2. If Jira asked you to approve the app's access again after an update, approve it.
 3. If the check still fails, reinstall the app. Its administrative access comes from the permissions approved at install.
 

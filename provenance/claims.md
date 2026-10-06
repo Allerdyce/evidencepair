@@ -56,12 +56,12 @@ Since 2026-10-06 the site's docs for this app are copies of the app repository's
 
 | Site page | Source in the app repository (at `7fcc76f`) | Adaptations, and nothing else |
 |---|---|---|
-| `install.md` → `/docs/scheme-control/install/` | `apps/controlled-project-config/docs/install.md` | H1 → front-matter `title`; two `.md` links → site URLs; the permissions table wrapped in the site's labelled scroll region. |
-| `admin-quick-start.md` → `/docs/scheme-control/admin-quick-start/` | `apps/controlled-project-config/docs/admin-quick-start.md` | H1 → `title`; two `.md` links → site URLs. |
+| `install.md` → `/docs/scheme-control/install/` | `apps/controlled-project-config/docs/install.md` **at `c6b1960`** | H1 → front-matter `title`; two `.md` links → site URLs; the permissions table wrapped in the site's labelled scroll region. |
+| `admin-quick-start.md` → `/docs/scheme-control/admin-quick-start/` | `apps/controlled-project-config/docs/admin-quick-start.md` **at `c6b1960`** | H1 → `title`; two `.md` links → site URLs. |
 | `project-admin-guide.md` → `/docs/scheme-control/project-admin-guide/` | `apps/controlled-project-config/docs/project-admin-guide.md` | H1 → `title`; two `.md` links → site URLs. |
 | `workflow-mapping.md` → `/docs/scheme-control/workflow-mapping/` | `apps/controlled-project-config/docs/workflow-mapping.md` | H1 → `title`. |
 | `security-model.md` → `/docs/scheme-control/security-model/` | `apps/controlled-project-config/docs/security-model.md` **at `cd42280`** | H1 → `title`; one `.md` link → site URL. |
-| `faq.md` → `/docs/scheme-control/faq/` | `apps/controlled-project-config/docs/faq.md` **at `cd42280`** | H1 → `title`; one `.md` link → site URL; question headings `###` → `##`, because the layout's H1 is the only heading above them. |
+| `faq.md` → `/docs/scheme-control/faq/` | `apps/controlled-project-config/docs/faq.md` **at `c6b1960`** | H1 → `title`; one `.md` link → site URL; question headings `###` → `##`, because the layout's H1 is the only heading above them. |
 
 **`faq.md` and `security-model.md` are read at `cd42280`, not `7fcc76f`.** That app commit corrects those two pages
 (docs only; the app's code and the released build `ba8d3d8` are unchanged):
