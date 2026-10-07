@@ -2,9 +2,9 @@
 title: FAQ
 app: scheme-control
 order: 6
-description: Policies and Jira administrators, lossy reverts, account IDs, licensing, stuck changes, export and uninstall.
+description: Policies and Jira administrators, lossy reverts, Jira's own audit records, account IDs, licensing, stuck changes, export and uninstall.
 source: apps/controlled-project-config/docs/faq.md
-sourceCommit: c6b1960
+sourceCommit: 8a818f8
 ---
 
 ## I'm a Jira administrator. Why can't I switch a scheme on this project?
@@ -16,7 +16,18 @@ No policy covers the project. In Scheme Control for Jira, **the policy is the au
 
 ## What does "lossy" mean on a workflow revert?
 
-Suppose a workflow switch moved issues from *several* statuses into *one*. Afterwards, nothing records which status each issue came from. A revert can still put the old workflow back. But the issues that were merged all move to a single status, which is the one you choose in the revert's mapping step. It starts at the status that held the most of them. If the app didn't record those numbers, it doesn't guess: it tells you, and you choose. The app warns you before you confirm. See [How workflow mapping works](/docs/scheme-control/workflow-mapping/).
+Suppose a workflow switch moved issues from *several* statuses into *one*, or moved issues into a status both workflows have. Afterwards, nothing records which status each issue came from. A revert can still put the old workflow back, but it can't put those issues back exactly. What happens to them depends on the status they were merged into:
+
+- If the old workflow has that status too, the issues **stay in it**.
+- If it doesn't, they **all move** to one status: the one you choose in the revert's mapping step. It starts at the status that held the most of them. If the app didn't record those numbers, it doesn't guess: it tells you, and you choose.
+
+The app tells you which of these will happen before you confirm. It also offers a search in Jira that finds the issues by their status history, so you can move them back by hand if you need to. See [How workflow mapping works](/docs/scheme-control/workflow-mapping/).
+
+## Why does Jira's own audit log show so many records for one workflow switch?
+
+Jira records a workflow switch as about eight records in its audit log. Most of them are Jira's own steps: it creates temporary workflows and a temporary scheme, uses them to move the issues, then deletes them. Jira also shows the app as the author of each record, because the app makes the change.
+
+The app's **History** is the readable account. It shows one line per switch, with who asked for it, why, when, and how it ended. The app's audit trail holds the same, and can be verified on the **Checks** tab.
 
 ## Why does the history show an account ID instead of a name?
 
@@ -38,9 +49,9 @@ If a project still says another change is in progress after an interrupted chang
 
 No. A team-managed project keeps its configuration inside the project rather than in shared schemes, so there is nothing to switch. Its page says so.
 
-## Can we export everything the app stores?
+## Can we export the app's data?
 
-Yes. On the **Settings** tab, **Export all app data** downloads one file with everything the app stores for your site: policies, settings, the history of changes and the audit trail. A second button then saves the history as CSV. Both files are built in your browser. Only Jira administrators can export.
+Yes. On the **Settings** tab, **Export all app data** downloads one file with the app's records for your site: policies, settings, the history of changes, the audit trail and the refusal counters. It is not a raw copy of every internal record: short-lived working records (previews, locks and in-progress markers) and the key used to make the audit trail's pseudonymous references are left out. A second button then saves the history as CSV. Both files are built in your browser. Only Jira administrators can export.
 
 ## What happens to our data if we uninstall the app?
 

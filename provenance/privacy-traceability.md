@@ -1,12 +1,13 @@
 # Privacy page → data inventory (SITE-AC-05)
 
-Page: `content/legal/privacy.md`. Inventory: `data-inventory/scheme-control.md` (re-derived 2026-10-06 from the app repository's own inventory and code at `7fcc76f`, identical to the released build `ba8d3d8` for the app and core). Sentences about the website itself are enforced by the browser tests in `tests/site.spec.mjs` (SITE-AC-03, SITE-AC-04) rather than by an inventory line. Sentences about EvidencePair's own practice are marked **Ali** and need Ali's confirmation, not a source. Sentences about Atlassian's platform rest on an inventory line that quotes Atlassian's documentation, and the page links the same documentation.
+Page: `content/legal/privacy.md`. Inventory: `data-inventory/scheme-control.md` (re-derived 2026-10-06 from the app repository's own inventory and code at `7fcc76f`, identical to the released build `ba8d3d8` for the app and core; DI-12, DI-14, DI-18 and DI-20 re-read 2026-10-07 at `8a818f8`). Sentences about the website itself are enforced by the browser tests in `tests/site.spec.mjs` (SITE-AC-03, SITE-AC-04) rather than by an inventory line. Sentences about EvidencePair's own practice are marked **Ali** and need Ali's confirmation, not a source. Sentences about Atlassian's platform rest on an inventory line that quotes Atlassian's documentation, and the page links the same documentation.
 
 | Privacy page sentence (abridged) | Rests on |
 |---|---|
 | This website collects nothing. It sets no cookies, stores nothing in your browser, runs no analytics, and makes no request to any third party. There are no forms. | Tests: SITE-AC-03, SITE-AC-04; no `<form>` in any template. |
 | The site is served by GitHub Pages, which processes requests … under its own privacy statement. We do not receive or use visitor analytics from it. | **Ali** (H-01/H-03, 2026-10-02): host chosen; no analytics are enabled. |
 | If you email us, we keep the correspondence … | **Ali** — vendor practice. |
+| Email to our addresses is forwarded by Porkbun to a mailbox in Apple's iCloud Mail, where we read it; the DPA's Annex B.2 lists both. | **Ali**, app repository `docs/rulings/2026-10-07-dpa-address-access-email-providers.md` (“Yes, Porkbun and Apple”); H-02 (all four addresses forward through Porkbun to Ali's inbox); `content/legal/dpa.md` Annex B.2. |
 | EvidencePair LLC makes Paperloft, Mac apps for paperwork, and apps for Atlassian products, and runs this website. This policy covers both product lines and this website. | **Ali** — company-wide scope, 2026-10-02 (H-17 superseded). |
 | Paperloft apps have their own privacy policy at paperloft.app, which governs them. | paperloft-site `privacy/index.html` at 38d6933 exists and is live (checked at build). |
 | Paperloft apps process your documents on your Mac; we do not receive, store or see your documents or the information in them. | paperloft-site privacy, “Your documents stay on your Mac” (verbatim). |
@@ -26,20 +27,31 @@ Page: `content/legal/privacy.md`. Inventory: `data-inventory/scheme-control.md` 
 | Refusal counts (pointer to the section below). | DI-10 |
 | The daily check report: the latest policy integrity findings, scheme and project identifiers and names. | DI-11 (ADI row “Daily check report”) |
 | One key generated per installation for the pseudonymous references; no other secret. | DI-23 |
-| The personal data involved is account IDs and reason text. No display names, email addresses or other profile data, and no permission to read them. | DI-06 to DI-10, DI-17, DI-18 |
+| The personal data involved is account IDs and reason text. No display names, email addresses or other profile data, and no permission to read them. A preview may show a person's name if Jira includes it in the scheme it returns, otherwise their account ID; never looked up, never stored. | DI-06 to DI-10, DI-17, DI-18 (the preview sentence: DI-18 at `8a818f8`) |
 | What the app reads from Jira; no issue content, comments or attachments. | DI-22 |
 | Jira administrators see all policies and history, and only they can export; a project's admins or a project role a policy allows see that project's page and history; anyone else nothing. | DI-16, DI-14 |
 | A refused attempt is recorded with the person; repeats within a minute write one record plus a count; refusal counter (account ID, action, project, count); marker (account ID, action) discarded after five minutes. | DI-10; app `CHANGELOG.md` (every refusal is recorded, including pause, cooldown, missing reason, licence and in-progress refusals) |
 | Retention: audit, history, refusal counters, outcomes for the life of the installation; no retention setting; policies until deleted; previewed change 24 h / 30 days / life of installation if revertible; inputs 180 days; in-flight marker at most 30 days; lock 15–30 minutes. | DI-11, DI-04, DI-05 |
-| Export: everything, by a Jira administrator, JSON and CSV built in the browser; exported files contain account IDs and erasure cannot reach them. | DI-14 |
-| Account closure and erasure: weekly report from the daily job; Atlassian requires it (linked); erased from mapping, history, refusal counters, policy “last edited by”, previewed and in-progress changes; audit records stay and verify without saying who; the narrow gap. | DI-12 (H-06 resolved). The page does not claim erasure has been observed on a live site; DI-12 records that it has not. |
+| Export: the app's records (policies, settings, history, audit trail, refusal counters), by a Jira administrator, JSON and CSV built in the browser; not a raw copy of every internal record (previews, locks, in-progress markers and the key left out); exported files contain account IDs and erasure cannot reach them. | DI-14 (at `8a818f8`) |
+| Account closure and erasure: the daily job reports every stored account ID, from each place it keeps one, on Atlassian's reporting cycle (7 days when none is named); Atlassian requires it (linked); erased from mapping, history, refusal counters, policy “last edited by”, previewed and in-progress changes; audit records stay and verify without saying who; the narrow gap, now closed at the next report. | DI-12 (H-06 resolved; reporting re-read at `8a818f8`). The page does not claim erasure, or the `8a818f8` reporting, has been observed on a live site; DI-12 records that neither has. |
 | Uninstall: removes everything the app stored; no uninstall step of its own; done by Atlassian's platform and observed on the test site; soft-deleted and kept 28 days; reinstall starts empty; relink within 21 days only on the developer's request with the customer's consent (linked); export first; schemes unchanged. | DI-13 (H-07 resolved) |
-| Platform logs: what the app writes in production; internal identifiers and error messages or Jira's answer; the one line with an account ID; Atlassian's added fields (linked). | DI-20 (H-08 resolved) |
+| Platform logs: what the app writes in production; the daily personal-data line with counts and the reporting cycle only; internal identifiers and error messages or Jira's answer; the one line with an account ID; Atlassian's added fields (linked). | DI-20 (H-08 resolved; the daily line re-read at `8a818f8`) |
 | Log sharing on at install; developers at EvidencePair read logs in the developer console (app admins, and contributors given the permission, linked); site admin can turn it off or download (linked); 30 days in the developer console. | DI-20 |
 | We read the logs only to troubleshoot the app. | **Ali** — vendor practice. |
 | Any notification the app sends is delivered inside the Atlassian product. The app sends no email of its own. | DI-15 |
 | We do not sell, share or transfer customer data … The app's data never leaves Atlassian, and the only part of it we can see is what the platform logs hold. | DI-02, DI-03, DI-20; selling, sharing and profiling: **Ali** — vendor practice. |
 | The date at the top of this page changes when the policy does, and every version is kept in version control. | **Ali** — vendor practice; this repository is the version control. |
+
+## What changed on 2026-10-07, and why
+
+Factual precision, from the app repository at `8a818f8` (iteration 30). **Ali signed this page off on 2026-10-06 (H-10); these changes await his re-read** (`DECISIONS.md`, 2026-10-07).
+
+- **Reporting.** “Once a week … the account IDs it stores” became every stored account ID, from each place the app keeps one, on Atlassian's reporting cycle with a 7-day fallback (DI-12).
+- **The narrow gap.** “Until it expires” became “kept until the next report … and then erased” (DI-12).
+- **Email.** The correspondence sentence now names the providers: Porkbun forwarding to Apple's iCloud Mail, as the DPA's Annex B.2 does.
+- **Export.** “Everything the app stores” became the app's records, not every internal record, as the app's FAQ now says (DI-14).
+- **Names in a preview.** A preview may show a name Jira includes; never looked up, never stored (DI-18).
+- **The daily log line.** It carries the reporting cycle as well as counts; “weekly” is dropped (DI-20).
 
 ## What changed on 2026-10-06, and why
 

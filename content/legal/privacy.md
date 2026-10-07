@@ -1,6 +1,6 @@
 ---
 title: Privacy policy
-updated: 2026-10-06
+updated: 2026-10-07
 description: What EvidencePair's website, Paperloft apps and Atlassian apps store, where it lives, and what we never do with it.
 ---
 
@@ -16,7 +16,7 @@ This website collects nothing. It sets no cookies, stores nothing in your browse
 
 {% if site.host %}The site is served by {{ site.host }}, which processes requests in order to serve pages under its own [privacy statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement). We do not receive or use visitor analytics from it.{% else %}{% pending "Name the hosting provider and state what request data it processes on our behalf.", "HUMAN-TASKS H-03" %}{% endif %}
 
-If you email us, we keep the correspondence for as long as we need it to answer you and to keep a record of support and security reports.
+If you email us, we keep the correspondence for as long as we need it to answer you and to keep a record of support and security reports. Email sent to our addresses is forwarded by Porkbun to a mailbox in Apple's iCloud Mail, where we read it. Our [data processing agreement](/dpa/#b2-support-and-email-processing) lists both providers in its Annex B.2.
 
 ## Paperloft apps
 
@@ -42,7 +42,7 @@ All app data is stored in the app's own storage on Atlassian's infrastructure (t
 - **The daily check report.** The latest policy integrity findings: scheme and project identifiers and names.
 - **One key.** A random key the app generates once per installation to make the pseudonymous references. The app stores no other secret.
 
-The personal data involved is therefore Atlassian account IDs, and whatever a person chooses to type into a reason field. The app stores no display names, email addresses or other profile data, and has no permission to read them.
+The personal data involved is therefore Atlassian account IDs, and whatever a person chooses to type into a reason field. The app stores no display names, email addresses or other profile data, and has no permission to read them. When a permission or notification scheme grants access to a specific person, a preview of the change shows their name if Jira includes it in the scheme it returns, and otherwise their account ID. The app does not look the name up, and it never stores it.
 
 ### What the app reads from Jira
 
@@ -62,11 +62,11 @@ Audit records, the history of changes, refusal counters and change outcomes are 
 
 ### Export
 
-A Jira administrator can download everything the app stores for the site (policies, settings, the history, the audit trail and the refusal counters) from **Settings → Export all app data**, as JSON, with the history also as CSV. Both files are built in the browser. Exported files are outside the app: they contain account IDs, and the erasure described next cannot reach them.
+A Jira administrator can download the app's records for the site (policies, settings, the history, the audit trail and the refusal counters) from **Settings → Export all app data**, as JSON, with the history also as CSV. It is not a raw copy of every internal record: short-lived working records (previews, locks and in-progress markers) and the key used to make the pseudonymous references are left out. Both files are built in the browser. Exported files are outside the app: they contain account IDs, and the erasure described next cannot reach them.
 
 ### Account closure and erasure
 
-Once a week, as part of its daily job, the app reports the account IDs it stores to Atlassian's personal data reporting API. Atlassian [requires this](https://developer.atlassian.com/platform/forge/user-privacy-guidelines/) of every app that stores personal data. When Atlassian reports an account as closed, the app erases that account ID from everywhere it keeps it: the audit account mapping, the history, the refusal counters, a policy's “last edited by”, and the records of changes that were previewed or in progress. Audit records stay, and still verify, but no longer say who. One narrow gap: a change previewed by that person in the seconds before the weekly check can keep their account ID until it expires.
+As part of its daily job, the app reports every account ID it stores to Atlassian's personal data reporting API, from each place it keeps one: the audit account mapping, the history, the refusal counters, a policy's “last edited by”, and the records of changes that were previewed or in progress. It reports on Atlassian's reporting cycle: as often as Atlassian's last answer asks, and every 7 days when it names no period. Atlassian [requires this](https://developer.atlassian.com/platform/forge/user-privacy-guidelines/) of every app that stores personal data. When Atlassian reports an account as closed, the app erases that account ID from everywhere it keeps it: the audit account mapping, the history, the refusal counters, a policy's “last edited by”, and the records of changes that were previewed or in progress. Audit records stay, and still verify, but no longer say who. One narrow gap: an account ID written while the erasure runs, such as a change that person previewed in those seconds, or a queued change of theirs that finishes just after, is kept until the next report, one reporting cycle later, and then erased.
 
 ### Uninstall
 
@@ -74,7 +74,7 @@ Uninstalling the app removes everything it stored for your site: policies, setti
 
 ### Platform logs
 
-Atlassian's Forge platform keeps a log of what the app writes while it runs. In production the app writes a line only when something fails or needs attention, such as a request it refused, a change Jira did not apply, or a queued switch it ended. It also writes one line a day saying whether the weekly personal-data report ran, with counts only. Lines identify things by internal identifiers (the change, the project, the scheme) and can quote an error message or Jira's answer. One kind of line carries an Atlassian account ID: when the app ends a queued switch, the line names the person who started it. Atlassian adds each line's site, app version, environment and licence status ([Atlassian: view app logs](https://developer.atlassian.com/platform/forge/view-app-logs/)).
+Atlassian's Forge platform keeps a log of what the app writes while it runs. In production the app writes a line only when something fails or needs attention, such as a request it refused, a change Jira did not apply, or a queued switch it ended. It also writes one line a day saying whether the personal-data report ran, with counts and the reporting cycle only. Lines identify things by internal identifiers (the change, the project, the scheme) and can quote an error message or Jira's answer. One kind of line carries an Atlassian account ID: when the app ends a queued switch, the line names the person who started it. Atlassian adds each line's site, app version, environment and licence status ([Atlassian: view app logs](https://developer.atlassian.com/platform/forge/view-app-logs/)).
 
 Atlassian turns log sharing on when the app is installed. While it is on, the app's developers at EvidencePair can read these logs in Atlassian's developer console: the app's administrators, and any other contributor given permission to view production logs ([Atlassian: contributors](https://developer.atlassian.com/platform/forge/contributors/)). A site administrator can turn log sharing off, or download the site's logs, in Atlassian Administration under **Apps → Connected apps** ([Atlassian: access app logs](https://developer.atlassian.com/platform/forge/access-app-logs/)). The developer console shows logs for the past 30 days. We read the logs only to troubleshoot the app.
 

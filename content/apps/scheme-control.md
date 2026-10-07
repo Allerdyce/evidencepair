@@ -7,7 +7,7 @@ status: coming soon
 marketplaceUrl: ""
 docsPath: /docs/scheme-control/
 description: Jira admins define which schemes each project may use. Project admins switch between those options themselves, with a preview, a reason, an audit trail and a revert.
-updated: 2026-10-06
+updated: 2026-10-07
 ---
 
 ## The problem it solves
@@ -18,9 +18,9 @@ In Jira Cloud, switching a project's permission, notification or workflow scheme
 
 - **Policies.** A Jira admin says which permission, notification and issue type screen schemes each project, or each project category, may use. A project covered by more than one policy gets all of their options.
 - **Switching, without Jira admin rights.** On a project's settings page, its admins see what each scheme is set to now, what they may switch to, and what has changed recently.
-- **A preview before anything happens.** Permission changes list who gains and loses each permission, with broad audiences such as “any logged-in user” called out. Notification changes list who starts and stops being told about each event.
+- **A preview before anything happens.** Permission changes list who gains and loses each permission, with broad audiences such as “any logged-in user” called out. Notification changes list who starts and stops being told about each event. Screen changes list the fields that appear and disappear.
 - **A reason, and a confirmation.** Policies can require a reason, and every change is confirmed by typing the project key.
-- **A history you can audit.** Every change, refusal and revert is recorded with who, when, why and what changed, and can be exported as CSV. The record is chained, so a missing or altered entry can be detected.
+- **A history you can audit.** Every change, refusal and revert is recorded with who, when, why and what changed, and can be exported as CSV. The record is chained, so a missing or altered entry can be detected. The admin History also lists every change to policies and settings, and marks a revert as one.
 - **Revert.** A successful change can be put back to what the project had before, even if that option is no longer on the list.
 - **Guard rails.** One change per project at a time, a cooldown between changes, and a site-wide pause switch.
 - **Daily checks.** The app tells admins when a policy points at a scheme that has been deleted or renamed, or at a project that has been archived or rebuilt as team-managed.

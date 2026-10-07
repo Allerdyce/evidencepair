@@ -2,9 +2,9 @@
 title: How workflow mapping works (beta)
 app: scheme-control
 order: 4
-description: Why a workflow switch asks questions, the suggested choices, lossy changes and reverts.
+description: Why a workflow switch asks questions, the suggested choices, the check before you confirm, lossy changes and reverts.
 source: apps/controlled-project-config/docs/workflow-mapping.md
-sourceCommit: 7fcc76f
+sourceCommit: 8a818f8
 ---
 
 Workflow and issue security switching are **beta features**. They depend on Jira REST APIs that Atlassian marks as experimental. Both are off until a Jira administrator turns on **Beta features** in the app's settings.
@@ -24,15 +24,36 @@ The app picks a starting choice for each status:
 
 You can change any choice. You can't continue until every status has one.
 
+## Checking the change
+
+Before you confirm, the check screen lists where each status's issues go, with the number of issues.
+
+If issues from more than one status will end up in one status, it says so plainly. For example: "Task: 200 issues in “To Do” will join the 150 already in “In Progress”. A later revert can't tell them apart." That includes a status both workflows have. Its own issues don't move, so any issues you send there join them.
+
 ## How long it takes
 
-Jira moves the issues in the background. The preview gives an estimate based on how many issues will move. The page shows progress and updates by itself, and you can leave it and come back.
+Jira moves the issues in the background. The check screen gives an estimate based on how many issues will move. It comes from measured switches: moving 150 issues took 20 to 30 seconds, and moving 350 took 30 to 45. The page shows progress and updates by itself, and you can leave it and come back.
 
 ## Lossy changes, and reverts
 
 If you send issues from **several** statuses into **one**, the switch is **lossy**. Afterwards, nothing records which status each issue came from.
 
-You can still revert a lossy switch. The revert asks where issues should go, like any workflow switch. Its starting choices send each status back where the original change moved issues from, wherever that is possible. Where several statuses were merged into one, the starting choice sends it back to the one that held the most issues when the switch was made. If two held the same number, it starts at the first of them in the original switch. If the app did not record those numbers, because the switch was made before it recorded them or because Jira couldn't count them at the time, it makes no choice for that status: it tells you which status and why, and you choose before the revert can run. Before you confirm, it warns you that issues merged into one status can't be split back exactly. They will all move to one status.
+A switch is lossy too if you send issues into a status **both workflows have**, even from one status. Jira leaves issues in a status the old workflow also has, so a revert can't move them back. Sending an empty status there moves nothing, so that switch stays fully reversible.
+
+You can still revert a lossy switch. The revert asks where issues should go, like any workflow switch. Its starting choices send each status back where the original change moved issues from, wherever that is possible. Where several statuses were merged into one, the starting choice sends it back to the one that held the most issues when the switch was made. If two held the same number, it starts at the first of them in the original switch. If the app did not record those numbers, because the switch was made before it recorded them or because Jira couldn't count them at the time, it makes no choice for that status: it tells you which status and why, and you choose before the revert can run.
+
+Before you confirm, the revert warns you that merged issues can't be split back exactly, and says what will actually happen to them:
+
+- **If the workflow being put back also has the merged status,** its issues **stay there**. None of them goes back to where it came from. The mapping step lists this status too, and says why it stays.
+- **If it doesn't,** they **all move** to the one status chosen for them. Only the issues that came from that status are back where they were.
+
+The revert's check screen also counts the issues it will move and estimates how long it will take, as a switch's does.
+
+### Finding the issues a revert couldn't put back
+
+The warning, and the result once the revert has run, offer a search in Jira for those issues. It finds them by their status history: for example, issues that moved from "To Do" to "In Progress" when the switch ran.
+
+Jira reads the search's dates in your own time zone, which the app can't know. So the search looks from the day before the switch to the day after. It can also find issues someone moved the same way by hand in those days.
 
 ## If a workflow change can't finish
 

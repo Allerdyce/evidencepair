@@ -2,6 +2,38 @@
 
 Rulings and deviations for the EvidencePair vendor site (spec 30). Newest first. Anything a human must decide is in `HUMAN-TASKS.md`, not here.
 
+## 2026-10-07 · Site sync with the app at `8a818f8`: docs re-copied, privacy page made precise (awaits Ali's re-read)
+
+The app repository is at `8a818f8`: iteration 30 complete, all suites green (1565/0), not yet a released build and not yet run on the test site.
+
+**Docs.** Five of the six copies are re-copied at `8a818f8`: admin quick start, project admin guide, workflow mapping, security model and FAQ. The install page is unchanged since `c6b1960`. The copy was made by script with the same adaptations as before. It first rebuilt each existing copy from its old `sourceCommit` and checked the result matched byte for byte. Each `sourceCommit` is now `8a818f8`. Two descriptions gain the new topics: the FAQ (Jira's own audit records) and workflow mapping (the check before you confirm). `provenance/claims.md` lists what changed in each page.
+
+**Privacy page: factual precision fixes, from the app's `docs/data-inventory.md` and `faq.md` at `8a818f8`.** These go beyond what Ali signed off on 2026-10-06 (H-10, renewed that day), so the page awaits his re-read (HUMAN-TASKS H-10, 2026-10-07). The builder has also listed it for him. The three points recorded under H-21:
+- “reports the account IDs it stores” became every stored account ID, from each place the app keeps one;
+- “until it expires” became “kept until the next report, one reporting cycle later, and then erased”;
+- the email sentence names the providers, Porkbun forwarding to Apple's iCloud Mail, and links the DPA's Annex B.2.
+
+Four more, made for the same reason, because the page would otherwise contradict the app's docs at `8a818f8`:
+- “once a week” became Atlassian's reporting cycle, 7 days when none is named;
+- the export is “the app's records”, not a raw copy of every internal record (the FAQ's new wording);
+- a preview may show a person's name when Jira includes it in the scheme; the app never looks it up and never stores it (the security model's new wording);
+- the logs paragraph drops “weekly” (the daily line now also carries the cycle, `cycle-seconds=`).
+
+The inventory lines behind them (DI-12, DI-14, DI-18, DI-20) and the privacy traceability map are updated to match.
+
+**Not yet seen on a site.** The reporting changes are in the app's code and tests. Reading `Cycle-Period` is a SPIKE until a site run logs `cycle-seconds=`. The privacy page states what the app does, as it did for the erasure branch, which has not run on a site either. DI-12 records both.
+
+**DPA.** Its text is unchanged. In `claims.md` the two commitments (follow `Cycle-Period`; report every stored account ID) are now recorded as implemented in code at `8a818f8`, and verified on a real site only after the next gate run. **The §5.2 implementation-review pending statement stays** (H-23) until that site evidence exists.
+
+**App page.** Its claims still hold at `8a818f8`: the same five scopes, no egress, and both page titles “Scheme Control for Jira”. The page lists History features, so two sentences were added:
+- the preview bullet gains the CHANGELOG's “Screen changes list the fields that appear and disappear.”;
+- the history bullet gains “The admin History also lists every change to policies and settings, and marks a revert as one.” (admin quick start §5).
+
+**Left as the app wrote it, for the builder to fix in the app repository:**
+- the README's `report:personal-data` row says “weekly” (the app page's scope table copies the README);
+- `admin-quick-start.md` says the export “downloads everything the app stores for your site”;
+- the CHANGELOG says “Export all app data holds everything”.
+
 ## 2026-10-07 · Ali's revised DPA replaces the builder's draft at `/dpa/`, with his completion facts (H-21 stays open)
 
 **Ruled: Ali,** 2026-10-06 local time. His revised DPA, `EvidencePair_Atlassian_DPA_Revised_Draft_2026-10-06.md`, replaces the builder's draft. Its completion facts were answered through the question prompt (app repository `docs/rulings/2026-10-07-dpa-address-access-email-providers.md`; app `DECISIONS.md`, 2026-10-07):

@@ -4,14 +4,14 @@ app: scheme-control
 order: 3
 description: Switch between the scheme options your Jira administrator has approved, and undo a change.
 source: apps/controlled-project-config/docs/project-admin-guide.md
-sourceCommit: 7fcc76f
+sourceCommit: 8a818f8
 ---
 
 Your Jira administrator has approved some scheme options for your project. You can switch between them yourself, without asking them each time.
 
 ## Where to find it
 
-Open your project, go to **Project settings**, and choose **Controlled configuration**.
+Open your project, go to **Project settings**, and choose **Scheme Control for Jira**.
 
 For each scheme type, the page shows the scheme your project uses now, the options you may switch to, and the most recent changes.
 
@@ -21,10 +21,11 @@ If the page says **No policy covers this project**, nothing here can be switched
 
 1. **Choose the scheme** you want, and select **Preview**.
 2. **Read the preview.** It says what changes in the terms you work with:
-   - **Permissions:** who gains or loses each permission. Grants that reach very broad audiences, such as anyone logged in, are highlighted.
+   - **Permissions:** who gains or loses each permission, by role, group or person. Grants that reach very broad audiences, such as anyone logged in, are highlighted. If Jira doesn't give the app a person's name, the preview says "a specific person" and shows their account ID.
    - **Notifications:** who starts or stops being told about each event.
-   - **Issue type screens:** a summary of which screens change.
-   - **Workflows (beta):** where issues in each status will go. See [How workflow mapping works](/docs/scheme-control/workflow-mapping/).
+   - **Screens and fields:** for each issue type whose screens change, the fields that appear and disappear on its create, edit and view screens. If the app can't read the fields, it says the preview is only a summary, and names the screen scheme each issue type uses now and the one it will use.
+   - **Issue security (beta):** the security levels before and after. A level with no match in the new scheme is flagged, with how many issues hold it. Those issues lose that restriction.
+   - **Workflows (beta):** where issues in each status will go, with counts, and a warning when issues from different statuses will end up in one. See [How workflow mapping works](/docs/scheme-control/workflow-mapping/).
 3. **Give a reason** if your project's policy requires one.
 4. **Confirm** by typing your project key, and select **Apply change**.
 
@@ -43,4 +44,4 @@ The app checks the scheme again after the change. "Change applied" means Jira no
 
 Every successful change has a **Revert** action in the history. A revert puts back the scheme your project had just before that change. It is allowed even if that scheme is no longer one of your options, because you are restoring, not choosing.
 
-A workflow revert asks where issues should go, like a workflow switch does. It warns you if it can't put every issue back exactly where it was. See the [FAQ](/docs/scheme-control/faq/).
+A workflow revert asks where issues should go, like a workflow switch does. If the switch merged statuses, the revert can't put every issue back exactly where it was. It warns you before you confirm, says what will happen to those issues, and offers a search in Jira to find them. See [How workflow mapping works](/docs/scheme-control/workflow-mapping/) and the [FAQ](/docs/scheme-control/faq/).
