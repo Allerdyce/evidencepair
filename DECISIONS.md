@@ -2,6 +2,45 @@
 
 Rulings and deviations for the EvidencePair vendor site (spec 30). Newest first. Anything a human must decide is in `HUMAN-TASKS.md`, not here.
 
+## 2026-10-07 · Ali's revised DPA replaces the builder's draft at `/dpa/`, with his completion facts (H-21 stays open)
+
+**Ruled: Ali,** 2026-10-06 local time. His revised DPA, `EvidencePair_Atlassian_DPA_Revised_Draft_2026-10-06.md`, replaces the builder's draft. Its completion facts were answered through the question prompt (app repository `docs/rulings/2026-10-07-dpa-address-access-email-providers.md`; app `DECISIONS.md`, 2026-10-07):
+- the business address is 109 W Cota St, Santa Barbara, CA 93101, United States;
+- EvidencePair personnel access customer personal data from the United States only;
+- Porkbun (forwarding) and Apple (iCloud Mail) are the providers that handle support email.
+
+**Supersedes** the text of the 2026-10-06 entry “A draft DPA for the Atlassian apps, at `/dpa/` (H-21)”. The URL is unchanged, so the footer link and the links from the privacy and terms pages still reach it.
+
+**What the site changed in Ali's text, and nothing else.** A diff against his file shows only these:
+- **Front matter:** his H1 is the page title; last updated 2026-10-07.
+- **Links:** `/terms/` and `/privacy/` are root-relative; the support and security addresses come from `data/site.json` as mailto links.
+- **Annex A.1:** the business address is filled, and the personnel access location is the United States.
+- **Annex B.2:** completed for Porkbun and Apple. Each fact is taken from the provider's own privacy policy, terms or security page, and linked. “Completion required” is dropped from its heading.
+- **Open items are pending statements** (below).
+
+**Kept exactly as Ali wrote it:** the top notice (“Pending legal and implementation review - not yet effective”), his date line, his §5.2 review paragraph (now inside a pending statement), “Settings -> Export all app data”, and his straight quotes.
+
+**Pending statements, eight:**
+- **A.1:** the registration number (H-22).
+- **§5.2:** Ali's implementation review item, his wording unchanged (H-23).
+- **B.2, four facts the providers' pages do not give** (H-24): how long Porkbun keeps forwarded messages; where Porkbun processes them; how long Apple keeps a deleted message; where Apple stores iCloud Mail.
+- **B.2, two for the legal review** (H-21): no written data protection terms with Porkbun or with Apple, which §6 requires, were found in their published terms.
+
+**Ali's notice is not a pending statement.** It is his text and says H-21 remains open. The build's gate on publishing (H-16) therefore rests on the eight pending statements. Two of them cite H-21 and only the legal review can clear them. The notice itself is removed by hand when the review is done.
+
+**Provenance:** `provenance/claims.md`, new section “DPA”, sources each factual statement in the app repository at `8ff3eec`. It lists separately the two commitments the app does not yet meet, the contractual commitments, and where the text and the app differ. The old DPA map in `privacy-traceability.md` described the builder's draft; it is replaced by a pointer.
+
+**Found while sourcing it** (details in `claims.md`):
+1. **Two commitments not yet implemented,** both in the app's iteration 30: follow Atlassian's `Cycle-Period` (the app uses a fixed 7 days), and report every stored account ID (it reports only the audit mapping's).
+2. **Display names.** Since `d9cbf7c` the permission preview shows a person's display name when Jira returns one without a profile permission (an unmeasured SPIKE). It is shown, not stored. §2's “does not use Jira profile lookups” stays literally true.
+3. **Export.** Ali's §5.3 is right that the export is not every stored record. The app's FAQ and this site's privacy page say “everything the app stores”.
+4. **§6 and the email providers.** Porkbun's Email Service Agreement and the iCloud Terms describe services for individual or personal use, and neither publishes data processing terms. This is for the legal review.
+
+**The privacy page now lags the DPA in three places.** It is not changed here, because Ali signed it off (H-10, renewed 2026-10-06) and a change needs his read again. Recorded under H-21:
+- it says the app reports “the account IDs it stores” (only the mapping's are reported);
+- it says a preview made just before the check keeps an ID “until it expires” (an applied, revertible preview is kept until uninstall);
+- its sentence on email correspondence names no email provider.
+
 ## 2026-10-06 · Ali re-reads the changed privacy page and approves it (Ali)
 
 On 2026-10-06, after the draft with the H-06, H-07 and H-08 answers was published, the builder asked Ali to read the
