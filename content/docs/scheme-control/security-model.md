@@ -4,7 +4,7 @@ app: scheme-control
 order: 5
 description: What the app can and cannot do, and how it is checked.
 source: apps/controlled-project-config/docs/security-model.md
-sourceCommit: 358d3a2
+sourceCommit: 279b723
 ---
 
 Scheme Control for Jira lets people who are not Jira administrators change which scheme a project uses. That is a privileged action, so this page explains exactly how the app decides who may do it, and what it records.
@@ -21,6 +21,8 @@ Before the app touches Jira, every request is checked as **the person using the 
 2. **What the policy allows.** The app works out the project's effective policy fresh, from storage, on every request. Nothing the page sends is trusted. A request for a scheme that isn't allowed is refused, even if it is built by hand.
 3. **Whether the site allows changes right now.** The app must be licensed, changes must not be paused, and beta types must be turned on before they can be used.
 4. **Only then** does the app make the change with its own access. Afterwards it reads the project back to confirm the change took effect.
+
+**Queued changes and the app's own jobs.** A workflow or issue security switch is checked as above when it is confirmed, then queued: Jira applies it in the background, as the app, within 60 minutes, without asking the person again. The app's own scheduled work (the daily check and upgrades) and its personal-data report run as the app with no person behind them. They read and record, end changes that stalled, and report account IDs; they never start a scheme change.
 
 A Jira administrator is checked the same way. **Site-wide admin rights don't override the policy.** On a project no policy covers, every switch is refused, and the refusal explains how to proceed. Jira's own project settings are never blocked by the app.
 

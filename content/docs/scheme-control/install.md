@@ -4,14 +4,14 @@ app: scheme-control
 order: 1
 description: What the app needs, and why, and how to check that it is ready.
 source: apps/controlled-project-config/docs/install.md
-sourceCommit: c6b1960
+sourceCommit: 279b723
 ---
 
 Scheme Control for Jira works on **Jira Cloud company-managed projects**. It installs from the Atlassian Marketplace like any other app.
 
 ## What the app needs, and why
 
-When you install, Jira asks you to approve the app's access. The app asks for four permissions:
+When you install, Jira asks you to approve the app's access. The app asks for five permissions:
 
 <div class="table-wrap" tabindex="0" role="region" aria-label="Permissions the app asks for">
 
@@ -21,6 +21,7 @@ When you install, Jira asks you to approve the app's access. The app asks for fo
 | Manage Jira configuration (`manage:jira-configuration`) | Read your site's schemes, and assign notification, issue security and workflow schemes to a project. |
 | Manage Jira projects (`manage:jira-project`) | Assign permission and issue type screen schemes to a project. |
 | App storage (`storage:app`) | Keep your policies, settings and the change history inside the app's own storage on Atlassian. |
+| Report personal data (`report:personal-data`) | Tell Atlassian which account IDs the app stores, on Atlassian's reporting cycle, and learn which accounts have been closed so the app can erase them. It reads no personal data. |
 
 </div>
 

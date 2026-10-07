@@ -60,12 +60,12 @@ Since 2026-10-06 the site's docs for this app are copies of the app repository's
 
 | Site page | Source in the app repository (at `7fcc76f`) | Adaptations, and nothing else |
 |---|---|---|
-| `install.md` → `/docs/scheme-control/install/` | `apps/controlled-project-config/docs/install.md` **at `c6b1960`** | H1 → front-matter `title`; two `.md` links → site URLs; the permissions table wrapped in the site's labelled scroll region. |
+| `install.md` → `/docs/scheme-control/install/` | `apps/controlled-project-config/docs/install.md` **at `279b723`** | H1 → front-matter `title`; two `.md` links → site URLs; the permissions table wrapped in the site's labelled scroll region. |
 | `admin-quick-start.md` → `/docs/scheme-control/admin-quick-start/` | `apps/controlled-project-config/docs/admin-quick-start.md` **at `358d3a2`** | H1 → `title`; two `.md` links → site URLs. |
 | `project-admin-guide.md` → `/docs/scheme-control/project-admin-guide/` | `apps/controlled-project-config/docs/project-admin-guide.md` **at `8a818f8`** | H1 → `title`; three `.md` links → site URLs. |
 | `workflow-mapping.md` → `/docs/scheme-control/workflow-mapping/` | `apps/controlled-project-config/docs/workflow-mapping.md` **at `8a818f8`** | H1 → `title`. |
-| `security-model.md` → `/docs/scheme-control/security-model/` | `apps/controlled-project-config/docs/security-model.md` **at `358d3a2`** | H1 → `title`; one `.md` link → site URL. |
-| `faq.md` → `/docs/scheme-control/faq/` | `apps/controlled-project-config/docs/faq.md` **at `358d3a2`** | H1 → `title`; one `.md` link → site URL; question headings `###` → `##`, because the layout's H1 is the only heading above them. |
+| `security-model.md` → `/docs/scheme-control/security-model/` | `apps/controlled-project-config/docs/security-model.md` **at `279b723`** | H1 → `title`; one `.md` link → site URL. |
+| `faq.md` → `/docs/scheme-control/faq/` | `apps/controlled-project-config/docs/faq.md` **at `279b723`** | H1 → `title`; one `.md` link → site URL; question headings `###` → `##`, because the layout's H1 is the only heading above them. |
 
 **`faq.md` and `security-model.md` are read at `cd42280`, not `7fcc76f`.** That app commit corrects those two pages
 (docs only; the app's code and the released build `ba8d3d8` are unchanged):
@@ -103,6 +103,17 @@ only and follows the site sync. It changes one sentence in each, re-copied by th
   email goes through EvidencePair's email providers. Before, they said “nothing leaves Atlassian” and “No.”
 
 project-admin-guide and workflow-mapping are unchanged at `358d3a2`, so they stay at `8a818f8`.
+
+**Three pages are read at `279b723` (2026-10-07):** install, security-model and faq. That app commit is docs only.
+The same script re-copied them. It now also applies the install page's table wrapper, and it reproduced all six
+existing copies byte for byte before writing. What changed:
+- **install:** five permissions, adding the `report:personal-data` row (“on Atlassian's reporting cycle”);
+- **security-model:** a paragraph on queued changes (checked at confirmation, then applied by Jira as the app within
+  60 minutes) and on the app's own jobs (no person behind them; they never start a scheme change);
+- **faq:** the uninstall answer gives the retention period in Atlassian's SOC 2 report, with the storage
+  reference's 28 days beside it.
+
+admin-quick-start stays at `358d3a2`; project-admin-guide and workflow-mapping stay at `8a818f8` (unchanged since).
 
 The front-matter `description` of each page is the site's one-line summary for the docs index. Two of them are the app's own words (install page, “Next steps”); the other four summarise the page's own headings and add no fact.
 
@@ -174,7 +185,7 @@ The copies replace the site's earlier four pages (quick start, admin guide, secu
 | §5.2 Erasure removes account IDs and mappings from history, refusal counters, policy-editor fields and preview or in-progress records; not from free text, and it does not purge logs. | APRIV lines 29–41 (`cpcErasers`); PRIV lines 29–36; CHE line 228 (`eraseAccount`); ADI “Personal data”. No eraser touches `reason` or the logs. |
 | §5.2 Review item: a preview made around an erasure run may keep an account ID. | At `8ff3eec`: ADI “Personal data” (“One narrow gap”); DEC 2026-10-07, Builder item 2 (an applied, revertible preview is kept until uninstall; a queued switch can finish after the scan). At `8a818f8`: ADI “Personal data” says such an ID “is kept until the next report, one reporting cycle later, and then erased”. **The pending statement stays (H-23)** until the test site shows that behaviour; its replacement text is Ali's to approve. |
 | §5.3 **Settings -> Export all app data** gives JSON, with the history also as CSV; it is not a raw copy of every entry; exports can contain account IDs and the app cannot erase them. | ADI “Export and deletion”; FAQ “Can we export the app's data?” at `8a818f8` (“It is not a raw copy of every internal record”; until then “Can we export everything the app stores?”); IDX lines 782–807 (`exportAppData`, guarded by `guardJiraAdmin`: history, audit trail with each record's account ID while mapped, policies, settings, and refusal counters up to 1,000 with a completeness flag). See difference 4. |
-| §5.4 After uninstall Atlassian runs the deletion lifecycle: 28 days of retention, a recovery request within 21 days with customer consent; a reinstall does not restore the data. | ADI “Export and deletion” (“Uninstall”); FAQ “What happens to our data if we uninstall the app?”; ATL-LIFE; ATL-STORE; DI-13. |
+| §5.4 After uninstall Atlassian runs the deletion lifecycle: 28 days of retention, a recovery request within 21 days with customer consent; a reinstall does not restore the data. | ADI “Export and deletion” (“Uninstall”); FAQ “What happens to our data if we uninstall the app?”; ATL-LIFE; ATL-STORE; DI-13. Ali's “28 days” cites the recovery documentation, and ATL-STORE (last updated 28 Sep 2026) still says “Forge hosted storage retains data for 28 days after uninstallation”, so it stays accurate. Since its 28 Sep 2026 update, ATL-LIFE cites the retention period in Atlassian's SOC 2 report instead, which is how the app's ADI and FAQ put it at `279b723`. §5.4's “must not be read as a verified maximum retention period for every such copy” already allows for that. |
 | §5.5 The developer console shows logs for the preceding 30 days; turning off log sharing controls access. | ATL-VIEW; ATL-ACCESS; ADI “Platform logs”; DI-20. |
 | §7 No external connection to the installation's storage; developers read logs while the customer shares them; a site administrator controls sharing. | ADI “Where data lives”; AUD (“Neither customers, other apps nor we can reach it from outside the app”); ATL-ACCESS; ATL-CONTRIB; DI-03, DI-20. |
 | §7 One kind of log line includes the account ID of the person who started a queued switch. | QUE line 268 (`switch-abandoned`, `accountId: event.accountId`); ADI “Platform logs”. Still the only one at `8a818f8`: the three lines `d9cbf7c` adds carry no account ID, and `8a818f8` changes only the daily line, adding `cycle-seconds=`. |
@@ -242,3 +253,5 @@ At `8ff3eec` the DPA committed the app to two behaviours it did not have. **Both
 4. **§5.3 export coverage.** Ali's text is right: the export is not every stored record. At `8a818f8` the app's FAQ agrees (“It is not a raw copy of every internal record”), and since 2026-10-07 so does this site's privacy page. At `358d3a2` the app's other texts agree too: `admin-quick-start.md`, the CHANGELOG and `listing.md` say “the app's records”.
 5. **§6 written terms with sub-processors.** The text requires written data protection obligations no less protective than the DPA. None were found in Porkbun's or Apple's published terms. Porkbun's Email Service Agreement says the service “is intended for individuals and is for Your use only”; the iCloud Terms say the service “is designed and intended for personal use on an individual basis”. Pending (H-21), for the legal review.
 6. **§5.1 table omissions (not a conflict).** Two stored items are not in the table: the daily check report (replaced daily; scheme and project IDs and names) and the audit pseudonym key (until uninstall). Neither holds an account ID.
+7. **§5.2 and Atlassian's copies of erased data (silent, not inaccurate).** §5.2 says what the app's erasure removes and what it does not (free text, logs). It does not say that Atlassian keeps a soft-deleted copy of data the app erases, and backups taken before the erasure, until the end of the retention period in its SOC 2 report. The app's ADI says so at `279b723`, and this site's privacy page says so since 2026-10-07. ATL-LIFE also lets a developer ask Atlassian, within 21 days, to restore data the app deleted. §5.4's recovery commitments are written for uninstalled data. Recorded under H-21 for the legal review.
+8. **§4 data residency (consistent).** §4 already says residency is not a promise about every category of processing, logging, support or backup. The app's ADI at `279b723` now lists what is in and out of scope, and the privacy page carries that list.

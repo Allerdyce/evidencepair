@@ -4,7 +4,7 @@ app: scheme-control
 order: 6
 description: Policies and Jira administrators, lossy reverts, Jira's own audit records, account IDs, licensing, stuck changes, export and uninstall.
 source: apps/controlled-project-config/docs/faq.md
-sourceCommit: 358d3a2
+sourceCommit: 279b723
 ---
 
 ## I'm a Jira administrator. Why can't I switch a scheme on this project?
@@ -55,7 +55,7 @@ Yes. On the **Settings** tab, **Export all app data** downloads one file with th
 
 ## What happens to our data if we uninstall the app?
 
-Uninstalling removes everything the app stored for your site: policies, settings, history and the audit trail. Atlassian's platform does the removal. Its documentation says an uninstalled app's data is kept for 28 days and then deleted, and that a reinstall starts empty. Within 21 days of the uninstall, the old data can be restored to a new installation, but only if you ask us and Atlassian does it with your consent ([data lifecycle](https://developer.atlassian.com/platform/forge/storage-reference/hosted-storage-data-lifecycle/)). Export your data first if you need a copy. The schemes your projects use belong to Jira, so they stay exactly as they are.
+Uninstalling removes everything the app stored for your site: policies, settings, history and the audit trail. Atlassian's platform does the removal. Atlassian soft-deletes it and keeps it for the retention period set out in its SOC 2 report, then destroys it ([data lifecycle](https://developer.atlassian.com/platform/forge/storage-reference/hosted-storage-data-lifecycle/)); its storage reference gives 28 days for an uninstalled app ([data recovery](https://developer.atlassian.com/platform/forge/storage-reference/#data-recovery-for-apps-with-hosted-storage)). A reinstall starts empty. Within 21 days of the uninstall, the old data can be restored to a new installation, but only if you ask us and Atlassian does it with your consent. Export your data first if you need a copy. The schemes your projects use belong to Jira, so they stay exactly as they are.
 
 ## Does any data leave Atlassian?
 

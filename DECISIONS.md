@@ -2,6 +2,25 @@
 
 Rulings and deviations for the EvidencePair vendor site (spec 30). Newest first. Anything a human must decide is in `HUMAN-TASKS.md`, not here.
 
+## 2026-10-07 · Site sync, third pass: the app's docs at `279b723` (retention wording, residency scope)
+
+The app repository changed its docs again in `279b723` (docs only), from the Marketplace answers draft. The site follows:
+- **Docs:** install, security-model and faq are re-copied at `279b723`.
+  - **install:** five permissions, with the `report:personal-data` row.
+  - **security-model:** a paragraph on queued changes and the app's own jobs.
+  - **faq:** the uninstall answer cites the retention period in Atlassian's SOC 2 report, with the storage reference's 28 days beside it.
+  - **The copy script now also applies the install page's table wrapper.** Before writing, it reproduced all six existing copies byte for byte.
+- **Privacy page.** Brought into line with the app's inventory at `279b723`. Atlassian's data lifecycle page (updated 28 Sep 2026) and its storage reference were re-read the same day.
+  - **Uninstall:** the retention period in Atlassian's SOC 2 report, then destroyed; the storage reference gives 28 days.
+  - **Erasure:** Atlassian keeps a soft-deleted copy of data the app erases, and backups taken before the erasure, until the end of that period.
+  - **“Where data lives”:** gains the inventory's data-residency lists, what is in scope and what is out of scope, with Atlassian's note that Forge may sometimes run an invocation elsewhere (linked).
+  - **Ali's re-read:** these are added to his pending re-read (H-10, 2026-10-07).
+- **DPA, not edited.**
+  - §5.4's “28 days of hosted-storage retention after uninstall” cites the recovery documentation, which still says 28 days, so it stays accurate. Its caveat already allows for other copies to follow other schedules.
+  - §4's residency wording is consistent with the new scope list.
+  - Nothing in the text is now inaccurate. One silence is recorded under H-21: §5.2 does not mention Atlassian's soft-deleted copies of erased data, or the 21-day restore a developer can request.
+- **Provenance:** the `claims.md` docs rows and the DPA §5.4 row, DI-12, DI-13 and DI-24, and the traceability map.
+
 ## 2026-10-07 · Site sync, second pass: the app's docs-only fixes at `358d3a2`
 
 The app repository fixed the five upstream inconsistencies the first sync recorded, in `358d3a2` (docs only, no code change). The site follows:
