@@ -2,6 +2,14 @@
 
 Rulings and deviations for the EvidencePair vendor site (spec 30). Newest first. Anything a human must decide is in `HUMAN-TASKS.md`, not here.
 
+## 2026-10-07 · Site sync, second pass: the app's docs-only fixes at `358d3a2`
+
+The app repository fixed the five upstream inconsistencies the first sync recorded, in `358d3a2` (docs only, no code change). The site follows:
+- **Docs:** admin-quick-start, security-model and faq are re-copied at `358d3a2` with the same script and adaptations. Their `sourceCommit` is now `358d3a2`. Three sentences change: the export is “the app's records”, and the FAQ's “Does any data leave Atlassian?” and the security model's storage paragraph now name the platform logs and support email instead of saying nothing leaves Atlassian. project-admin-guide and workflow-mapping are unchanged and stay at `8a818f8`; install stays at `c6b1960`.
+- **App page:** the `report:personal-data` scope row follows the README at `358d3a2` (“on Atlassian's reporting cycle (every 7 days when it names none)”). The history bullet follows the CHANGELOG's “What it does” at `358d3a2`: “Scheme changes can be exported as CSV, and everything, refusals included, in the JSON export.”
+- **Privacy page:** one sentence is adjusted to match the app's inventory at `358d3a2`. The report covers “the five places that hold one for longer than a few minutes”, and a queued switch's message and the five-minute refusal marker are not reported. The rest already agreed. This is part of the same re-read as the first sync (H-10, 2026-10-07).
+- **Provenance:** DI-12, the traceability map and `claims.md` cite `358d3a2` where it is the source.
+
 ## 2026-10-07 · Site sync with the app at `8a818f8`: docs re-copied, privacy page made precise (awaits Ali's re-read)
 
 The app repository is at `8a818f8`: iteration 30 complete, all suites green (1565/0), not yet a released build and not yet run on the test site.

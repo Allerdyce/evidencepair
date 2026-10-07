@@ -4,7 +4,7 @@ app: scheme-control
 order: 2
 description: Set up your first policy in a few minutes.
 source: apps/controlled-project-config/docs/admin-quick-start.md
-sourceCommit: 8a818f8
+sourceCommit: 358d3a2
 ---
 
 You are a Jira administrator. You want project admins to switch some of their own project's schemes without giving them *Administer Jira*. You do that with **policies**.
@@ -36,7 +36,7 @@ The project's page says so, and names the two ways forward. A Jira administrator
 
 - **Pause all delegated changes.** One switch stops every change through the app, everywhere. Project admins see a notice. History stays readable.
 - **Beta features.** Workflow and issue security switching are off by default. See [How workflow mapping works](/docs/scheme-control/workflow-mapping/) before you turn them on.
-- **Your data.** **Export all app data** downloads everything the app stores for your site as one file, and then the history as CSV. Uninstalling the app removes this data, so export it first if you need a copy.
+- **Your data.** **Export all app data** downloads the app's records for your site as one file (policies, settings, the history, the audit trail and the refusal counters), and then the history of scheme changes as CSV. Uninstalling the app removes this data, so export it first if you need a copy.
 
 ## 5. History and checks
 

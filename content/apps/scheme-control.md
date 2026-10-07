@@ -20,7 +20,7 @@ In Jira Cloud, switching a project's permission, notification or workflow scheme
 - **Switching, without Jira admin rights.** On a project's settings page, its admins see what each scheme is set to now, what they may switch to, and what has changed recently.
 - **A preview before anything happens.** Permission changes list who gains and loses each permission, with broad audiences such as “any logged-in user” called out. Notification changes list who starts and stops being told about each event. Screen changes list the fields that appear and disappear.
 - **A reason, and a confirmation.** Policies can require a reason, and every change is confirmed by typing the project key.
-- **A history you can audit.** Every change, refusal and revert is recorded with who, when, why and what changed, and can be exported as CSV. The record is chained, so a missing or altered entry can be detected. The admin History also lists every change to policies and settings, and marks a revert as one.
+- **A history you can audit.** Every change, refusal and revert is recorded with who, when, why and what changed. Scheme changes can be exported as CSV, and everything, refusals included, in the JSON export. The record is chained, so a missing or altered entry can be detected. The admin History also lists every change to policies and settings, and marks a revert as one.
 - **Revert.** A successful change can be put back to what the project had before, even if that option is no longer on the list.
 - **Guard rails.** One change per project at a time, a cooldown between changes, and a site-wide pause switch.
 - **Daily checks.** The app tells admins when a policy points at a scheme that has been deleted or renamed, or at a project that has been archived or rebuilt as team-managed.
@@ -49,7 +49,7 @@ Jira site admins and platform teams who want to delegate routine configuration w
 | `manage:jira-configuration` | Read the site's schemes and assign notification, issue security and workflow schemes to a project. |
 | `manage:jira-project` | Assign permission and issue type screen schemes to a project. |
 | `storage:app` | The app's own storage: policies, settings, plans, locks, and the audit and history tables. |
-| `report:personal-data` | Report to Atlassian, weekly, which account IDs the app stores, and learn which have been closed so their data can be erased. Atlassian requires it of apps that store personal data. It reads no personal data. |
+| `report:personal-data` | Report to Atlassian, on Atlassian's reporting cycle (every 7 days when it names none), which account IDs the app stores, and learn which have been closed so their data can be erased. Atlassian requires it of apps that store personal data. It reads no personal data. |
 
 </div>
 

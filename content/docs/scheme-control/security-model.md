@@ -4,7 +4,7 @@ app: scheme-control
 order: 5
 description: What the app can and cannot do, and how it is checked.
 source: apps/controlled-project-config/docs/security-model.md
-sourceCommit: 8a818f8
+sourceCommit: 358d3a2
 ---
 
 Scheme Control for Jira lets people who are not Jira administrators change which scheme a project uses. That is a privileged action, so this page explains exactly how the app decides who may do it, and what it records.
@@ -36,7 +36,7 @@ Every change, refusal, revert and abandoned change writes **one audit record**. 
 
 ## Where data lives
 
-Policies, settings and history are stored in the app's own storage on Atlassian infrastructure (Forge storage and Forge SQL). The app makes no outside connections, and nothing leaves Atlassian.
+Policies, settings and history are stored in the app's own storage on Atlassian infrastructure (Forge storage and Forge SQL). The app makes no outside connections, and sends nothing outside Atlassian. Its developers can read its platform logs in Atlassian's developer console while a site administrator allows log sharing.
 
 ## What the app never does
 

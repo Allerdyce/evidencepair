@@ -4,7 +4,7 @@ app: scheme-control
 order: 6
 description: Policies and Jira administrators, lossy reverts, Jira's own audit records, account IDs, licensing, stuck changes, export and uninstall.
 source: apps/controlled-project-config/docs/faq.md
-sourceCommit: 8a818f8
+sourceCommit: 358d3a2
 ---
 
 ## I'm a Jira administrator. Why can't I switch a scheme on this project?
@@ -59,4 +59,4 @@ Uninstalling removes everything the app stored for your site: policies, settings
 
 ## Does any data leave Atlassian?
 
-No. The app stores everything in its own storage on Atlassian and makes no outside connections.
+The app itself sends nothing outside Atlassian. It stores everything in its own storage on Atlassian and makes no outside connections. Two things to know: the app's developers can read its platform logs in Atlassian's developer console, which a site administrator can turn off; and anything you send to our support address goes through our email providers. The privacy policy and data processing agreement give the details.
