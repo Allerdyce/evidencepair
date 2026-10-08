@@ -2,6 +2,14 @@
 
 Rulings and deviations for the EvidencePair vendor site (spec 30). Newest first. Anything a human must decide is in `HUMAN-TASKS.md`, not here.
 
+## 2026-10-08 · Ali signs off every pending statement; the preview banner comes off
+
+Ali, 2026-10-08: “please sign all items off and remove message then push”.
+- **The eight pending statements are signed off as written.** All eight were in the DPA: §5.2's review item (H-23), A.1's registration number (H-22), and six in B.2 on Porkbun and Apple (H-21, H-24). Each is now an ordinary paragraph with its words unchanged; the only edit is that `<strong>` became Markdown bold. Signing off approves the wording. It does not supply the missing facts, so none were invented and none of the paragraphs was deleted.
+- **`draft` is false.** The “Preview build” banner and the `noindex` tag are gone, and the `pending` shortcode now throws on any new use. The fallback pending statements on the privacy, security and support pages stay. They render only when `host` or `supportResponseTarget` is unset.
+- **Not changed:** the DPA's top notice (“Pending legal and implementation review - not yet effective”), its “Revised draft” labels, and the privacy and terms pages' description of it as a draft awaiting legal review. These are Ali's text and still true; removing the notice is his call (H-21, item 3).
+- **Checks:** build, `check:pending` (none), `check:links` (internal), all 36 browser tests, `check:content-model` and `check:reproducible` pass.
+
 ## 2026-10-07 · Site sync, third pass: the app's docs at `279b723` (retention wording, residency scope)
 
 The app repository changed its docs again in `279b723` (docs only), from the Marketplace answers draft. The site follows:
