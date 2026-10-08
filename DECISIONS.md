@@ -2,11 +2,19 @@
 
 Rulings and deviations for the EvidencePair vendor site (spec 30). Newest first. Anything a human must decide is in `HUMAN-TASKS.md`, not here.
 
+## 2026-10-08 · The data inventory's home: the app repository (H-09)
+
+Ali, Q&A round 4: “App repo owns it; site points to it.” Spec 30 §7 says the same.
+- **The record** is the app repository's `apps/controlled-project-config/docs/data-inventory.md`, which the app writes from its code.
+- **`provenance/data-inventory/scheme-control.md` stays, as the site's index into it.** The DI numbers are cited throughout `claims.md`, `privacy-traceability.md` and this file, so the lines remain. Each now names the inventory row it rests on and adds only code references and Atlassian's documentation. If the two disagree, the app's inventory is right. Its status line no longer says “draft, unverified by Ali”.
+- **Compared at app `f285dbf`** (2026-10-07, the app repository's head). The app's inventory has changed in one row since the full re-read at `279b723`: a change refused at Apply now keeps the reason the person typed, in the audit event's after record (D-CPC-31-4, `src/access.ts`). That fact is added to DI-06 and DI-17. The privacy page already says the audit trail holds “any reason the person entered”, so no page changes. The DPA's description of the audit trail is unaffected. The other source changes since `279b723` (`src/index.ts`, `src/preview.ts`, `src/db.ts`) add no new store and no new log line. The code line numbers cited in the DI lines were not re-checked.
+- **Not done here:** the app's customer docs changed after `279b723` (FAQ, admin quick start, project admin guide, workflow mapping). The site's copies of them are one app commit behind. That is a fourth site-sync pass, for Ali to call.
+
 ## 2026-10-08 · Q&A round 4 with Ali: going live
 
 - **The site goes live with the DPA as a draft (H-21).** The DPA keeps its top notice (“Pending legal and implementation review - not yet effective”), and the privacy and terms pages still call it a draft awaiting legal review, which stays true. The legal review follows. The Marketplace listing's DPA link and the removal of the notice both wait for it.
 - **H-19 confirmed:** Apple's standard Licensed Application EULA, as the terms page says.
-- **H-09:** the app repository owns the data inventory, and this repository points to it. Done in its own entry once the app repository is compared.
+- **H-09:** the app repository owns the data inventory, and this repository points to it (next entry).
 - **Go-live:** through a pull request into `main` that Ali merges (H-16).
 
 ## 2026-10-08 · Q&A round 3 with Ali: EIN purge, H-12, H-13, H-25
