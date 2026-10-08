@@ -2,9 +2,16 @@
 
 Rulings and deviations for the EvidencePair vendor site (spec 30). Newest first. Anything a human must decide is in `HUMAN-TASKS.md`, not here.
 
+## 2026-10-08 · Q&A round 3 with Ali: EIN purge, H-12, H-13, H-25
+
+- **EIN purged from the branch history.** At Ali's direction, `claude/jolly-mayer-vmv4aa` was rebuilt from `ed38932`. Round 1 became a commit whose tree already had the H-22 line without the number, the separate removal commit was dropped, and round 2 was re-applied unchanged. The branch was then force-pushed. Every commit message and tree after `ed38932` was checked for the number. The old commit `92e5fef` may still be viewable on GitHub by its ID until GitHub Support purges it.
+- **H-12 confirmed.** The audit-identity wording stands as the 2026-09-29 entry below describes it.
+- **H-13: publish as is.** Records are kept for the life of the installation and there is no retention setting.
+- **H-25 done.** Ali is subscribed to Atlassian's sub-processor notifications, which DPA §6's notice promise depends on.
+
 ## 2026-10-08 · DPA wording, Q&A round 2 with Ali
 
-- **A.1 registration number (H-22):** California Secretary of State entity number B20260405811. The nine-digit number given in round 1 was the EIN. It was written into `HUMAN-TASKS.md` in commit `92e5fef` and pushed, then removed in the next commit. A force-push to purge it from the branch history was blocked by this session's permissions, so it is still reachable in history (HUMAN-TASKS H-22).
+- **A.1 registration number (H-22):** California Secretary of State entity number B20260405811. The nine-digit number given in round 1 was the EIN. It was written into `HUMAN-TASKS.md` in commit `92e5fef` and pushed. In round 3 the branch history was rewritten without it (below).
 - **B.2 §6 lines (H-21):** removed at Ali's direction. Both said that no written data protection terms had been found for Porkbun's forwarding or Apple's iCloud Mail. The facts have not changed, so the gap stays open under H-21 for the legal review; the claims register records it.
 - **Apple Account region (H-24):** Ali confirmed United States, so B.2 is right to name Apple Inc.
 - **§5.2 (H-21):** one sentence added: Atlassian keeps a soft-deleted copy of data the app erases, and backups taken before the erasure, until the end of the retention period in its SOC 2 report. Its wording and link match the privacy page. The 21-day restore request is still not mentioned.
