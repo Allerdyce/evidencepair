@@ -2,6 +2,13 @@
 
 Rulings and deviations for the EvidencePair vendor site (spec 30). Newest first. Anything a human must decide is in `HUMAN-TASKS.md`, not here.
 
+## 2026-10-08 · DPA wording, Q&A round 1 with Ali
+
+- **Top notice:** kept. Only its last sentence, “HUMAN-TASKS H-21 remains open.”, is removed, because it points customers to this repository's task list.
+- **§5.2 review paragraph (H-23):** reworded for readers. It still says that a preview made around an erasure run may keep an account ID, and that the longest residual time, what a reversion keeps and whether queued work can bring the ID back are being verified. It still promises the verified behaviour before the DPA takes effect. Dropped: “This paragraph must be replaced with the verified behavior, not simply deleted.”
+- **B.2 (H-24):** Ali removed the four lines saying that the providers' published terms do not give Porkbun's and Apple's retention or countries. B.2 is now silent on both; the claims register records that they are unknown.
+- **A.1 registration number (H-22):** held back. The number given has the shape of an EIN, so it waits for Ali's confirmation (HUMAN-TASKS, 2026-10-08).
+
 ## 2026-10-08 · Ali signs off every pending statement; the preview banner comes off
 
 Ali, 2026-10-08: “please sign all items off and remove message then push”.
