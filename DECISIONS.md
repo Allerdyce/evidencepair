@@ -2,6 +2,13 @@
 
 Rulings and deviations for the EvidencePair vendor site (spec 30). Newest first. Anything a human must decide is in `HUMAN-TASKS.md`, not here.
 
+## 2026-10-08 · Q&A round 4 with Ali: going live
+
+- **The site goes live with the DPA as a draft (H-21).** The DPA keeps its top notice (“Pending legal and implementation review - not yet effective”), and the privacy and terms pages still call it a draft awaiting legal review, which stays true. The legal review follows. The Marketplace listing's DPA link and the removal of the notice both wait for it.
+- **H-19 confirmed:** Apple's standard Licensed Application EULA, as the terms page says.
+- **H-09:** the app repository owns the data inventory, and this repository points to it. Done in its own entry once the app repository is compared.
+- **Go-live:** through a pull request into `main` that Ali merges (H-16).
+
 ## 2026-10-08 · Q&A round 3 with Ali: EIN purge, H-12, H-13, H-25
 
 - **EIN purged from the branch history.** At Ali's direction, `claude/jolly-mayer-vmv4aa` was rebuilt from `ed38932`. Round 1 became a commit whose tree already had the H-22 line without the number, the separate removal commit was dropped, and round 2 was re-applied unchanged. The branch was then force-pushed. Every commit message and tree after `ed38932` was checked for the number. The old commit `92e5fef` may still be viewable on GitHub by its ID until GitHub Support purges it.
