@@ -2,9 +2,9 @@
 title: FAQ
 app: scheme-control
 order: 6
-description: Policies and Jira administrators, lossy reverts, Jira's own audit records, account IDs, licensing, stuck changes, export and uninstall.
+description: Policies and Jira administrators, lossy reverts, resolutions after a workflow switch, Jira's own audit records, account IDs, licensing, stuck changes, export and uninstall.
 source: apps/controlled-project-config/docs/faq.md
-sourceCommit: 279b723
+sourceCommit: f285dbf
 ---
 
 ## I'm a Jira administrator. Why can't I switch a scheme on this project?
@@ -22,6 +22,12 @@ Suppose a workflow switch moved issues from *several* statuses into *one*, or mo
 - If it doesn't, they **all move** to one status: the one you choose in the revert's mapping step. It starts at the status that held the most of them. If the app didn't record those numbers, it doesn't guess: it tells you, and you choose.
 
 The app tells you which of these will happen before you confirm. It also offers a search in Jira that finds the issues by their status history, so you can move them back by hand if you need to. See [How workflow mapping works](/docs/scheme-control/workflow-mapping/).
+
+## After a workflow switch, why are some issues still resolved?
+
+Jira keeps an issue's resolution when its workflow changes. Issues moved out of a resolved status, such as "Closed", into one that isn't done, such as "In Progress", keep their resolution, for example "Done". Jira then shows their keys struck through, and leaves them out of "unresolved" filters and boards.
+
+The check screen tells you before you confirm, with the number of issues, and a revert that leaves such issues behind says so too. Both offer a search in Jira for the project's issues that are resolved but not in a done status. The app doesn't change issues, so it doesn't clear the resolution for you: that would need permission to edit your issues, which the app doesn't ask for. Use the search, and change them in Jira. See [How workflow mapping works](/docs/scheme-control/workflow-mapping/).
 
 ## Why does Jira's own audit log show so many records for one workflow switch?
 

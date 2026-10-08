@@ -6,7 +6,7 @@ description: EvidencePair LLC's revised draft data processing agreement for Sche
 
 **EvidencePair LLC | Revised draft | 6 October 2026**
 
-**Pending legal and implementation review - not yet effective.** This is a proposed agreement, not an operative customer DPA. The completion items and implementation checks must be resolved before this notice is removed and the DPA is incorporated into a customer agreement. HUMAN-TASKS H-21 remains open.
+**Pending legal and implementation review - not yet effective.** This is a proposed agreement, not an operative customer DPA. The completion items and implementation checks must be resolved before this notice is removed and the DPA is incorporated into a customer agreement.
 
 This data processing agreement ("DPA") is between EvidencePair LLC ("EvidencePair", "we" or "us") and the customer identified in the applicable app order or other agreement ("Customer" or "you"). It covers **Scheme Control for Jira**. It does not cover Paperloft apps or automatically extend to future EvidencePair products.
 
@@ -87,9 +87,9 @@ Keeping audit information for the installation's life supports the app's history
 
 The app uses Atlassian's personal-data reporting process to identify accounts requiring erasure. The described implementation includes a weekly reporting check. We will comply with Atlassian's applicable reporting cycle, including a different cycle returned by its API where required.
 
-The account-erasure process removes account IDs and mappings from supported structured application records, including history, refusal counters, policy-editor fields and relevant preview or in-progress records. That automated process is not a complete mechanism for every individual-rights request. It does not, by itself, remove personal information embedded in reasons or other free text, purge platform logs, or establish that retained references are anonymous.
+The account-erasure process removes account IDs and mappings from supported structured application records, including history, refusal counters, policy-editor fields and relevant preview or in-progress records. That automated process is not a complete mechanism for every individual-rights request. It does not, by itself, remove personal information embedded in reasons or other free text, purge platform logs, or establish that retained references are anonymous. Atlassian keeps a soft-deleted copy of data the app erases, and backups taken before the erasure, until the end of the retention period set out in Atlassian's SOC 2 report ([data lifecycle](https://developer.atlassian.com/platform/forge/storage-reference/hosted-storage-data-lifecycle/)).
 
-{% pending "<strong>Implementation review item - unresolved in the supplied inventory:</strong> a preview created around an erasure run may retain an account ID after that run. The maximum residual period, the effect of reversion-related retention, and whether queued work can reintroduce the ID must be verified and addressed before this DPA becomes effective. This paragraph must be replaced with the verified behavior, not simply deleted.", "HUMAN-TASKS H-23" %}
+**Under verification:** a preview created around an erasure run may keep an account ID after that run. We are verifying the longest time it can remain, what a reversion keeps, and whether queued work can bring the ID back. We will replace this paragraph with the verified behavior before this DPA takes effect.
 
 Account closure is not required to make a valid access, correction, deletion or restriction request. Contact us under Section 10 for requests the app's automated functions do not cover. We will assess all relevant storage locations, free-text content, pseudonymous records, logs, queued work and any support copies and take the measures required by your lawful instructions and Data Protection Law. Preserving a hash chain is not, by itself, a reason to refuse required erasure.
 
@@ -239,7 +239,7 @@ You may designate or update a privacy and security notice contact through suppor
 
 **Business address:** 109 W Cota St, Santa Barbara, CA 93101, United States.
 
-{% pending "EvidencePair's official registration number, if any, is still to be inserted.", "HUMAN-TASKS H-22" %}
+**Registration number:** California Secretary of State entity number B20260405811.
 
 **EvidencePair personnel access locations:** United States.
 
@@ -295,15 +295,9 @@ Email sent to the support and security addresses in Section 15 is forwarded by P
 
 **Data and duration:** support and security emails and their attachments, including any Customer Personal Data they contain, while Porkbun keeps the messages.
 
-{% pending "How long Porkbun keeps forwarded messages, or records of them, is not stated in its Privacy Policy or Email Service Agreement.", "HUMAN-TASKS H-24" %}
-
 **Locations:** Porkbun's Privacy Policy says it may transfer personal data to service providers, vendors, registries or partners outside the country where you are located, and that information may be stored on servers located in other jurisdictions.
 
-{% pending "The countries in which Porkbun processes, or can access, forwarded messages are not stated in its published policies.", "HUMAN-TASKS H-24" %}
-
 **Safeguards:** Porkbun's Privacy Policy says it uses physical, technical and administrative procedures to protect personal data, and appropriate safeguards for international transfers, for example Standard Contractual Clauses. The Email Service Agreement refers to that policy.
-
-{% pending "Written data protection obligations for Porkbun's handling of forwarded messages, as Section 6 requires, have not been identified in its published terms.", "HUMAN-TASKS H-21" %}
 
 #### Apple: iCloud Mail
 
@@ -313,15 +307,9 @@ Email sent to the support and security addresses in Section 15 is forwarded by P
 
 **Data and duration:** support and security emails and their attachments, including any Customer Personal Data they contain, while the messages are kept in the mailbox.
 
-{% pending "How long Apple keeps a message after it is deleted from the mailbox is not stated in its iCloud Terms and Conditions or Privacy Policy.", "HUMAN-TASKS H-24" %}
-
 **Locations:** the iCloud Terms and Conditions say content is stored on Apple's or third-party providers' servers. Apple's [Privacy Policy](https://www.apple.com/legal/privacy/en-ww/) says personal data collected by Apple worldwide is generally stored by Apple Inc. in the United States, and that personal data may be transferred to or accessed by entities around the world, including Apple-affiliated companies.
 
-{% pending "The countries in which Apple and its providers store, or can access, iCloud Mail messages are not stated in Apple's published terms.", "HUMAN-TASKS H-24" %}
-
 **Safeguards:** Apple's [iCloud data security overview](https://support.apple.com/en-us/102651) says iCloud Mail is encrypted in transit and on the server, with the keys held by Apple, and is not end-to-end encrypted. Apple's Privacy Policy describes administrative, technical and physical safeguards, and says its privacy practices comply with the Global Cross-Border Privacy Rules (CBPR) System and the Global Privacy Recognition for Processors (PRP) System.
-
-{% pending "Written data protection obligations for Apple's handling of the mailbox, as Section 6 requires, have not been identified in its published terms.", "HUMAN-TASKS H-21" %}
 
 No unidentified provider is authorized by this draft. Before activation, EvidencePair must either complete this register for the actual support process or adopt and verify a support arrangement that does not route Customer Personal Data through an unlisted provider. Merely asking customers not to email exports does not eliminate the need to assess the providers that actually receive support messages or attachments.
 

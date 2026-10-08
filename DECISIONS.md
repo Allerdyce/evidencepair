@@ -2,6 +2,58 @@
 
 Rulings and deviations for the EvidencePair vendor site (spec 30). Newest first. Anything a human must decide is in `HUMAN-TASKS.md`, not here.
 
+## 2026-10-08 · Site sync, fourth pass: the app's docs at `f285dbf`
+
+Ali, Q&A round 5: re-sync the docs before the go-live merge.
+- **Re-copied at `f285dbf`:** admin quick start, project admin guide, workflow mapping and FAQ. Their text changed in `cf61bfb`, the app's CPC 31 re-QA fixes, which change code as well as docs. The main addition: Jira keeps an issue's resolution when its workflow changes. The app now warns about it, offers a search, and never clears a resolution itself, because it has no permission to edit issues. `provenance/claims.md` lists each page's changes. The FAQ's and the workflow page's descriptions gain the topic.
+- **Unchanged and left alone:** install and security model stay at `279b723`.
+- **The copy script.** It was never committed, so it was rebuilt from the adaptations recorded in `claims.md`. Before writing, it reproduced all six existing copies byte for byte from their recorded `sourceCommit`.
+- **Privacy page and DPA:** not affected. The one new stored fact, the typed reason kept on a refused change, is covered by the privacy page's “any reason the person entered”.
+
+## 2026-10-08 · The data inventory's home: the app repository (H-09)
+
+Ali, Q&A round 4: “App repo owns it; site points to it.” Spec 30 §7 says the same.
+- **The record** is the app repository's `apps/controlled-project-config/docs/data-inventory.md`, which the app writes from its code.
+- **`provenance/data-inventory/scheme-control.md` stays, as the site's index into it.** The DI numbers are cited throughout `claims.md`, `privacy-traceability.md` and this file, so the lines remain. Each now names the inventory row it rests on and adds only code references and Atlassian's documentation. If the two disagree, the app's inventory is right. Its status line no longer says “draft, unverified by Ali”.
+- **Compared at app `f285dbf`** (2026-10-07, the app repository's head). The app's inventory has changed in one row since the full re-read at `279b723`: a change refused at Apply now keeps the reason the person typed, in the audit event's after record (D-CPC-31-4, `src/access.ts`). That fact is added to DI-06 and DI-17. The privacy page already says the audit trail holds “any reason the person entered”, so no page changes. The DPA's description of the audit trail is unaffected. The other source changes since `279b723` (`src/index.ts`, `src/preview.ts`, `src/db.ts`) add no new store and no new log line. The code line numbers cited in the DI lines were not re-checked.
+- **Not done here:** the app's customer docs changed after `279b723` (FAQ, admin quick start, project admin guide, workflow mapping). The site's copies of them are one app commit behind. That is a fourth site-sync pass, for Ali to call.
+
+## 2026-10-08 · Q&A round 4 with Ali: going live
+
+- **The site goes live with the DPA as a draft (H-21).** The DPA keeps its top notice (“Pending legal and implementation review - not yet effective”), and the privacy and terms pages still call it a draft awaiting legal review, which stays true. The legal review follows. The Marketplace listing's DPA link and the removal of the notice both wait for it.
+- **H-19 confirmed:** Apple's standard Licensed Application EULA, as the terms page says.
+- **H-09:** the app repository owns the data inventory, and this repository points to it (next entry).
+- **Go-live:** through a pull request into `main` that Ali merges (H-16).
+
+## 2026-10-08 · Q&A round 3 with Ali: EIN purge, H-12, H-13, H-25
+
+- **EIN purged from the branch history.** At Ali's direction, `claude/jolly-mayer-vmv4aa` was rebuilt from `ed38932`. Round 1 became a commit whose tree already had the H-22 line without the number, the separate removal commit was dropped, and round 2 was re-applied unchanged. The branch was then force-pushed. Every commit message and tree after `ed38932` was checked for the number. The old commit `92e5fef` may still be viewable on GitHub by its ID until GitHub Support purges it.
+- **H-12 confirmed.** The audit-identity wording stands as the 2026-09-29 entry below describes it.
+- **H-13: publish as is.** Records are kept for the life of the installation and there is no retention setting.
+- **H-25 done.** Ali is subscribed to Atlassian's sub-processor notifications, which DPA §6's notice promise depends on.
+
+## 2026-10-08 · DPA wording, Q&A round 2 with Ali
+
+- **A.1 registration number (H-22):** California Secretary of State entity number B20260405811. The nine-digit number given in round 1 was the EIN. It was written into `HUMAN-TASKS.md` in commit `92e5fef` and pushed. In round 3 the branch history was rewritten without it (below).
+- **B.2 §6 lines (H-21):** removed at Ali's direction. Both said that no written data protection terms had been found for Porkbun's forwarding or Apple's iCloud Mail. The facts have not changed, so the gap stays open under H-21 for the legal review; the claims register records it.
+- **Apple Account region (H-24):** Ali confirmed United States, so B.2 is right to name Apple Inc.
+- **§5.2 (H-21):** one sentence added: Atlassian keeps a soft-deleted copy of data the app erases, and backups taken before the erasure, until the end of the retention period in its SOC 2 report. Its wording and link match the privacy page. The 21-day restore request is still not mentioned.
+
+## 2026-10-08 · DPA wording, Q&A round 1 with Ali
+
+- **Top notice:** kept. Only its last sentence, “HUMAN-TASKS H-21 remains open.”, is removed, because it points customers to this repository's task list.
+- **§5.2 review paragraph (H-23):** reworded for readers. It still says that a preview made around an erasure run may keep an account ID, and that the longest residual time, what a reversion keeps and whether queued work can bring the ID back are being verified. It still promises the verified behaviour before the DPA takes effect. Dropped: “This paragraph must be replaced with the verified behavior, not simply deleted.”
+- **B.2 (H-24):** Ali removed the four lines saying that the providers' published terms do not give Porkbun's and Apple's retention or countries. B.2 is now silent on both; the claims register records that they are unknown.
+- **A.1 registration number (H-22):** held back. The number given has the shape of an EIN, so it waits for Ali's confirmation (HUMAN-TASKS, 2026-10-08).
+
+## 2026-10-08 · Ali signs off every pending statement; the preview banner comes off
+
+Ali, 2026-10-08: “please sign all items off and remove message then push”.
+- **The eight pending statements are signed off as written.** All eight were in the DPA: §5.2's review item (H-23), A.1's registration number (H-22), and six in B.2 on Porkbun and Apple (H-21, H-24). Each is now an ordinary paragraph with its words unchanged; the only edit is that `<strong>` became Markdown bold. Signing off approves the wording. It does not supply the missing facts, so none were invented and none of the paragraphs was deleted.
+- **`draft` is false.** The “Preview build” banner and the `noindex` tag are gone, and the `pending` shortcode now throws on any new use. The fallback pending statements on the privacy, security and support pages stay. They render only when `host` or `supportResponseTarget` is unset.
+- **Not changed:** the DPA's top notice (“Pending legal and implementation review - not yet effective”), its “Revised draft” labels, and the privacy and terms pages' description of it as a draft awaiting legal review. These are Ali's text and still true; removing the notice is his call (H-21, item 3).
+- **Checks:** build, `check:pending` (none), `check:links` (internal), all 36 browser tests, `check:content-model` and `check:reproducible` pass.
+
 ## 2026-10-07 · Site sync, third pass: the app's docs at `279b723` (retention wording, residency scope)
 
 The app repository changed its docs again in `279b723` (docs only), from the Marketplace answers draft. The site follows:

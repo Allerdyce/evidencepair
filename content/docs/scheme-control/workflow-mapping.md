@@ -2,9 +2,9 @@
 title: How workflow mapping works (beta)
 app: scheme-control
 order: 4
-description: Why a workflow switch asks questions, the suggested choices, the check before you confirm, lossy changes and reverts.
+description: Why a workflow switch asks questions, the suggested choices, the check before you confirm, resolutions that stay, lossy changes and reverts.
 source: apps/controlled-project-config/docs/workflow-mapping.md
-sourceCommit: 8a818f8
+sourceCommit: f285dbf
 ---
 
 Workflow and issue security switching are **beta features**. They depend on Jira REST APIs that Atlassian marks as experimental. Both are off until a Jira administrator turns on **Beta features** in the app's settings.
@@ -30,9 +30,17 @@ Before you confirm, the check screen lists where each status's issues go, with t
 
 If issues from more than one status will end up in one status, it says so plainly. For example: "Task: 200 issues in “To Do” will join the 150 already in “In Progress”. A later revert can't tell them apart." That includes a status both workflows have. Its own issues don't move, so any issues you send there join them.
 
+### Resolutions stay as they are
+
+A workflow switch changes each issue's status, and nothing else. **Jira keeps an issue's resolution when its workflow changes.** So if you move resolved issues, for example from "Closed" into "In Progress", they stay resolved: Jira shows their keys struck through, and they don't appear in "unresolved" filters or on boards that hide resolved issues.
+
+When that will happen, the check screen says so, with the number of issues, for example: "Task: the 150 issues moving from “Closed” to “In Progress” keep their resolution." It also offers a search in Jira for the project's issues that are resolved but not in a done status. A revert that leaves resolved issues in such a status says the same in its warning, with the same search.
+
+The app doesn't change issues, so it never clears a resolution itself. Clearing one would need permission to edit your issues, which the app doesn't ask for. If you want those issues unresolved, use the search to find them and change them in Jira. Moving issues into a status in the done category, such as "Closed" into "Done", keeps them resolved as they should be, so nothing is said.
+
 ## How long it takes
 
-Jira moves the issues in the background. The check screen gives an estimate based on how many issues will move. It comes from measured switches: moving 150 issues took 20 to 30 seconds, and moving 350 took 30 to 45. The page shows progress and updates by itself, and you can leave it and come back.
+Jira moves the issues in the background. The check screen gives an estimate based on how many issues will move. It comes from measured switches and reverts: moving 150 issues took 20 to 30 seconds, moving 350 took 30 to 45, and a revert that moved no issues still took 23 to 28. The page shows progress and updates by itself, and you can leave it and come back.
 
 ## Lossy changes, and reverts
 
@@ -51,7 +59,9 @@ The revert's check screen also counts the issues it will move and estimates how 
 
 ### Finding the issues a revert couldn't put back
 
-The warning, and the result once the revert has run, offer a search in Jira for those issues. It finds them by their status history: for example, issues that moved from "To Do" to "In Progress" when the switch ran.
+The warning, and the result once the revert has run, offer a link to a search in Jira for those issues. It finds them by their status history: for example, issues that moved from "To Do" to "In Progress" when the switch ran. The search names the project, issue type and statuses in words, so you can read it in Jira and change it.
+
+Once a revert that left issues behind has run, its result starts by saying how many issues didn't go back to the status they were in before the switch, and then that the previous scheme is in use again.
 
 Jira reads the search's dates in your own time zone, which the app can't know. So the search looks from the day before the switch to the day after. It can also find issues someone moved the same way by hand in those days.
 
