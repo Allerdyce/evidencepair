@@ -2,6 +2,13 @@
 
 Rulings and deviations for the EvidencePair vendor site (spec 30). Newest first. Anything a human must decide is in `HUMAN-TASKS.md`, not here.
 
+## 2026-10-08 · DPA wording, Q&A round 2 with Ali
+
+- **A.1 registration number (H-22):** California Secretary of State entity number B20260405811. The nine-digit number given in round 1 was the EIN. It was written into `HUMAN-TASKS.md` in commit `92e5fef` and pushed, then removed in the next commit. A force-push to purge it from the branch history was blocked by this session's permissions, so it is still reachable in history (HUMAN-TASKS H-22).
+- **B.2 §6 lines (H-21):** removed at Ali's direction. Both said that no written data protection terms had been found for Porkbun's forwarding or Apple's iCloud Mail. The facts have not changed, so the gap stays open under H-21 for the legal review; the claims register records it.
+- **Apple Account region (H-24):** Ali confirmed United States, so B.2 is right to name Apple Inc.
+- **§5.2 (H-21):** one sentence added: Atlassian keeps a soft-deleted copy of data the app erases, and backups taken before the erasure, until the end of the retention period in its SOC 2 report. Its wording and link match the privacy page. The 21-day restore request is still not mentioned.
+
 ## 2026-10-08 · DPA wording, Q&A round 1 with Ali
 
 - **Top notice:** kept. Only its last sentence, “HUMAN-TASKS H-21 remains open.”, is removed, because it points customers to this repository's task list.

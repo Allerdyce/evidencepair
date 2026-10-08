@@ -87,7 +87,7 @@ Keeping audit information for the installation's life supports the app's history
 
 The app uses Atlassian's personal-data reporting process to identify accounts requiring erasure. The described implementation includes a weekly reporting check. We will comply with Atlassian's applicable reporting cycle, including a different cycle returned by its API where required.
 
-The account-erasure process removes account IDs and mappings from supported structured application records, including history, refusal counters, policy-editor fields and relevant preview or in-progress records. That automated process is not a complete mechanism for every individual-rights request. It does not, by itself, remove personal information embedded in reasons or other free text, purge platform logs, or establish that retained references are anonymous.
+The account-erasure process removes account IDs and mappings from supported structured application records, including history, refusal counters, policy-editor fields and relevant preview or in-progress records. That automated process is not a complete mechanism for every individual-rights request. It does not, by itself, remove personal information embedded in reasons or other free text, purge platform logs, or establish that retained references are anonymous. Atlassian keeps a soft-deleted copy of data the app erases, and backups taken before the erasure, until the end of the retention period set out in Atlassian's SOC 2 report ([data lifecycle](https://developer.atlassian.com/platform/forge/storage-reference/hosted-storage-data-lifecycle/)).
 
 **Under verification:** a preview created around an erasure run may keep an account ID after that run. We are verifying the longest time it can remain, what a reversion keeps, and whether queued work can bring the ID back. We will replace this paragraph with the verified behavior before this DPA takes effect.
 
@@ -239,7 +239,7 @@ You may designate or update a privacy and security notice contact through suppor
 
 **Business address:** 109 W Cota St, Santa Barbara, CA 93101, United States.
 
-EvidencePair's official registration number, if any, is still to be inserted.
+**Registration number:** California Secretary of State entity number B20260405811.
 
 **EvidencePair personnel access locations:** United States.
 
@@ -299,8 +299,6 @@ Email sent to the support and security addresses in Section 15 is forwarded by P
 
 **Safeguards:** Porkbun's Privacy Policy says it uses physical, technical and administrative procedures to protect personal data, and appropriate safeguards for international transfers, for example Standard Contractual Clauses. The Email Service Agreement refers to that policy.
 
-Written data protection obligations for Porkbun's handling of forwarded messages, as Section 6 requires, have not been identified in its published terms.
-
 #### Apple: iCloud Mail
 
 **Legal entity:** Apple Inc., One Apple Park Way, Cupertino, California 95014, United States, which the [iCloud Terms and Conditions](https://www.apple.com/legal/internet-services/icloud/) identify as the provider of iCloud for users in the United States.
@@ -312,8 +310,6 @@ Written data protection obligations for Porkbun's handling of forwarded messages
 **Locations:** the iCloud Terms and Conditions say content is stored on Apple's or third-party providers' servers. Apple's [Privacy Policy](https://www.apple.com/legal/privacy/en-ww/) says personal data collected by Apple worldwide is generally stored by Apple Inc. in the United States, and that personal data may be transferred to or accessed by entities around the world, including Apple-affiliated companies.
 
 **Safeguards:** Apple's [iCloud data security overview](https://support.apple.com/en-us/102651) says iCloud Mail is encrypted in transit and on the server, with the keys held by Apple, and is not end-to-end encrypted. Apple's Privacy Policy describes administrative, technical and physical safeguards, and says its privacy practices comply with the Global Cross-Border Privacy Rules (CBPR) System and the Global Privacy Recognition for Processors (PRP) System.
-
-Written data protection obligations for Apple's handling of the mailbox, as Section 6 requires, have not been identified in its published terms.
 
 No unidentified provider is authorized by this draft. Before activation, EvidencePair must either complete this register for the actual support process or adopt and verify a support arrangement that does not route Customer Personal Data through an unlisted provider. Merely asking customers not to email exports does not eliminate the need to assess the providers that actually receive support messages or attachments.
 
