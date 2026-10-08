@@ -2,6 +2,14 @@
 
 Rulings and deviations for the EvidencePair vendor site (spec 30). Newest first. Anything a human must decide is in `HUMAN-TASKS.md`, not here.
 
+## 2026-10-08 · Site sync, fourth pass: the app's docs at `f285dbf`
+
+Ali, Q&A round 5: re-sync the docs before the go-live merge.
+- **Re-copied at `f285dbf`:** admin quick start, project admin guide, workflow mapping and FAQ. Their text changed in `cf61bfb`, the app's CPC 31 re-QA fixes, which change code as well as docs. The main addition: Jira keeps an issue's resolution when its workflow changes. The app now warns about it, offers a search, and never clears a resolution itself, because it has no permission to edit issues. `provenance/claims.md` lists each page's changes. The FAQ's and the workflow page's descriptions gain the topic.
+- **Unchanged and left alone:** install and security model stay at `279b723`.
+- **The copy script.** It was never committed, so it was rebuilt from the adaptations recorded in `claims.md`. Before writing, it reproduced all six existing copies byte for byte from their recorded `sourceCommit`.
+- **Privacy page and DPA:** not affected. The one new stored fact, the typed reason kept on a refused change, is covered by the privacy page's “any reason the person entered”.
+
 ## 2026-10-08 · The data inventory's home: the app repository (H-09)
 
 Ali, Q&A round 4: “App repo owns it; site points to it.” Spec 30 §7 says the same.

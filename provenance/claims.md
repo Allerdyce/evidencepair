@@ -61,11 +61,11 @@ Since 2026-10-06 the site's docs for this app are copies of the app repository's
 | Site page | Source in the app repository (at `7fcc76f`) | Adaptations, and nothing else |
 |---|---|---|
 | `install.md` → `/docs/scheme-control/install/` | `apps/controlled-project-config/docs/install.md` **at `279b723`** | H1 → front-matter `title`; two `.md` links → site URLs; the permissions table wrapped in the site's labelled scroll region. |
-| `admin-quick-start.md` → `/docs/scheme-control/admin-quick-start/` | `apps/controlled-project-config/docs/admin-quick-start.md` **at `358d3a2`** | H1 → `title`; two `.md` links → site URLs. |
-| `project-admin-guide.md` → `/docs/scheme-control/project-admin-guide/` | `apps/controlled-project-config/docs/project-admin-guide.md` **at `8a818f8`** | H1 → `title`; three `.md` links → site URLs. |
-| `workflow-mapping.md` → `/docs/scheme-control/workflow-mapping/` | `apps/controlled-project-config/docs/workflow-mapping.md` **at `8a818f8`** | H1 → `title`. |
+| `admin-quick-start.md` → `/docs/scheme-control/admin-quick-start/` | `apps/controlled-project-config/docs/admin-quick-start.md` **at `f285dbf`** | H1 → `title`; two `.md` links → site URLs. |
+| `project-admin-guide.md` → `/docs/scheme-control/project-admin-guide/` | `apps/controlled-project-config/docs/project-admin-guide.md` **at `f285dbf`** | H1 → `title`; three `.md` links → site URLs. |
+| `workflow-mapping.md` → `/docs/scheme-control/workflow-mapping/` | `apps/controlled-project-config/docs/workflow-mapping.md` **at `f285dbf`** | H1 → `title`. |
 | `security-model.md` → `/docs/scheme-control/security-model/` | `apps/controlled-project-config/docs/security-model.md` **at `279b723`** | H1 → `title`; one `.md` link → site URL. |
-| `faq.md` → `/docs/scheme-control/faq/` | `apps/controlled-project-config/docs/faq.md` **at `279b723`** | H1 → `title`; one `.md` link → site URL; question headings `###` → `##`, because the layout's H1 is the only heading above them. |
+| `faq.md` → `/docs/scheme-control/faq/` | `apps/controlled-project-config/docs/faq.md` **at `f285dbf`** | H1 → `title`; two `.md` links → site URLs; question headings `###` → `##`, because the layout's H1 is the only heading above them. |
 
 **`faq.md` and `security-model.md` are read at `cd42280`, not `7fcc76f`.** That app commit corrects those two pages
 (docs only; the app's code and the released build `ba8d3d8` are unchanged):
@@ -114,6 +114,14 @@ existing copies byte for byte before writing. What changed:
   reference's 28 days beside it.
 
 admin-quick-start stays at `358d3a2`; project-admin-guide and workflow-mapping stay at `8a818f8` (unchanged since).
+
+**Four pages are read at `f285dbf` (2026-10-08):** admin-quick-start, project-admin-guide, workflow-mapping and faq. `f285dbf` was the app repository's head on 2026-10-07. Their text changed in `cf61bfb`, the CPC 31 re-QA fixes (D-CPC-31-1, -2, -4 to -8, -10), which changes code as well as docs. The copy script is not in this repository, so it was rebuilt from the adaptations above. It reproduced all six existing copies byte for byte from their old `sourceCommit` before writing. What changed:
+- **admin-quick-start:** a refused attempt in the History shows the reason the person typed;
+- **project-admin-guide:** cancelling a preview or going back clears the choice; the workflow preview says when resolved issues will move into a status that isn't done, with a Jira search; on “Another change to this project is in progress”, the preview closes and the refused attempt is kept with the typed reason; a lossy revert's warning counts issues left resolved in a status that isn't done;
+- **workflow-mapping:** a new section, “Resolutions stay as they are” (Jira keeps a resolution when the workflow changes; the app warns, offers a search, and never clears a resolution because it has no permission to edit issues); the timing estimate adds a measured revert (23 to 28 seconds with no issues moved); the revert's search is a link and names the project, issue type and statuses in words; a revert that left issues behind says how many first;
+- **faq:** a new answer, “After a workflow switch, why are some issues still resolved?”.
+
+The FAQ's and the workflow page's descriptions gain the new topic. install and security-model are unchanged since `279b723` and stay there.
 
 The front-matter `description` of each page is the site's one-line summary for the docs index. Two of them are the app's own words (install page, “Next steps”); the other four summarise the page's own headings and add no fact.
 
