@@ -2,6 +2,22 @@
 
 Rulings and deviations for the EvidencePair vendor site (spec 30). Newest first. Anything a human must decide is in `HUMAN-TASKS.md`, not here.
 
+## 2026-10-13 · Ali's owner packet, second version: production-log rule, EEA restriction, aliases (branch only, unpublished)
+
+**Source:** app repository `docs/launch/owner-packet-2026-10-12/2026-10-13-v2-application-answers.md`, `…-v2-dpa-draft-for-adoption.md` and `…-v2-incident-response-plan-adopted.md`, which supersede the first versions (app `DECISIONS.md`, 2026-10-13). Same branch; not pushed or published.
+
+- **DPA:** v2 verbatim. That adds the §7 production-log rule, the §12 EEA restriction, the A.1 logs sentence and the B.2 aliases. A script checked every v2 line is on the page and nothing else. The seven pending statements are unchanged: v2 adds no new sentence that says an item is open.
+- **Privacy:** v2's mail paragraph, data-disclosure passage, personal-data, uninstall and erasure texts, verbatim. The builder's bridging sentence is gone.
+  - **Logs:** the production-log rule replaces “While it is on, the app's developers at EvidencePair can read these logs …” (with the contributors link and the 30-day console sentence) and “We read the logs only to troubleshoot the app”. The customer controls (log sharing on at install; a site administrator can turn it off) stay.
+  - **Where data lives:** “What EvidencePair can see is the app's platform logs” is removed, because it contradicts the rule.
+  - **EEA:** the interim sentence and its pending marker are replaced by the “Listing EEA restriction” text.
+  - **Not placed:** v2's “Zoho retention wording” would repeat the mail paragraph's new schedules sentence.
+- **Terms:** not changed. The page carries no Provider-Specific Terms: it says there are none yet. The v2 Provider-Specific Terms text is in DPA §12 word for word (H-27).
+- **Security:** the posture wording is unchanged in v2. Nothing else on the page refers to reading logs.
+- **hello@ and billing@:** restored in `data/site.json` (H-28 done).
+- **Incident response plan:** adopted, but not published. The site has no place for it, so H-29 asks Ali whether to publish a summary.
+- **For the builder, in the app repository:** `security-model.md` and `faq.md` still say the developers “can read its platform logs”. The site's copies follow once they change.
+
 ## 2026-10-13 · Ali's follow-up: four privacy sentences, the interim EU-transfer position, hello@ and billing@ (branch only, unpublished)
 
 **Source:** Ali's follow-up, landed verbatim in the app repository at `docs/launch/owner-packet-2026-10-12/2026-10-13-followup-eu-transfers-mail-privacy-wording.md`. Same branch, `draft/owner-packet-2026-10-12`; not pushed or published.

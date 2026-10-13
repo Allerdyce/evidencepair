@@ -1,6 +1,6 @@
 ---
 title: Data processing agreement for Atlassian Marketplace apps
-updated: 2026-10-12
+updated: 2026-10-13
 description: EvidencePair LLC's revised draft data processing agreement for Scheme Control for Jira, pending legal and implementation review and not yet effective.
 ---
 
@@ -139,7 +139,7 @@ EvidencePair's described app architecture does not use an external connection to
 
 The current inventory identifies one type of log line that includes the account ID of a person who initiated a queued switch. Error messages and API responses may also contain identifying information. We do not claim that all platform logs are anonymous or free of personal data.
 
-We will limit access to authorized personnel who need it for the specified support or security purpose. Anyone authorized to process Customer Personal Data must be bound by confidentiality obligations or an equivalent statutory duty. Access from another country must satisfy Section 12 and be recorded in Annex A.
+EvidencePair personnel, including Paul Allerdyce, must not open, view, search, download or export production Forge logs. This rule also applies during troubleshooting and incident response. Atlassian may still collect the logs, and platform access may remain technically available where customers enable log sharing. The rule does not claim that access has been revoked or that log collection has stopped. We will limit other permitted access to authorized personnel who need it for the specified support or security purpose. Anyone authorized to process Customer Personal Data must be bound by confidentiality obligations or an equivalent statutory duty. Access from another country must satisfy Section 12 and be recorded in Annex A.
 
 Do not email an unredacted export, credentials or unnecessary personal information. We will prefer non-identifying reproductions and redacted diagnostics. Before requesting Customer Personal Data for support, we will identify an appropriate channel, any additional provider, the purpose, authorized access and retention arrangements. Any provider handling that material must first be covered by Section 6 and Annex B.
 
@@ -199,7 +199,7 @@ An audit must protect other customers' information and avoid unnecessary disrupt
 
 ## 12. International transfers
 
-Storage residency and runtime egress restrictions do not, by themselves, resolve whether access, support or onward processing is an international transfer. We will identify relevant processing and access locations and ensure a lawful basis for each restricted transfer.
+Until EvidencePair confirms in writing that the required processing terms and transfer safeguards are effective, EvidencePair does not accept orders, trials or onboarding from customers established in the European Economic Area. Customers must not use the app or support channel in a way that requires a restricted transfer of personal data from the EEA to EvidencePair without an effective lawful mechanism. Non-EEA establishment is not, by itself, proof that no restricted transfer occurs. Contact <a href="mailto:{{ site.emails.support }}">{{ site.emails.support }}</a> with a non-identifying question if eligibility is uncertain. EvidencePair will decline such onboarding and arrange suspension of affected processing if an ineligible installation is discovered; this restriction does not establish that a technical country block is implemented. Storage residency and runtime egress restrictions do not, by themselves, resolve whether access, support or onward processing is an international transfer. We will identify relevant processing and access locations and ensure a lawful basis for each restricted transfer.
 
 Where a transfer requires safeguards because it is not covered by an applicable adequacy decision or another lawful basis, the applicable terms in Annex A apply, provided the selected mechanism is legally suitable for that transfer. We will not begin a restricted transfer until the required mechanism, party details, transfer information and safeguards are complete and effective. No Data Privacy Framework certification by EvidencePair is represented in this DPA.
 
@@ -249,7 +249,7 @@ You may designate or update a privacy and security notice contact through suppor
 
 The parties' valid acceptance of the Agreement incorporating this DPA constitutes their signature and acceptance for these transfer terms. The signature date is the date that acceptance becomes effective. Required party details must be complete before a transfer relies on these terms.
 
-The data subjects, data categories, operations and purposes are described in Sections 2 and 3. Processing is ongoing during use of the app; log access and support disclosures occur as needed for their authorized purposes. The duration and retention criteria are in Section 5. Sensitive data is not intended; unexpected sensitive information is access-restricted and addressed under Sections 2, 7 and 10. The technical and organizational measures are in Section 8. Sub-processing services, locations and duration are identified in Annex B. The EvidencePair contact responsible for these arrangements is Paul Allerdyce.
+The data subjects, data categories, operations and purposes are described in Sections 2 and 3. Processing is ongoing during use of the app. Production platform logs remain subject to the no-access rule in Section 7; separately supplied support data is subject to the applicable eligibility, contract and transfer restrictions. The duration and retention criteria are in Section 5. Sensitive data is not intended; unexpected sensitive information is access-restricted and addressed under Sections 2, 7 and 10. The technical and organizational measures are in Section 8. Sub-processing services, locations and duration are identified in Annex B. The EvidencePair contact responsible for these arrangements is Paul Allerdyce.
 
 For each restricted transfer, the parties will record the actual route and destination, the applicable law and mechanism, and any supplementary measures. For EU transfers, the competent supervisory authority is determined under Clause 13 of the EU clauses according to the exporter's establishment, representative or relevant data subjects; the applicable authority must be identified in that record, not selected solely for convenience.
 
@@ -289,7 +289,7 @@ For transfers governed exclusively by Swiss law, Clause 17 selects Swiss law and
 
 ### B.2 Support and email processing — completion gate remains open
 
-Support and security email for <a href="mailto:{{ site.emails.support }}">{{ site.emails.support }}</a> and <a href="mailto:{{ site.emails.security }}">{{ site.emails.security }}</a> is delivered directly to Zoho Mail. security@ is an alias of the support mailbox. Public MX routing no longer uses Porkbun forwarding to iCloud. Porkbun remains the registrar/DNS provider; that role alone does not make it a processor of email-message content.
+Support and security email for <a href="mailto:{{ site.emails.support }}">{{ site.emails.support }}</a> and <a href="mailto:{{ site.emails.security }}">{{ site.emails.security }}</a> is delivered directly to Zoho Mail. security@, hello@ and billing@ are aliases of the same support mailbox. The additional hello@ and billing@ aliases were created on 12 October 2026 and provider-internal delivery retests passed. Public MX routing no longer uses Porkbun forwarding to iCloud. Porkbun remains the registrar/DNS provider; that role alone does not make it a processor of email-message content.
 
 {% pending "The legacy forwarding configuration has not yet been inspected or retired.", "HUMAN-TASKS H-24" %}
 

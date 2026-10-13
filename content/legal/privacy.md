@@ -1,6 +1,6 @@
 ---
 title: Privacy policy
-updated: 2026-10-12
+updated: 2026-10-13
 description: What EvidencePair's website, Paperloft apps and Atlassian apps store, where it lives, and what we never do with it.
 ---
 
@@ -16,7 +16,7 @@ This website collects nothing. It sets no cookies, stores nothing in your browse
 
 {% if site.host %}The site is served by {{ site.host }}, which processes requests in order to serve pages under its own [privacy statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement). We do not receive or use visitor analytics from it.{% else %}{% pending "Name the hosting provider and state what request data it processes on our behalf.", "HUMAN-TASKS H-03" %}{% endif %}
 
-Support and security email is delivered directly to Zoho Mail. Paul Allerdyce alone accesses it from the United States. Resolved support messages and attachments are to leave the active mailbox within 30 days after resolution, subject to necessary earlier deletion or a documented lawful exception. Zoho publishes deletion, recovery and log-retention schedules. We describe those published schedules in the [draft DPA](/dpa/#b2-support-and-email-processing-completion-gate-remains-open), but their applicability to our service and any additional retention terms remain to be verified against the provider agreement. The separate cleanup procedure is not yet enabled, and provider-contract particulars remain pending.
+Support and security email is delivered directly to Zoho Mail. Paul Allerdyce alone accesses it from the United States. Resolved support messages and attachments are to leave the active mailbox within 30 days after resolution, subject to necessary earlier deletion or a documented lawful exception. Zoho publishes separate Trash, recovery, log and trace schedules; their applicability remains under verification. The separate cleanup procedure is not yet enabled, and provider-contract particulars remain pending.
 
 ## Paperloft apps
 
@@ -28,7 +28,7 @@ The rest of this policy describes **Scheme Control for Jira**. When we publish a
 
 ### Where data lives
 
-All app data is stored in the app's own storage on Atlassian's infrastructure (the Forge Key-Value Store and Forge SQL), provisioned for your installation. The app declares no external egress and no remote services: it makes requests only to Atlassian APIs within your site. The app does not automatically send application records to EvidencePair's own systems, and EvidencePair cannot reach the app's storage from outside the app. What EvidencePair can see is the app's platform logs, described [below](#platform-logs).
+All app data is stored in the app's own storage on Atlassian's infrastructure (the Forge Key-Value Store and Forge SQL), provisioned for your installation. The app declares no external egress and no remote services: it makes requests only to Atlassian APIs within your site. The app does not automatically send application records to EvidencePair's own systems, and EvidencePair cannot reach the app's storage from outside the app.
 
 **Data residency.** Everything the app keeps in Forge-hosted storage (the Key-Value Store and Forge SQL) follows your Jira site's data residency location and moves with the site: policies and settings, the change history, the audit trail and its account mapping, refusal counters, previews, change inputs, in-progress markers, outcomes, project locks, the daily check report and the audit pseudonym key. Out of scope: Forge platform logs; a queued switch's message while it waits in Forge's queue; files an administrator exports to their own device; and email sent to EvidencePair support. Residency covers stored data, not every place processing happens: Atlassian notes that Forge may sometimes run an invocation from a location other than the site's ([Atlassian: Forge data residency](https://developer.atlassian.com/platform/forge/data-residency/)).
 
@@ -78,7 +78,9 @@ Uninstalling starts Atlassian's hosted-storage deletion lifecycle; it does not i
 
 Atlassian's Forge platform keeps a log of what the app writes while it runs. In production the app writes a line only when something fails or needs attention, such as a request it refused, a change Jira did not apply, or a queued switch it ended. It also writes one line a day saying whether the personal-data report ran, with counts and the reporting cycle only. Lines identify things by internal identifiers (the change, the project, the scheme) and can quote an error message or Jira's answer. One kind of line carries an Atlassian account ID: when the app ends a queued switch, the line names the person who started it. Atlassian adds each line's site, app version, environment and licence status ([Atlassian: view app logs](https://developer.atlassian.com/platform/forge/view-app-logs/)).
 
-Atlassian turns log sharing on when the app is installed. While it is on, the app's developers at EvidencePair can read these logs in Atlassian's developer console: the app's administrators, and any other contributor given permission to view production logs ([Atlassian: contributors](https://developer.atlassian.com/platform/forge/contributors/)). A site administrator can turn log sharing off, or download the site's logs, in Atlassian Administration under **Apps → Connected apps** ([Atlassian: access app logs](https://developer.atlassian.com/platform/forge/access-app-logs/)). The developer console shows logs for the past 30 days. We read the logs only to troubleshoot the app.
+Atlassian turns log sharing on when the app is installed. A site administrator can turn log sharing off, or download the site's logs, in Atlassian Administration under **Apps → Connected apps** ([Atlassian: access app logs](https://developer.atlassian.com/platform/forge/access-app-logs/)).
+
+EvidencePair personnel, including Paul Allerdyce, must not open, view, search, download or export production Forge logs. This rule also applies during troubleshooting and incident response. Atlassian may still collect the logs, and platform access may remain technically available where customers enable log sharing. The rule does not claim that access has been revoked or that log collection has stopped.
 
 ### Notifications
 
@@ -86,9 +88,9 @@ Any notification the app sends is delivered inside the Atlassian product. The ap
 
 ## What we never do
 
-We do not sell Customer Personal Data or use it for unrelated advertising or AI training. We process it on customer instructions and use service providers for the stated purposes. [Our DPA's sub-processor register](/dpa/#annex-b-sub-processor-register) identifies the current services used. Zoho's contracting entity, applicable processing countries and contractual safeguards remain under verification; the register is not yet complete. US support/log access and any relevant onward transfers require the applicable safeguards.
+We do not sell Customer Personal Data or use it for unrelated advertising or AI training. We process it on customer instructions and use service providers for the stated purposes. [The draft DPA](/dpa/#annex-b-sub-processor-register) identifies the services used, but Zoho's contracting entity, applicable processing countries and safeguards remain under verification; the sub-processor register is not yet complete. Any relevant transfer requires the applicable safeguards.
 
-{% pending "Until appropriate transfer safeguards and provider processing terms are effective, we defer EEA customer onboarding, do not access or download production logs, and do not request EEA Customer Personal Data through email support.", "HUMAN-TASKS H-27 · Interim EU-transfer position: needs an actual onboarding restriction and verified log-access controls before it is relied on (Ali, 2026-10-13)" %}
+EEA onboarding is temporarily unavailable. Do not install or start a trial if your organisation is established in the European Economic Area. Do not email personal data transferred from the EEA to EvidencePair. This restriction remains until EvidencePair confirms that the required processing terms and transfer safeguards are effective.
 
 ## Changes to this policy
 
