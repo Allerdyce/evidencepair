@@ -2,6 +2,10 @@
 
 Rulings and deviations for the EvidencePair vendor site (spec 30). Newest first. Anything a human must decide is in `HUMAN-TASKS.md`, not here.
 
+## 2026-10-13 · Docs re-copied at the app's `0c0de7e`: the production-log rule (branch only, unpublished)
+
+The app fixed its docs in `0c0de7e`. `faq.md` and `security-model.md` are re-copied with the usual adaptations. The script first reproduced both `279b723` copies byte for byte, and `sourceCommit` is now `0c0de7e`. Both pages now state the production-log rule instead of “the app's developers can read its platform logs”, and the FAQ names Zoho Mail. The FAQ also picks up the app's answer on issues still resolved after a switch, and its description gains that topic. `data-inventory.md` is not a published page here; its change is recorded in DI-20. Details: `provenance/claims.md`.
+
 ## 2026-10-13 · Ali's owner packet, second version: production-log rule, EEA restriction, aliases (branch only, unpublished)
 
 **Source:** app repository `docs/launch/owner-packet-2026-10-12/2026-10-13-v2-application-answers.md`, `…-v2-dpa-draft-for-adoption.md` and `…-v2-incident-response-plan-adopted.md`, which supersede the first versions (app `DECISIONS.md`, 2026-10-13). Same branch; not pushed or published.

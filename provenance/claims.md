@@ -64,8 +64,10 @@ Since 2026-10-06 the site's docs for this app are copies of the app repository's
 | `admin-quick-start.md` → `/docs/scheme-control/admin-quick-start/` | `apps/controlled-project-config/docs/admin-quick-start.md` **at `358d3a2`** | H1 → `title`; two `.md` links → site URLs. |
 | `project-admin-guide.md` → `/docs/scheme-control/project-admin-guide/` | `apps/controlled-project-config/docs/project-admin-guide.md` **at `8a818f8`** | H1 → `title`; three `.md` links → site URLs. |
 | `workflow-mapping.md` → `/docs/scheme-control/workflow-mapping/` | `apps/controlled-project-config/docs/workflow-mapping.md` **at `8a818f8`** | H1 → `title`. |
-| `security-model.md` → `/docs/scheme-control/security-model/` | `apps/controlled-project-config/docs/security-model.md` **at `279b723`** | H1 → `title`; one `.md` link → site URL. |
-| `faq.md` → `/docs/scheme-control/faq/` | `apps/controlled-project-config/docs/faq.md` **at `279b723`** | H1 → `title`; one `.md` link → site URL; question headings `###` → `##`, because the layout's H1 is the only heading above them. |
+| `security-model.md` → `/docs/scheme-control/security-model/` | `apps/controlled-project-config/docs/security-model.md` **at `0c0de7e`** (was `279b723`) | H1 → `title`; one `.md` link → site URL. |
+| `faq.md` → `/docs/scheme-control/faq/` | `apps/controlled-project-config/docs/faq.md` **at `0c0de7e`** (was `279b723`) | H1 → `title`; two `.md` links → site URL; question headings `###` → `##`, because the layout's H1 is the only heading above them. |
+
+**`faq.md` and `security-model.md` are re-copied at `0c0de7e` (2026-10-13).** The same adaptations, by a script that first reproduced both `279b723` copies byte for byte. Changed: “Where data lives” (security model) and “Does any data leave Atlassian?” (FAQ) now state Ali's production-log rule (app `0c0de7e`; DPA §7) instead of “the app's developers can read its platform logs”, and the FAQ names Zoho Mail for support email. The FAQ also gains the app's answer “After a workflow switch, why are some issues still resolved?” from an app commit between `279b723` and `0c0de7e`; its description adds that topic.
 
 **`faq.md` and `security-model.md` are read at `cd42280`, not `7fcc76f`.** That app commit corrects those two pages
 (docs only; the app's code and the released build `ba8d3d8` are unchanged):

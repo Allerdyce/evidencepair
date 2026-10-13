@@ -2,9 +2,9 @@
 title: FAQ
 app: scheme-control
 order: 6
-description: Policies and Jira administrators, lossy reverts, Jira's own audit records, account IDs, licensing, stuck changes, export and uninstall.
+description: Policies and Jira administrators, lossy reverts, issues still resolved after a switch, Jira's own audit records, account IDs, licensing, stuck changes, export and uninstall.
 source: apps/controlled-project-config/docs/faq.md
-sourceCommit: 279b723
+sourceCommit: 0c0de7e
 ---
 
 ## I'm a Jira administrator. Why can't I switch a scheme on this project?
@@ -22,6 +22,12 @@ Suppose a workflow switch moved issues from *several* statuses into *one*, or mo
 - If it doesn't, they **all move** to one status: the one you choose in the revert's mapping step. It starts at the status that held the most of them. If the app didn't record those numbers, it doesn't guess: it tells you, and you choose.
 
 The app tells you which of these will happen before you confirm. It also offers a search in Jira that finds the issues by their status history, so you can move them back by hand if you need to. See [How workflow mapping works](/docs/scheme-control/workflow-mapping/).
+
+## After a workflow switch, why are some issues still resolved?
+
+Jira keeps an issue's resolution when its workflow changes. Issues moved out of a resolved status, such as "Closed", into one that isn't done, such as "In Progress", keep their resolution, for example "Done". Jira then shows their keys struck through, and leaves them out of "unresolved" filters and boards.
+
+The check screen tells you before you confirm, with the number of issues, and a revert that leaves such issues behind says so too. Both offer a search in Jira for the project's issues that are resolved but not in a done status. The app doesn't change issues, so it doesn't clear the resolution for you: that would need permission to edit your issues, which the app doesn't ask for. Use the search, and change them in Jira. See [How workflow mapping works](/docs/scheme-control/workflow-mapping/).
 
 ## Why does Jira's own audit log show so many records for one workflow switch?
 
@@ -59,4 +65,4 @@ Uninstalling removes everything the app stored for your site: policies, settings
 
 ## Does any data leave Atlassian?
 
-The app itself sends nothing outside Atlassian. It stores everything in its own storage on Atlassian and makes no outside connections. Two things to know: the app's developers can read its platform logs in Atlassian's developer console, which a site administrator can turn off; and anything you send to our support address goes through our email providers. The privacy policy and data processing agreement give the details.
+The app itself sends nothing outside Atlassian. It stores everything in its own storage on Atlassian and makes no outside connections. Two things to know: Atlassian collects the app's platform logs and shares them with the developer console while log sharing is on (a site administrator can turn it off), but EvidencePair's rule is that no one at EvidencePair opens, views, searches, downloads or exports production logs, including during troubleshooting and incident response; and anything you send to our support address is handled by our email provider, Zoho Mail. The privacy policy and data processing agreement give the details.
