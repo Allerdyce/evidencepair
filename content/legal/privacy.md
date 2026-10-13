@@ -30,7 +30,11 @@ The rest of this policy describes **Scheme Control for Jira**. When we publish a
 
 All app data is stored in the app's own storage on Atlassian's infrastructure (the Forge Key-Value Store and Forge SQL), provisioned for your installation. The app declares no external egress and no remote services: it makes requests only to Atlassian APIs within your site. The app does not automatically send application records to EvidencePair's own systems, and EvidencePair cannot reach the app's storage from outside the app.
 
-**Data residency.** Everything the app keeps in Forge-hosted storage (the Key-Value Store and Forge SQL) follows your Jira site's data residency location and moves with the site: policies and settings, the change history, the audit trail and its account mapping, refusal counters, previews, change inputs, in-progress markers, outcomes, project locks, the daily check report and the audit pseudonym key. Out of scope: Forge platform logs; a queued switch's message while it waits in Forge's queue; files an administrator exports to their own device; and email sent to EvidencePair support. Residency covers stored data, not every place processing happens: Atlassian notes that Forge may sometimes run an invocation from a location other than the site's ([Atlassian: Forge data residency](https://developer.atlassian.com/platform/forge/data-residency/)).
+### Data residency: what is in scope
+
+Atlassian asks apps that support data residency to publish which data is in scope. **In scope:** everything the app keeps in Forge-hosted storage (the Key-Value Store and Forge SQL), which follows the Jira site's data residency location and moves with the site: policies and settings, the change history, the audit trail and its account mapping, refusal counters, previews, change inputs, in-progress markers, outcomes, project locks, the daily check report and the audit pseudonym key.
+
+**Out of scope:** Forge platform logs; a queued switch's message while it waits in Forge's queue; files an administrator exports to their own device; and email sent to EvidencePair support. Residency covers stored data, not every place processing happens: Atlassian notes that Forge may sometimes run an invocation from a location other than the site's ([Forge data residency](https://developer.atlassian.com/platform/forge/data-residency/)).
 
 ### What the app stores
 

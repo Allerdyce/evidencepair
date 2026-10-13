@@ -2,6 +2,14 @@
 
 Rulings and deviations for the EvidencePair vendor site (spec 30). Newest first. Anything a human must decide is in `HUMAN-TASKS.md`, not here.
 
+## 2026-10-13 · Last edits before publishing: the residency scope, the incident plan sentence (branch only)
+
+**Ruled: Ali, 2026-10-13,** app repository `docs/rulings/2026-10-13-launch-path-b-publish-site-residency-approved.md`: publish the site draft; the data-residency split is approved; small wording calls are delegated to the builder. The builder publishes; this branch is not pushed or merged by the site helper.
+
+- **Privacy:** the app's “Data residency: what is in scope”, both paragraphs verbatim (data inventory at `0c0de7e`), is its own section after “Where data lives”. The old “Data residency.” paragraph said the same, so it is removed rather than repeated. T-10's URL: `/privacy/#data-residency-what-is-in-scope`.
+- **Security:** one sentence on the adopted incident response plan, after the reporting address. The plan is not published (H-29 done).
+- **The two factual log sentences** above the production-log rule stay (the builder's call, delegated by Ali).
+
 ## 2026-10-13 · Docs re-copied at the app's `0c0de7e`: the production-log rule (branch only, unpublished)
 
 The app fixed its docs in `0c0de7e`. `faq.md` and `security-model.md` are re-copied with the usual adaptations. The script first reproduced both `279b723` copies byte for byte, and `sourceCommit` is now `0c0de7e`. Both pages now state the production-log rule instead of “the app's developers can read its platform logs”, and the FAQ names Zoho Mail. The FAQ also picks up the app's answer on issues still resolved after a switch, and its description gains that topic. `data-inventory.md` is not a published page here; its change is recorded in DI-20. Details: `provenance/claims.md`.

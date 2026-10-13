@@ -157,6 +157,8 @@ The copies replace the site's earlier four pages (quick start, admin guide, secu
 | Every EvidencePair Atlassian app is Forge only, no Connect modules. | S00 §3.1 |
 | A build check refuses a manifest that declares egress. | S01 CORE-AC-12; `scripts/check-manifests.mjs` |
 | Website statements (no cookies, no third-party requests, tested each build). | `tests/site.spec.mjs` |
+| “EvidencePair LLC adopted a written security incident response plan on 12 October 2026. It covers triage, containment, investigation, notification of Atlassian and affected customers, and recovery.” (2026-10-13) | **Ali**, app repository `docs/launch/owner-packet-2026-10-12/2026-10-13-v2-incident-response-plan-adopted.md` (adopted by Paul Allerdyce for EvidencePair LLC, 12 October 2026; its sections are Receive and triage, Contain and preserve evidence, Investigate and remediate, Notify Atlassian and customers, Recover and review). The plan itself is not published (H-29). |
+| Data residency: what is in scope (privacy page). | **Approved by Ali on 2026-10-13**, app repository `docs/rulings/2026-10-13-launch-path-b-publish-site-residency-approved.md`. Verbatim from the app's `docs/data-inventory.md` at `0c0de7e`; see `privacy-traceability.md`. |
 | No bug bounty programme. | Nothing in the repo establishes one. **Ali to confirm.** |
 
 ## DPA (`content/legal/dpa.md`): Ali's revised draft

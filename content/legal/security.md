@@ -1,6 +1,6 @@
 ---
 title: Security
-updated: 2026-10-12
+updated: 2026-10-13
 description: How EvidencePair apps are built, what they can and cannot reach, and how to report a vulnerability.
 ---
 
@@ -42,6 +42,8 @@ This site is static HTML served from our own origin. It sets no cookies, writes 
 ## Reporting a vulnerability
 
 Email <a href="mailto:{{ site.emails.security }}">{{ site.emails.security }}</a>. Tell us the app, what you found, and how to reproduce it. Please do not test against sites you do not own.
+
+EvidencePair LLC adopted a written security incident response plan on 12 October 2026. It covers triage, containment, investigation, notification of Atlassian and affected customers, and recovery.
 
 {% if site.supportResponseTarget %}We acknowledge every report within {{ site.supportResponseTarget }}.{% else %}{% pending "State the acknowledgement and response commitment for vulnerability reports.", "HUMAN-TASKS H-05" %}{% endif %}
 
