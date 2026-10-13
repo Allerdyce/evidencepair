@@ -1,6 +1,6 @@
 ---
 title: Privacy policy
-updated: 2026-10-07
+updated: 2026-10-12
 description: What EvidencePair's website, Paperloft apps and Atlassian apps store, where it lives, and what we never do with it.
 ---
 
@@ -16,7 +16,7 @@ This website collects nothing. It sets no cookies, stores nothing in your browse
 
 {% if site.host %}The site is served by {{ site.host }}, which processes requests in order to serve pages under its own [privacy statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement). We do not receive or use visitor analytics from it.{% else %}{% pending "Name the hosting provider and state what request data it processes on our behalf.", "HUMAN-TASKS H-03" %}{% endif %}
 
-If you email us, we keep the correspondence for as long as we need it to answer you and to keep a record of support and security reports. Email sent to our addresses is forwarded by Porkbun to a mailbox in Apple's iCloud Mail, where we read it. Our [data processing agreement](/dpa/#b2-support-and-email-processing) lists both providers in its Annex B.2.
+Support and security email is delivered directly to Zoho Mail. Paul Allerdyce alone accesses it from the United States. Resolved support messages and attachments are to leave the active mailbox within 30 days after resolution, subject to necessary earlier deletion or a documented lawful exception. Provider Trash, recovery, logs and traces have separate disclosed schedules. The separate cleanup procedure is not yet enabled, and provider-contract particulars remain pending.
 
 ## Paperloft apps
 
@@ -28,7 +28,7 @@ The rest of this policy describes **Scheme Control for Jira**. When we publish a
 
 ### Where data lives
 
-All app data is stored in the app's own storage on Atlassian's infrastructure (the Forge Key-Value Store and Forge SQL), provisioned for your installation. The app declares no external egress and no remote services: it makes requests only to Atlassian APIs within your site. No app data reaches EvidencePair's own systems, and EvidencePair cannot reach the app's storage from outside the app. What EvidencePair can see is the app's platform logs, described [below](#platform-logs).
+All app data is stored in the app's own storage on Atlassian's infrastructure (the Forge Key-Value Store and Forge SQL), provisioned for your installation. The app declares no external egress and no remote services: it makes requests only to Atlassian APIs within your site. The app does not automatically send application records to EvidencePair's own systems, and EvidencePair cannot reach the app's storage from outside the app. What EvidencePair can see is the app's platform logs, described [below](#platform-logs).
 
 **Data residency.** Everything the app keeps in Forge-hosted storage (the Key-Value Store and Forge SQL) follows your Jira site's data residency location and moves with the site: policies and settings, the change history, the audit trail and its account mapping, refusal counters, previews, change inputs, in-progress markers, outcomes, project locks, the daily check report and the audit pseudonym key. Out of scope: Forge platform logs; a queued switch's message while it waits in Forge's queue; files an administrator exports to their own device; and email sent to EvidencePair support. Residency covers stored data, not every place processing happens: Atlassian notes that Forge may sometimes run an invocation from a location other than the site's ([Atlassian: Forge data residency](https://developer.atlassian.com/platform/forge/data-residency/)).
 
@@ -44,7 +44,7 @@ All app data is stored in the app's own storage on Atlassian's infrastructure (t
 - **The daily check report.** The latest policy integrity findings: scheme and project identifiers and names.
 - **One key.** A random key the app generates once per installation to make the pseudonymous references. The app stores no other secret.
 
-The personal data involved is therefore Atlassian account IDs, and whatever a person chooses to type into a reason field. The app stores no display names, email addresses or other profile data, and has no permission to read them. When a permission or notification scheme grants access to a specific person, a preview of the change shows their name if Jira includes it in the scheme it returns, and otherwise their account ID. The app does not look the name up, and it never stores it.
+The app does not retrieve user profiles to collect names or email addresses, but account IDs, pseudonymous references and activity, user-entered reasons, configuration labels, diagnostic responses and support messages may contain personal data. Erasing an account mapping does not guarantee anonymity. When a permission or notification scheme grants access to a specific person, a preview of the change shows their name if Jira includes it in the scheme it returns, and otherwise their account ID. The app does not look the name up, and it never stores it.
 
 ### What the app reads from Jira
 
@@ -86,7 +86,7 @@ Any notification the app sends is delivered inside the Atlassian product. The ap
 
 ## What we never do
 
-We do not sell, share or transfer customer data to anyone. We do not use it for advertising or profiling. The app's data never leaves Atlassian, and the only part of it we can see is what the platform logs hold.
+We do not sell Customer Personal Data or use it for unrelated advertising or AI training. We process it on customer instructions and use the service providers identified in our completed sub-processor register for the stated purposes. US support/log access and any relevant onward transfers require the applicable safeguards.
 
 ## Changes to this policy
 

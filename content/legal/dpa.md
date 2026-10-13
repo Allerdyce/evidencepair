@@ -1,12 +1,12 @@
 ---
 title: Data processing agreement for Atlassian Marketplace apps
-updated: 2026-10-07
+updated: 2026-10-12
 description: EvidencePair LLC's revised draft data processing agreement for Scheme Control for Jira, pending legal and implementation review and not yet effective.
 ---
 
-**EvidencePair LLC | Revised draft | 6 October 2026**
+**Scheme Control for Jira | Draft for adoption | 12 October 2026**
 
-**Pending legal and implementation review - not yet effective.** This is a proposed agreement, not an operative customer DPA. The completion items and implementation checks must be resolved before this notice is removed and the DPA is incorporated into a customer agreement. HUMAN-TASKS H-21 remains open.
+**Draft for owner review and adoption - not yet effective.** Independent legal review has not been performed. Provider-contract review, live account-erasure validation, applicable transfer particulars and implementation checks remain open. They must be resolved before this notice is removed and the DPA is incorporated into a customer agreement.
 
 This data processing agreement ("DPA") is between EvidencePair LLC ("EvidencePair", "we" or "us") and the customer identified in the applicable app order or other agreement ("Customer" or "you"). It covers **Scheme Control for Jira**. It does not cover Paperloft apps or automatically extend to future EvidencePair products.
 
@@ -87,9 +87,9 @@ Keeping audit information for the installation's life supports the app's history
 
 The app uses Atlassian's personal-data reporting process to identify accounts requiring erasure. The described implementation includes a weekly reporting check. We will comply with Atlassian's applicable reporting cycle, including a different cycle returned by its API where required.
 
-The account-erasure process removes account IDs and mappings from supported structured application records, including history, refusal counters, policy-editor fields and relevant preview or in-progress records. That automated process is not a complete mechanism for every individual-rights request. It does not, by itself, remove personal information embedded in reasons or other free text, purge platform logs, or establish that retained references are anonymous.
+The account-erasure process removes account IDs and mappings from supported structured application records, including history, refusal counters, policy-editor fields and relevant preview or in-progress records. That automated process is not a complete mechanism for every individual-rights request. It does not, by itself, remove personal information embedded in reasons or other free text, purge platform logs, or establish that retained references are anonymous. Atlassian keeps a soft-deleted copy of data the app erases, and backups taken before the erasure, until the end of the retention period set out in Atlassian's SOC 2 report (data lifecycle).
 
-{% pending "<strong>Implementation review item - unresolved in the supplied inventory:</strong> a preview created around an erasure run may retain an account ID after that run. The maximum residual period, the effect of reversion-related retention, and whether queued work can reintroduce the ID must be verified and addressed before this DPA becomes effective. This paragraph must be replaced with the verified behavior, not simply deleted.", "HUMAN-TASKS H-23" %}
+The erasure procedure clears a plan's creator ID and an unsettled change intent's actor ID while preserving the records needed to complete or revert the change. A successful reversible plan can therefore remain without its original creator ID. A record written while the erasure scan runs, or a queued switch completed after erasure, can retain or reintroduce that account ID. The reporter also enumerates IDs in those records, history, refusal counters, policies and the audit mapping, so it can report and erase the ID at the next successful reporting cycle when Atlassian again identifies the account as closed. The default cycle is seven days when the API provides no usable cycle; the due check runs in the daily job. This is not an unconditional seven-day erasure guarantee: scheduling delays, API or storage failures and further concurrent writes can delay completion and require investigation and manual assistance. Queue payloads and short-lived markers expire through their own lifecycle; the reporting scan does not purge the payload already held in Forge's queue. Free text and platform logs require the separate handling described below.
 
 Account closure is not required to make a valid access, correction, deletion or restriction request. Contact us under Section 10 for requests the app's automated functions do not cover. We will assess all relevant storage locations, free-text content, pseudonymous records, logs, queued work and any support copies and take the measures required by your lawful instructions and Data Protection Law. Preserving a hash chain is not, by itself, a reason to refuse required erasure.
 
@@ -103,7 +103,7 @@ Exports may contain account IDs and other personal data. You control copies you 
 
 ### 5.4 Uninstall and remaining copies
 
-Once uninstall takes effect, Atlassian administers the hosted-storage deletion lifecycle. Uninstall is not a promise of immediate destruction of every copy. Atlassian's current recovery documentation describes 28 days of hosted-storage retention after uninstall and a recovery request submitted within 21 days, with customer consent. Reinstallation does not automatically restore the old data. See [Atlassian's recovery documentation](https://developer.atlassian.com/platform/forge/storage-reference/#data-recovery-for-apps-with-hosted-storage).
+Once uninstall takes effect, Atlassian administers the hosted-storage deletion lifecycle. Uninstall is not a promise of immediate destruction of every copy. Atlassian's storage reference describes a 28-day hosted-storage recovery window after uninstall and requires a recovery request within 21 days, with customer consent. Its separate lifecycle page refers to the retention schedule in Atlassian's SOC 2 report for remaining copies and backups. Reinstallation does not automatically restore the old data. See [Atlassian's recovery documentation](https://developer.atlassian.com/platform/forge/storage-reference/#data-recovery-for-apps-with-hosted-storage).
 
 Recovery copies, backups and platform logs may follow different documented platform schedules. The 28-day recovery period must not be read as a verified maximum retention period for every such copy. We will make the applicable retention information available and ensure that remaining Customer Personal Data is protected, access-restricted and deleted in accordance with the applicable schedule and Data Protection Law. A platform dependency does not remove our responsibility to give accurate retention information and meet our processor obligations.
 
@@ -115,7 +115,11 @@ If law requires retention, we will identify the requirement to you unless legall
 
 Atlassian's developer console makes app logs available for the preceding 30 days. Console availability is not a guarantee about destruction of every underlying log copy. Turning off log sharing controls developer access; it is not represented as deleting logs already held by the platform.
 
-Customer-data support material will be retained only while necessary to resolve the relevant request and complete associated security or remediation work, unless you instruct earlier deletion or law requires retention. We will delete or return it when that purpose ends and will not keep full exports merely as a general correspondence history. Any retained support copy must be covered by the approved support-handling arrangements in Annex B.
+Customer-data support material will be retained only while necessary to resolve the relevant request and complete associated support, security or remediation work. For resolved requests, we will delete messages and attachments from the active support mailbox no later than 30 days after resolution, and earlier where they are no longer necessary or a valid deletion instruction requires it. A longer period requires a documented continuing purpose and lawful basis; it is not the default. We will not keep full exports merely as a general correspondence history. This active-mailbox deadline does not represent the destruction date of every provider recovery copy, backup, log or message trace; those remaining copies follow the separately verified provider schedules and remain protected under this DPA. Any retained support copy must be covered by the approved support-handling arrangements in Annex B.
+
+{% pending "The deletion procedure must be documented and implemented before this commitment becomes effective. It must cover incoming and sent messages and attachments, reopened requests, any EvidencePair-held copies and a manual fallback when local automation is unavailable.", "HUMAN-TASKS H-26" %}
+
+Moving a message to Trash removes it from the active support workflow but does not immediately destroy the provider's recoverable copies.
 
 ## 6. Sub-processors
 
@@ -131,7 +135,7 @@ We will not treat a shorter supplier notice as automatic permission to bypass th
 
 ## 7. EvidencePair access and support
 
-EvidencePair's described app architecture does not use an external connection to the installation's storage. Authorized developers can access platform logs through Atlassian's developer console when the customer shares those logs. A site administrator can control log sharing through Atlassian Administration, subject to Atlassian's available controls.
+EvidencePair's described app architecture does not use an external connection to the installation's storage. Authorized developers can access platform logs through Atlassian's developer console when log sharing is enabled. Atlassian currently enables log sharing by default for ordinary Forge installations; customers can control developer access through the available platform controls. A site administrator can control log sharing through Atlassian Administration, subject to Atlassian's available controls.
 
 The current inventory identifies one type of log line that includes the account ID of a person who initiated a queued switch. Error messages and API responses may also contain identifying information. We do not claim that all platform logs are anonymous or free of personal data.
 
@@ -141,7 +145,7 @@ Do not email an unredacted export, credentials or unnecessary personal informati
 
 Personal data in a support export remains Customer Personal Data; labelling the message "correspondence" does not remove the DPA's protection. If unexpected Customer Personal Data is received, we will restrict access, tell you where material has been received, and coordinate its secure return or deletion and any required incident response.
 
-Ordinary business-contact information used to administer our relationship, such as the name and email address of your support or contractual contact, is addressed separately in our [privacy policy](/privacy/). This distinction is based on the actual processing purpose, not a blanket exclusion of support messages from this DPA.
+Customer contact details and support correspondence processed on your behalf to provide the app or its support are covered by this DPA. We do not use Customer Personal Data for a separate customer-management or marketing purpose. To the extent that a separate legal or administrative activity requires EvidencePair to determine an independent processing purpose, that actual activity must be identified and addressed in the privacy policy; this does not create a blanket exclusion for contact details or support messages.
 
 ## 8. Security measures
 
@@ -157,7 +161,7 @@ We will implement and maintain technical and organizational measures appropriate
 
 **Audit integrity and data minimization.** Use pseudonymous actor references, separate the account mapping from the hash chain, and provide hash-chain verification. Describe the audit trail as tamper-evident, not tamper-proof. Minimize identifying information in logs and exports and maintain a process for personal information in free-text fields.
 
-**Personnel and development controls.** Restrict production and developer-console access by role and need; use multi-factor authentication for privileged access; review and revoke access when no longer needed; protect work devices; and apply confidentiality obligations. Use controlled release practices, dependency and vulnerability review, and risk-appropriate remediation.
+**Personnel and development controls.** Paul Allerdyce is the sole authorized EvidencePair operator, based in the United States. Use multi-factor authentication for interactive privileged access and unique strong passwords held in a password manager. Protect the development Mac with FileVault, macOS built-in malware protections and software updates. Require pull requests and the owner's review before production-code changes; independent peer approval is not represented. Run the production-dependency audit before each release candidate and production deploy, review results and record remediation or an authorized exception. Protect any automation credential separately, restrict its use and revoke it when no longer needed. Apply confidentiality obligations to anyone authorized to process Customer Personal Data.
 
 **Operational assurance.** Maintain incident response, data-rights and deletion procedures; periodically assess and test the effectiveness of relevant controls; and maintain appropriate availability and recovery arrangements using the platform's capabilities. Test customer isolation, authorization and account-erasure behavior, including queued work and recovery scenarios.
 
@@ -239,13 +243,13 @@ You may designate or update a privacy and security notice contact through suppor
 
 **Business address:** 109 W Cota St, Santa Barbara, CA 93101, United States.
 
-{% pending "EvidencePair's official registration number, if any, is still to be inserted.", "HUMAN-TASKS H-22" %}
+**Registration number:** California Secretary of State entity number B20260405811.
 
 **EvidencePair personnel access locations:** United States.
 
 The parties' valid acceptance of the Agreement incorporating this DPA constitutes their signature and acceptance for these transfer terms. The signature date is the date that acceptance becomes effective. Required party details must be complete before a transfer relies on these terms.
 
-The data subjects, data categories, operations and purposes are described in Sections 2 and 3. Processing is ongoing during use of the app; log access and support disclosures occur as needed for their authorized purposes. The duration and retention criteria are in Section 5. Sensitive data is not intended; unexpected sensitive information is access-restricted and addressed under Sections 2, 7 and 10. The technical and organizational measures are in Section 8. Sub-processing services, locations and duration are identified in Annex B.
+The data subjects, data categories, operations and purposes are described in Sections 2 and 3. Processing is ongoing during use of the app; log access and support disclosures occur as needed for their authorized purposes. The duration and retention criteria are in Section 5. Sensitive data is not intended; unexpected sensitive information is access-restricted and addressed under Sections 2, 7 and 10. The technical and organizational measures are in Section 8. Sub-processing services, locations and duration are identified in Annex B. The EvidencePair contact responsible for these arrangements is Paul Allerdyce.
 
 For each restricted transfer, the parties will record the actual route and destination, the applicable law and mechanism, and any supplementary measures. For EU transfers, the competent supervisory authority is determined under Clause 13 of the EU clauses according to the exporter's establishment, representative or relevant data subjects; the applicable authority must be identified in that record, not selected solely for convenience.
 
@@ -283,48 +287,37 @@ For transfers governed exclusively by Swiss law, Clause 17 selects Swiss law and
 
 **Safeguards:** the applicable [Forge Data Processing Addendum](https://developer.atlassian.com/platform/forge/resources/Forge-Data-Processing-Addendum.pdf), platform security commitments and appropriate transfer arrangements. Atlassian's current downstream providers are described in its [sub-processor list](https://www.atlassian.com/legal/sub-processors), to the extent they participate in the Forge services used by the app. That list is not blanket authorization to use unrelated Atlassian services or providers for new purposes.
 
-### B.2 Support and email processing
+### B.2 Support and email processing — completion gate remains open
 
-Email sent to the support and security addresses in Section 15 is forwarded by Porkbun to a mailbox in Apple's iCloud Mail.
+Support and security email for <a href="mailto:{{ site.emails.support }}">{{ site.emails.support }}</a> and <a href="mailto:{{ site.emails.security }}">{{ site.emails.security }}</a> is delivered directly to Zoho Mail. security@ is an alias of the support mailbox. Public MX routing no longer uses Porkbun forwarding to iCloud. Porkbun remains the registrar/DNS provider; that role alone does not make it a processor of email-message content.
 
-#### Porkbun: email forwarding
+{% pending "The legacy forwarding configuration has not yet been inspected or retired.", "HUMAN-TASKS H-24" %}
 
-**Legal entity:** Porkbun LLC, 11575 SW Pacific Hwy PMB 40649, Tigard, OR 97223, USA, as identified in its [Privacy Policy](https://porkbun.com/legal/agreement/privacy_policy) and in the Email Service Agreement in its [Product Terms of Service](https://porkbun.com/legal/agreement/product_terms_of_service).
+EvidencePair reports no real customer support email received before this pre-launch migration.
 
-**Services:** email forwarding for the support and security addresses: Porkbun receives each message sent to them and forwards it to the mailbox below.
+**Provider:** Zoho Mail.
 
-**Data and duration:** support and security emails and their attachments, including any Customer Personal Data they contain, while Porkbun keeps the messages.
+{% pending "The exact contracting legal entity must be checked against the executed provider DPA before activation; it must not be inferred solely from a trade name, invoice or data-center location.", "HUMAN-TASKS H-24" %}
 
-{% pending "How long Porkbun keeps forwarded messages, or records of them, is not stated in its Privacy Policy or Email Service Agreement.", "HUMAN-TASKS H-24" %}
+**Services and data:** hosting and delivery of support and security messages and attachments, including Customer Personal Data supplied for troubleshooting. Paul Allerdyce is the sole authorized EvidencePair operator and accesses the mailbox from the United States. Zoho MFA is enabled, with OTP Authenticator and a passkey configured.
 
-**Locations:** Porkbun's Privacy Policy says it may transfer personal data to service providers, vendors, registries or partners outside the country where you are located, and that information may be stored on servers located in other jurisdictions.
+**Locations:** the account's United States data center has been verified. That storage location is not an exclusive processing or personnel-access location promise.
 
-{% pending "The countries in which Porkbun processes, or can access, forwarded messages are not stated in its published policies.", "HUMAN-TASKS H-24" %}
+{% pending "Applicable Zoho group companies, downstream service providers and other processing/access countries must be established for this actual Mail service and recorded before this register is treated as complete.", "HUMAN-TASKS H-24" %}
 
-**Safeguards:** Porkbun's Privacy Policy says it uses physical, technical and administrative procedures to protect personal data, and appropriate safeguards for international transfers, for example Standard Contractual Clauses. The Email Service Agreement refers to that policy.
+**Retention:** active support messages and attachments follow Section 5.5's 30-day deadline after resolution, subject to earlier necessary deletion or a separately documented lawful exception. Zoho's published Mail policies describe a configurable Trash cleanup stage (currently 30 days in this account, assessed against message age), followed by an additional 30-day server recovery-retention window; email logs and server message traces are retained for six months. Those published windows do not establish a universal physical-erasure maximum for all copies or backups.
 
-{% pending "Written data protection obligations for Porkbun's handling of forwarded messages, as Section 6 requires, have not been identified in its published terms.", "HUMAN-TASKS H-21" %}
+{% pending "The provider's applicable schedules and the operator's deletion procedure must be verified before activation.", "HUMAN-TASKS H-26" %}
 
-#### Apple: iCloud Mail
+{% pending "<strong>Contractual safeguards:</strong> a provider DPA request was submitted on 12 October 2026 with EvidencePair's authorization. The last verified status was Pending Signatures. The actual agreement has not yet been obtained, reviewed or executed. A privacy policy or a successful request submission is not represented as an executed processor contract or a completed transfer mechanism. Appropriate service-specific contractual safeguards and sub-processor/transfer information must be completed before Customer Personal Data is processed under this customer DPA.", "HUMAN-TASKS H-24" %}
 
-**Legal entity:** Apple Inc., One Apple Park Way, Cupertino, California 95014, United States, which the [iCloud Terms and Conditions](https://www.apple.com/legal/internet-services/icloud/) identify as the provider of iCloud for users in the United States.
+No unidentified provider is authorized by this draft.
 
-**Services:** iCloud Mail, the mailbox that receives the forwarded support and security email.
-
-**Data and duration:** support and security emails and their attachments, including any Customer Personal Data they contain, while the messages are kept in the mailbox.
-
-{% pending "How long Apple keeps a message after it is deleted from the mailbox is not stated in its iCloud Terms and Conditions or Privacy Policy.", "HUMAN-TASKS H-24" %}
-
-**Locations:** the iCloud Terms and Conditions say content is stored on Apple's or third-party providers' servers. Apple's [Privacy Policy](https://www.apple.com/legal/privacy/en-ww/) says personal data collected by Apple worldwide is generally stored by Apple Inc. in the United States, and that personal data may be transferred to or accessed by entities around the world, including Apple-affiliated companies.
-
-{% pending "The countries in which Apple and its providers store, or can access, iCloud Mail messages are not stated in Apple's published terms.", "HUMAN-TASKS H-24" %}
-
-**Safeguards:** Apple's [iCloud data security overview](https://support.apple.com/en-us/102651) says iCloud Mail is encrypted in transit and on the server, with the keys held by Apple, and is not end-to-end encrypted. Apple's Privacy Policy describes administrative, technical and physical safeguards, and says its privacy practices comply with the Global Cross-Border Privacy Rules (CBPR) System and the Global Privacy Recognition for Processors (PRP) System.
-
-{% pending "Written data protection obligations for Apple's handling of the mailbox, as Section 6 requires, have not been identified in its published terms.", "HUMAN-TASKS H-21" %}
-
-No unidentified provider is authorized by this draft. Before activation, EvidencePair must either complete this register for the actual support process or adopt and verify a support arrangement that does not route Customer Personal Data through an unlisted provider. Merely asking customers not to email exports does not eliminate the need to assess the providers that actually receive support messages or attachments.
+{% pending "The customer-facing register must contain the verified contracting entity, applicable processing countries, safeguards and retention schedules before activation.", "HUMAN-TASKS H-24" %}
 
 ---
 
-**End of revised draft.** The separate release checklist is implementation and legal-review guidance, not part of the proposed customer contract.
+- [Atlassian Forge Data Processing Addendum](https://developer.atlassian.com/platform/forge/resources/Forge-Data-Processing-Addendum.pdf)
+- [Forge hosted storage lifecycle](https://developer.atlassian.com/platform/forge/storage-reference/hosted-storage-data-lifecycle/)
+- [Forge storage recovery reference](https://developer.atlassian.com/platform/forge/storage-reference/#data-recovery-for-apps-with-hosted-storage)
+- Zoho Mail deletion and retention policy

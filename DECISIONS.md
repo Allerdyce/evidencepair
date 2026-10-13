@@ -2,6 +2,34 @@
 
 Rulings and deviations for the EvidencePair vendor site (spec 30). Newest first. Anything a human must decide is in `HUMAN-TASKS.md`, not here.
 
+## 2026-10-12 · Ali's owner packet: his revised DPA, the Zoho mail facts, the privacy and security wording (branch only, unpublished)
+
+**Source:** Ali's owner packet, landed verbatim in the app repository at `docs/launch/owner-packet-2026-10-12/` (app `DECISIONS.md`, 2026-10-12, and Ali's ruling there, `docs/rulings/2026-10-13-prs-ai-data-rule-packet-next.md`, item 3: “Prepare the website changes on a local branch … unpushed, for his review”). Prepared on branch `draft/owner-packet-2026-10-12`; nothing is pushed or published. The incident response plan in the packet is **not** published: Ali has not adopted it.
+
+**DPA (`/dpa/`).** The body is Ali's `2026-10-12-dpa-draft-for-adoption.md`, word for word; a script checked that every line of his text appears on the page and nothing else does. The site's own changes:
+- **Front matter kept** (title, description); last updated 2026-10-12. His document title, “EvidencePair Data Processing Agreement”, is not used as the page heading; the page keeps its title.
+- **His notice and date line** open the page, in bold, as the previous notice did.
+- **Links:** the same URLs as before where his text names the same documents; addresses come from `data/site.json`. His closing reference list keeps its four titles; “Zoho Mail deletion and retention policy” has no link, because the packet gives no URL.
+- **His footer** (“EvidencePair LLC |”) is dropped, as was the last draft's closing line.
+- **Pending statements, seven, each one of Ali's own sentences that says an item is still open.** Where such a sentence sat inside a paragraph, it is lifted out, in place, into its own pending statement:
+  - §5.5: the deletion procedure must be implemented first (H-26);
+  - B.2: the legacy forwarding is not yet retired; the contracting entity; the processing countries; the contractual safeguards paragraph; the register's completion (all H-24);
+  - B.2 Retention: the provider's schedules and the deletion procedure must be verified (H-26).
+- **Gone:** the H-22 pending statement (the entity number is filled), the H-23 one (§5.2 is now Ali's wording), and the six Porkbun and Apple ones (B.2 is now Zoho).
+- **Not pending statements:** live erasure validation, the transfer particulars and the legal review. Ali's notice names all three; no sentence in his body says they are open, so marking one would mean writing text that is not his.
+
+**Privacy page.** The packet's three passages, verbatim: the mail paragraph (Zoho, replacing the whole “If you email us” paragraph), the personal-data description (replacing its first two sentences; the preview sentences stay), and the data-disclosure sentence (replacing the body of “What we never do”; the heading stays). One more sentence follows DPA §4: “No app data reaches EvidencePair's own systems” → “The app does not automatically send application records to EvidencePair's own systems”, because it repeated the overbroad claim the packet replaces. Nothing else is changed. Last updated 2026-10-12.
+
+**Security page.** The packet's posture wording leads the Posture section, verbatim; it names Zoho for support email and says no independent penetration test, certification or external audit is represented. The page never claimed any of those. Removed as overbroad: “Customer data stays in the customer's Atlassian site” and the “We cannot see your data” label, with “The one thing the platform does show us is its logs”. “No third parties” is relabelled “No analytics or external assets”, its content unchanged. Last updated 2026-10-12.
+
+**Support page:** unchanged. It names no mail route.
+
+**Left for Ali, not changed** (listed in HUMAN-TASKS H-10 and H-24, 2026-10-12):
+- the site still lists `hello@` and `billing@`, which the packet does not cover;
+- privacy “Uninstall” opens with “removes everything it stored”, and “Account closure and erasure” says an ID is erased at the next report. DPA §5.2 and §5.4 are more guarded.
+
+**Provenance:** `claims.md` (security rows, the DPA's §5.2, §5.4, §5.5, §7, §8, A.1 and B.2 rows, the commitments and the differences) and `privacy-traceability.md` (four rows, and a 2026-10-12 section) cite the packet files.
+
 ## 2026-10-07 · Site sync, third pass: the app's docs at `279b723` (retention wording, residency scope)
 
 The app repository changed its docs again in `279b723` (docs only), from the Marketplace answers draft. The site follows:
