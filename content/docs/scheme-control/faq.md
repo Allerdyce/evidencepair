@@ -2,7 +2,7 @@
 title: FAQ
 app: scheme-control
 order: 6
-description: Policies and Jira administrators, lossy reverts, issues still resolved after a switch, Jira's own audit records, account IDs, licensing, stuck changes, export and uninstall.
+description: Policies and Jira administrators, lossy reverts, resolutions after a workflow switch, Jira's own audit records, account IDs, licensing, stuck changes, export and uninstall.
 source: apps/controlled-project-config/docs/faq.md
 sourceCommit: 0c0de7e
 ---

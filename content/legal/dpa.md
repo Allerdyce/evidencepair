@@ -117,7 +117,7 @@ Atlassian's developer console makes app logs available for the preceding 30 days
 
 Customer-data support material will be retained only while necessary to resolve the relevant request and complete associated support, security or remediation work. For resolved requests, we will delete messages and attachments from the active support mailbox no later than 30 days after resolution, and earlier where they are no longer necessary or a valid deletion instruction requires it. A longer period requires a documented continuing purpose and lawful basis; it is not the default. We will not keep full exports merely as a general correspondence history. This active-mailbox deadline does not represent the destruction date of every provider recovery copy, backup, log or message trace; those remaining copies follow the separately verified provider schedules and remain protected under this DPA. Any retained support copy must be covered by the approved support-handling arrangements in Annex B.
 
-{% pending "The deletion procedure must be documented and implemented before this commitment becomes effective. It must cover incoming and sent messages and attachments, reopened requests, any EvidencePair-held copies and a manual fallback when local automation is unavailable.", "HUMAN-TASKS H-26" %}
+The deletion procedure must be documented and implemented before this commitment becomes effective. It must cover incoming and sent messages and attachments, reopened requests, any EvidencePair-held copies and a manual fallback when local automation is unavailable.
 
 Moving a message to Trash removes it from the active support workflow but does not immediately destroy the provider's recoverable copies.
 
@@ -291,29 +291,29 @@ For transfers governed exclusively by Swiss law, Clause 17 selects Swiss law and
 
 Support and security email for <a href="mailto:{{ site.emails.support }}">{{ site.emails.support }}</a> and <a href="mailto:{{ site.emails.security }}">{{ site.emails.security }}</a> is delivered directly to Zoho Mail. security@, hello@ and billing@ are aliases of the same support mailbox. The additional hello@ and billing@ aliases were created on 12 October 2026 and provider-internal delivery retests passed. Public MX routing no longer uses Porkbun forwarding to iCloud. Porkbun remains the registrar/DNS provider; that role alone does not make it a processor of email-message content.
 
-{% pending "The legacy forwarding configuration has not yet been inspected or retired.", "HUMAN-TASKS H-24" %}
+The legacy forwarding configuration has not yet been inspected or retired.
 
 EvidencePair reports no real customer support email received before this pre-launch migration.
 
 **Provider:** Zoho Mail.
 
-{% pending "The exact contracting legal entity must be checked against the executed provider DPA before activation; it must not be inferred solely from a trade name, invoice or data-center location.", "HUMAN-TASKS H-24" %}
+The exact contracting legal entity must be checked against the executed provider DPA before activation; it must not be inferred solely from a trade name, invoice or data-center location.
 
 **Services and data:** hosting and delivery of support and security messages and attachments, including Customer Personal Data supplied for troubleshooting. Paul Allerdyce is the sole authorized EvidencePair operator and accesses the mailbox from the United States. Zoho MFA is enabled, with OTP Authenticator and a passkey configured.
 
 **Locations:** the account's United States data center has been verified. That storage location is not an exclusive processing or personnel-access location promise.
 
-{% pending "Applicable Zoho group companies, downstream service providers and other processing/access countries must be established for this actual Mail service and recorded before this register is treated as complete.", "HUMAN-TASKS H-24" %}
+Applicable Zoho group companies, downstream service providers and other processing/access countries must be established for this actual Mail service and recorded before this register is treated as complete.
 
 **Retention:** active support messages and attachments follow Section 5.5's 30-day deadline after resolution, subject to earlier necessary deletion or a separately documented lawful exception. Zoho's published Mail policies describe a configurable Trash cleanup stage (currently 30 days in this account, assessed against message age), followed by an additional 30-day server recovery-retention window; email logs and server message traces are retained for six months. Those published windows do not establish a universal physical-erasure maximum for all copies or backups.
 
-{% pending "The provider's applicable schedules and the operator's deletion procedure must be verified before activation.", "HUMAN-TASKS H-26" %}
+The provider's applicable schedules and the operator's deletion procedure must be verified before activation.
 
-{% pending "<strong>Contractual safeguards:</strong> a provider DPA request was submitted on 12 October 2026 with EvidencePair's authorization. The last verified status was Pending Signatures. The actual agreement has not yet been obtained, reviewed or executed. A privacy policy or a successful request submission is not represented as an executed processor contract or a completed transfer mechanism. Appropriate service-specific contractual safeguards and sub-processor/transfer information must be completed before Customer Personal Data is processed under this customer DPA.", "HUMAN-TASKS H-24" %}
+**Contractual safeguards:** a provider DPA request was submitted on 12 October 2026 with EvidencePair's authorization. The last verified status was Pending Signatures. The actual agreement has not yet been obtained, reviewed or executed. A privacy policy or a successful request submission is not represented as an executed processor contract or a completed transfer mechanism. Appropriate service-specific contractual safeguards and sub-processor/transfer information must be completed before Customer Personal Data is processed under this customer DPA.
 
 No unidentified provider is authorized by this draft.
 
-{% pending "The customer-facing register must contain the verified contracting entity, applicable processing countries, safeguards and retention schedules before activation.", "HUMAN-TASKS H-24" %}
+The customer-facing register must contain the verified contracting entity, applicable processing countries, safeguards and retention schedules before activation.
 
 ---
 

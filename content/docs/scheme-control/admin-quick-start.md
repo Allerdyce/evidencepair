@@ -4,7 +4,7 @@ app: scheme-control
 order: 2
 description: Set up your first policy in a few minutes.
 source: apps/controlled-project-config/docs/admin-quick-start.md
-sourceCommit: 358d3a2
+sourceCommit: f285dbf
 ---
 
 You are a Jira administrator. You want project admins to switch some of their own project's schemes without giving them *Administer Jira*. You do that with **policies**.
@@ -40,7 +40,7 @@ The project's page says so, and names the two ways forward. A Jira administrator
 
 ## 5. History and checks
 
-- **History** lists every change, refusal and revert on the site, and every change to policies and settings. A revert is marked as one. You can filter it by type, including refused attempts, and export the changes as CSV, up to 10,000 per file; past that, the page says so and you narrow the dates. People are identified by their Atlassian account ID. See the [FAQ](/docs/scheme-control/faq/) for why.
+- **History** lists every change, refusal and revert on the site, and every change to policies and settings. A revert is marked as one, and a refused attempt shows the reason the person typed for it. You can filter it by type, including refused attempts, and export the changes as CSV, up to 10,000 per file; past that, the page says so and you narrow the dates. People are identified by their Atlassian account ID. See the [FAQ](/docs/scheme-control/faq/) for why.
 - **Checks** shows the daily policy check. It flags any allowed scheme that was deleted or renamed, and any covered project that was archived or recreated as team-managed. From this tab you can also:
   - **Verify the audit trail.** This recomputes the chain of records and reports the first broken link, if there is one.
   - **Release a stuck project lock.** Only one change runs on a project at a time. If a change was interrupted and a project still says another change is in progress, release the lock here. Your reason is recorded.

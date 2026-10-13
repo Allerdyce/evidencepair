@@ -4,7 +4,7 @@ app: scheme-control
 order: 3
 description: Switch between the scheme options your Jira administrator has approved, and undo a change.
 source: apps/controlled-project-config/docs/project-admin-guide.md
-sourceCommit: 8a818f8
+sourceCommit: f285dbf
 ---
 
 Your Jira administrator has approved some scheme options for your project. You can switch between them yourself, without asking them each time.
@@ -19,13 +19,13 @@ If the page says **No policy covers this project**, nothing here can be switched
 
 ## Switching a scheme
 
-1. **Choose the scheme** you want, and select **Preview**.
+1. **Choose the scheme** you want, and select **Preview**. If you cancel the preview or go back, the choice is cleared.
 2. **Read the preview.** It says what changes in the terms you work with:
    - **Permissions:** who gains or loses each permission, by role, group or person. Grants that reach very broad audiences, such as anyone logged in, are highlighted. If Jira doesn't give the app a person's name, the preview says "a specific person" and shows their account ID.
    - **Notifications:** who starts or stops being told about each event.
    - **Screens and fields:** for each issue type whose screens change, the fields that appear and disappear on its create, edit and view screens. If the app can't read the fields, it says the preview is only a summary, and names the screen scheme each issue type uses now and the one it will use.
    - **Issue security (beta):** the security levels before and after. A level with no match in the new scheme is flagged, with how many issues hold it. Those issues lose that restriction.
-   - **Workflows (beta):** where issues in each status will go, with counts, and a warning when issues from different statuses will end up in one. See [How workflow mapping works](/docs/scheme-control/workflow-mapping/).
+   - **Workflows (beta):** where issues in each status will go, with counts, and a warning when issues from different statuses will end up in one. If resolved issues will move into a status that isn't done, it says they keep their resolution, with a search in Jira to find them. The app doesn't clear resolutions. See [How workflow mapping works](/docs/scheme-control/workflow-mapping/).
 3. **Give a reason** if your project's policy requires one.
 4. **Confirm** by typing your project key, and select **Apply change**.
 
@@ -36,7 +36,7 @@ The app checks the scheme again after the change. "Change applied" means Jira no
 ### If something stops you
 
 - **"This changed since you previewed it."** Someone changed the scheme after your preview. Preview again.
-- **"Another change to this project is in progress."** Only one change runs per project at a time. Try again in a few minutes.
+- **"Another change to this project is in progress."** Only one change runs per project at a time. The preview you were looking at closes, because the other change may make it out of date. Try again in a few minutes, starting with a new preview. The refused attempt is recorded with the reason you typed.
 - **A cooldown message.** Your policy asks for time between changes. The message says how long is left. A revert is never held back by the cooldown: putting back what you had is always allowed straight away.
 - **"Changes are paused."** A Jira administrator has paused all changes for now.
 
@@ -44,4 +44,4 @@ The app checks the scheme again after the change. "Change applied" means Jira no
 
 Every successful change has a **Revert** action in the history. A revert puts back the scheme your project had just before that change. It is allowed even if that scheme is no longer one of your options, because you are restoring, not choosing.
 
-A workflow revert asks where issues should go, like a workflow switch does. If the switch merged statuses, the revert can't put every issue back exactly where it was. It warns you before you confirm, says what will happen to those issues, and offers a search in Jira to find them. See [How workflow mapping works](/docs/scheme-control/workflow-mapping/) and the [FAQ](/docs/scheme-control/faq/).
+A workflow revert asks where issues should go, like a workflow switch does. If the switch merged statuses, the revert can't put every issue back exactly where it was. It warns you before you confirm, says what will happen to those issues, and offers a search in Jira to find them. If any of the issues it leaves behind are still resolved in a status that isn't done, the warning says how many, with a search for them. See [How workflow mapping works](/docs/scheme-control/workflow-mapping/) and the [FAQ](/docs/scheme-control/faq/).
