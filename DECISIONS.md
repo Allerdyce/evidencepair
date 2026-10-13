@@ -2,6 +2,15 @@
 
 Rulings and deviations for the EvidencePair vendor site (spec 30). Newest first. Anything a human must decide is in `HUMAN-TASKS.md`, not here.
 
+## 2026-10-13 · Ali's follow-up: four privacy sentences, the interim EU-transfer position, hello@ and billing@ (branch only, unpublished)
+
+**Source:** Ali's follow-up, landed verbatim in the app repository at `docs/launch/owner-packet-2026-10-12/2026-10-13-followup-eu-transfers-mail-privacy-wording.md`. Same branch, `draft/owner-packet-2026-10-12`; not pushed or published.
+
+- **Privacy, four replacements in his words:** uninstall; account-erasure timing; the register (“the register is not yet complete”); Zoho's schedules. The register sentence before it now says “use service providers for the stated purposes”, so the passage reads without “completed”. Two links are added on his words: “the draft DPA” (to B.2) and “Our DPA's sub-processor register” (to Annex B). His curly apostrophes are set as the page's straight ones.
+- **EU transfers:** his interim sentence is on the privacy page after the data-disclosure passage, as a pending statement citing H-27, with his condition in the reference. The DPA is not edited.
+- **hello@ and billing@:** rejected by Zoho (550 5.1.1). `data/site.json` now gives support@ for both keys, so every advertised address on the site is support@ (H-28).
+- **Provenance:** `privacy-traceability.md` and `claims.md` cite the follow-up file.
+
 ## 2026-10-12 · Ali's owner packet: his revised DPA, the Zoho mail facts, the privacy and security wording (branch only, unpublished)
 
 **Source:** Ali's owner packet, landed verbatim in the app repository at `docs/launch/owner-packet-2026-10-12/` (app `DECISIONS.md`, 2026-10-12, and Ali's ruling there, `docs/rulings/2026-10-13-prs-ai-data-rule-packet-next.md`, item 3: “Prepare the website changes on a local branch … unpushed, for his review”). Prepared on branch `draft/owner-packet-2026-10-12`; nothing is pushed or published. The incident response plan in the packet is **not** published: Ali has not adopted it.
